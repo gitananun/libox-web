@@ -1,11 +1,8 @@
+import Index from 'views/Index';
 import './assets/css/main.scss';
 
 function App() {
-  return (
-    <div className='App'>
-      <h1>Libox</h1>
-    </div>
-  );
+  return <Index />;
 }
 
 export default App;
