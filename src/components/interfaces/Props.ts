@@ -5,3 +5,8 @@ export interface ButtonPropsInterface {
   className?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
+
+export interface InputPropsInterface {
+  type?: React.HTMLInputTypeAttribute;
+  placeholder?: string;
+}
