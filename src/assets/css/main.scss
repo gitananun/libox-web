@@ -1,6 +1,7 @@
 @import "./bootrstrap.min.css";
 @import "./media.scss";
 @import "./images.scss";
+@import "./fonts.scss";
 
 $primaryColor: #3a85b4;
 $secondaryColor: #dee2e6;
@@ -9,12 +10,15 @@ $secondaryTextColor: #6a7a83;
 $darkTextColor: #333146;
 
 body {
-    font-family: "Poppins", sans-serif !important;
+    font-family: "Nunito", sans-serif !important;
     color: $darkTextColor !important;
     scroll-behavior: smooth;
 }
 p {
     margin: 0 !important;
+}
+a {
+    text-decoration: none !important;
 }
 .btn {
     text-transform: uppercase !important;
@@ -121,7 +125,7 @@ p {
         color: $primaryColor !important;
     }
 }
-#scroll-to-top {
+#scroll-top {
     z-index: 100;
     position: fixed;
     bottom: 20px;

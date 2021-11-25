@@ -1,8 +1,8 @@
 import Index from 'views/Index';
 import './assets/css/main.scss';
 
-function App() {
+const App = () => {
   return <Index />;
-}
+};
 
 export default App;

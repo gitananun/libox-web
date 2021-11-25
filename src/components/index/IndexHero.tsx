@@ -6,7 +6,7 @@ const IndexHero = () => {
     <div className='hero' id='index-hero'>
       <div className='blur-container'>
         <div className='container px-4 py-2'>
-          <div className='row flex-lg-row-reverse flex-sm-column-reverse justify-content-between align-items-center py-5'>
+          <div className='row flex-lg-row-reverse justify-content-between align-items-center py-5'>
             <div className='col-10 col-sm-8 col-lg-6'>
               <img src={heroSvg} className='d-block mx-lg-auto img-fluid' alt='cosmo' loading='lazy' id='hero-svg' />
             </div>
