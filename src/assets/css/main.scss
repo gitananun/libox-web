@@ -9,7 +9,7 @@ $secondaryColor: #dee2e6;
 $secondaryTextColor: #6a7a83;
 $darkTextColor: #333146;
 
-$vertical-space: 50px;
+$vertical-space: 80px;
 
 * {
     box-sizing: border-box !important;
@@ -277,5 +277,48 @@ input {
         font-weight: 200;
         line-height: 26px;
         font-size: 18px;
+    }
+}
+.index-about {
+    position: relative;
+
+    #about-svg {
+        width: 300px;
+        user-select: none;
+    }
+
+    .bg-block {
+        left: -200px;
+        height: 300px;
+        transform: rotate(-5deg);
+        background: rgb($color: $primaryColor, $alpha: 0.4);
+        position: absolute;
+        top: 130px;
+        width: 200%;
+        z-index: -1;
+
+        @media screen and (max-width: $large-width) {
+            top: 220px;
+        }
+    }
+
+    .about-wrapper {
+        width: 100%;
+        background: white;
+        padding: 50px 100px;
+        box-shadow: 0 10px 25px 0px rgb(0 0 0 / 8%);
+    }
+
+    .about-content {
+        h1 {
+            font-weight: 400;
+        }
+        p {
+            font-size: 20px;
+
+            @media screen and (max-width: $large-width) {
+                font-size: 18px;
+            }
+        }
     }
 }
