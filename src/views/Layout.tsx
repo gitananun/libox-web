@@ -1,3 +1,4 @@
+import Footer from 'components/layouts/Footer';
 import HeaderWrapper from 'components/layouts/HeaderWrapper';
 import ScrollTopBtn from 'components/layouts/ScrollTopBtn';
 import Header from '../components/layouts/Header';
@@ -12,6 +13,7 @@ const Layout = (props: any) => {
         <Navbar />
       </HeaderWrapper>
       {props.children}
+      <Footer />
     </>
   );
 };

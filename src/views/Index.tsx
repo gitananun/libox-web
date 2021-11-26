@@ -11,6 +11,7 @@ const Index = () => {
       <IndexSearch />
       <IndexCategories />
       <IndexAbout />
+      <br />
     </Layout>
   );
 };
