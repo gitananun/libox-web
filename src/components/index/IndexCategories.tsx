@@ -1,3 +1,5 @@
+import SectionTitle from 'components/common/SectionTitle';
+
 const IndexCategories = () => {
   const images = [
     'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80',
@@ -11,6 +13,7 @@ const IndexCategories = () => {
   return (
     <div className='index-categories section'>
       <div className='container-fluid'>
+        <SectionTitle title='Favorite Categories' lead='Find the best category for your future profession' />
         <div className='row d-flex justify-content-center text-center align-items-center'>
           {['Design', 'Development', 'Music', 'Movie', 'Car', 'Score'].map((cat, i) => (
             <div className='category-single col-10 col-md-4 col-lg-3'>
