@@ -1,5 +1,5 @@
 import Index from 'views/Index';
-import './assets/css/main.scss';
+import 'assets/css/main.scss';
 
 const App = () => {
   return <Index />;
