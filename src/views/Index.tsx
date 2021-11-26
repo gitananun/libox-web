@@ -1,3 +1,4 @@
+import IndexCategories from 'components/index/IndexCategories';
 import IndexHero from 'components/index/IndexHero';
 import IndexSearch from 'components/index/IndexSearch';
 import Layout from './Layout';
@@ -7,6 +8,7 @@ const Index = () => {
     <Layout>
       <IndexHero />
       <IndexSearch />
+      <IndexCategories />
     </Layout>
   );
 };

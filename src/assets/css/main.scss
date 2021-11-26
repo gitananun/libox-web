@@ -55,6 +55,12 @@ input {
     backdrop-filter: blur(5px);
     width: 100%;
     height: 100%;
+
+    &-light {
+        backdrop-filter: blur(2px);
+        width: 100%;
+        height: 100%;
+    }
 }
 .navbar {
     .nav-link {
@@ -159,11 +165,11 @@ input {
     border-radius: 50px;
     margin-top: $vertical-space;
     box-shadow: 0px 0px 81px 0px rgb(50 50 50 / 5%);
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
 
     @media screen and (min-width: $large-width) {
+        position: absolute;
+        top: 0;
+        left: 50%;
         transform: translate(-50%, -100%);
     }
 
@@ -208,5 +214,54 @@ input {
         left: 20px;
         z-index: 2;
         transform: translate(0, -50%);
+    }
+}
+.section {
+    padding-top: $vertical-space;
+}
+.index-categories {
+    @media screen and (min-width: $large-width) {
+        padding-top: $vertical-space + 50;
+    }
+}
+.category-single {
+    position: relative;
+    overflow: hidden;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 10px;
+
+    img {
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        object-fit: cover;
+        position: absolute;
+        transition: 0.3s ease-in;
+        height: 100%;
+    }
+
+    &:hover {
+        img {
+            transform: scale(1.2);
+        }
+    }
+
+    .category-name {
+        padding: 80px 0px;
+        color: white;
+        background-color: rgba($color: black, $alpha: 0.1);
+
+        h3 {
+            font-size: 30px;
+            font-weight: 800 !important;
+        }
+        h5 {
+            font-size: 20px;
+        }
     }
 }
