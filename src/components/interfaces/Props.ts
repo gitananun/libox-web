@@ -9,4 +9,5 @@ export interface ButtonPropsInterface {
 export interface InputPropsInterface {
   type?: React.HTMLInputTypeAttribute;
   placeholder?: string;
+  search?: boolean;
 }

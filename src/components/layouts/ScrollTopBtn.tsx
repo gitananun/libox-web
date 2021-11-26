@@ -11,9 +11,9 @@ const ScrollTopBtn = () => {
     <button
       id='scroll-top'
       onClick={() => window.scrollTo(0, 0)}
-      className={`btn btn-primary-rounded btn-floating text-light px-4 ${!visible ? 'd-none' : ''}`}
+      className={`btn btn-floating ${!visible ? 'd-none' : ''}`}
     >
-      <i className='fa fa-angle-up'></i>
+      <i className='fa fa-rocket text-primary'></i>
     </button>
   );
 };

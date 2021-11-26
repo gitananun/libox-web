@@ -11,7 +11,7 @@ const IndexSearch = () => {
           <FormSelect options={['Design', 'Development', 'Music']} />
         </div>
         <div className='col-lg-7 col-12 text-center justify-content-end'>
-          <FormInput placeholder='What do you want to learn today?' type='text' />
+          <FormInput placeholder='What do you want to learn today?' type='text' search={true} />
         </div>
         <div className='col-lg-2 col-12 text-lg-end col-start'>
           <RoundedPrimaryButton title='Search' className='w-100' />
