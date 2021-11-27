@@ -1,6 +1,7 @@
 import SectionTitle from 'components/common/SectionTitle';
 import IndexCourseItem from 'components/index/IndexCourseItem';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 import 'swiper/swiper.min.css';
 
 const IndexCourses = () => {
@@ -11,7 +12,7 @@ const IndexCourses = () => {
           title='Featured Courses'
           lead='Find the best courses for your future profession from the world largest library'
         />
-        <Swiper grabCursor={true} freeMode={true} slidesPerView={4} spaceBetween={30}>
+        <Swiper grabCursor={true} freeMode={true} slidesPerView={'auto'} spaceBetween={30}>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v) => (
             <SwiperSlide>
               <IndexCourseItem />
