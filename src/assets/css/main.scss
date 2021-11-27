@@ -56,7 +56,6 @@ input {
     backdrop-filter: blur(5px);
     width: 100%;
     height: 100%;
-
     &-light {
         backdrop-filter: blur(2px);
         width: 100%;
@@ -69,23 +68,19 @@ input {
         font-size: 15px !important;
         font-weight: 600 !important;
         color: $darkTextColor !important;
-
         &-active {
             color: $primaryColor !important;
         }
         &:hover {
             color: $primaryColor !important;
         }
-
         @media screen and (max-width: $large-width) {
             border-top: 1px solid $secondaryColor;
         }
     }
-
     .logo {
         width: 120px;
     }
-
     &-toggler {
         border: 0 !important;
         color: $secondaryTextColor;
@@ -101,7 +96,6 @@ input {
         border-bottom: 0 !important;
         border-top: 1px solid $secondaryColor;
     }
-
     @media screen and (max-width: $medium-width) {
         .btn-outline {
             border: 1px solid $secondaryColor !important;
@@ -118,21 +112,17 @@ input {
     background-attachment: fixed;
     background-size: cover;
     color: rgba(0, 0, 0, 0.7);
-
     #hero-svg {
         width: 300px;
         user-select: none;
     }
-
     h1 {
         font-size: 65px;
-
         @media screen and (max-width: $large-width) {
             font-size: 40px;
             margin-top: 30px;
         }
     }
-
     .content > button {
         margin-top: 20px;
     }
@@ -143,7 +133,6 @@ input {
 .btn-primary-rounded {
     border-radius: 50px !important;
     border: 1px solid $primaryColor !important;
-
     &:hover {
         background-color: rgba(255, 255, 255, 0.6) !important;
         color: $primaryColor !important;
@@ -154,7 +143,6 @@ input {
     position: fixed;
     bottom: 20px;
     right: 20px;
-
     i {
         background: none !important;
         transform: rotate(-45deg);
@@ -166,14 +154,12 @@ input {
     border-radius: 50px;
     margin-top: 50px;
     box-shadow: 0px 0px 81px 0px rgb(50 50 50 / 5%);
-
     @media screen and (min-width: $large-width) {
         position: absolute;
         top: 0;
         left: 50%;
         transform: translate(-50%, -100%);
     }
-
     .row > * {
         @media screen and (max-width: $large-width) {
             margin-top: 10px;
@@ -183,7 +169,6 @@ input {
 .form-select {
     border-radius: 50px !important;
     border: 1px solid $secondaryColor;
-
     &:focus {
         border: 1px solid $primaryColor;
     }
@@ -200,7 +185,6 @@ input {
     display: flex;
     align-items: center;
     position: relative;
-
     input {
         border: none;
         border-radius: 50px;
@@ -208,7 +192,6 @@ input {
         padding-left: 50px !important;
         border: 1px solid $secondaryColor;
     }
-
     span {
         position: absolute;
         top: 50%;
@@ -234,7 +217,6 @@ input {
     justify-content: center;
     padding: 0;
     margin: 10px;
-
     img {
         z-index: -1;
         top: 0;
@@ -245,13 +227,11 @@ input {
         transition: 0.3s ease-in;
         height: 100%;
     }
-
     &:hover {
         img {
             transform: scale(1.2);
         }
     }
-
     .category-name {
         padding: 80px 0px;
         color: white;
@@ -283,12 +263,10 @@ input {
 .index-about {
     position: relative;
     padding-bottom: 40px;
-
     #about-svg {
         width: 300px;
         user-select: none;
     }
-
     .bg-block {
         left: -200px;
         height: 300px;
@@ -303,14 +281,12 @@ input {
             top: 220px;
         }
     }
-
     .about-wrapper {
         width: 100%;
         background: white;
         padding: 50px 100px;
         box-shadow: 0 10px 25px 0px rgb(0 0 0 / 8%);
     }
-
     .about-content {
         h1 {
             font-weight: 400;
@@ -327,11 +303,9 @@ input {
 footer {
     background: rgb($color: $secondaryColor, $alpha: 0.2);
     overflow: hidden;
-
     .logo {
         width: 120px;
     }
-
     .brand-content {
         * {
             font-size: 14px;
@@ -341,15 +315,52 @@ footer {
         @media screen and (max-width: $large-width) {
             display: none !important;
         }
-
         .footer-nav-link {
             color: $darkTextColor;
             font-weight: 600;
             font-size: 18px;
         }
     }
-
     .social-icon {
         font-size: 24px;
+    }
+}
+.index-courses {
+    padding-top: $vertical-space / 2;
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-wrapper {
+        display: flex !important;
+    }
+    .swiper-slide {
+        display: flex;
+        width: auto !important;
+        justify-content: center;
+        align-items: center;
+        display: block;
+    }
+    .index-course-item {
+        width: 350px;
+        * {
+            border-radius: 0px !important;
+        }
+        .card-title {
+            font-weight: 700;
+            font-size: 20px;
+            max-lines: 2;
+        }
+        .card-text {
+            font-size: 15px;
+            a {
+                color: $primaryColor !important;
+            }
+        }
+        .card-body {
+            p {
+                font-size: 16px;
+            }
+        }
     }
 }
