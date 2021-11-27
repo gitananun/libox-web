@@ -4,7 +4,7 @@ import FooterSocialItem from './FooterSocialItem';
 
 const Footer = () => {
   return (
-    <footer className='footer mt-auto py-4'>
+    <footer className='footer mt-5 py-4'>
       <div className='container'>
         <div className='row align-items-center'>
           <div className='col-6 col-lg-3'>

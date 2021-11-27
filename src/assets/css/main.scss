@@ -25,6 +25,12 @@ p {
 a {
     text-decoration: none !important;
 }
+img {
+    user-select: none;
+}
+hr {
+    background-color: $secondaryColor !important;
+}
 select,
 input {
     padding: 15px 20px !important;
@@ -265,7 +271,6 @@ input {
     padding-bottom: 40px;
     #about-svg {
         width: 300px;
-        user-select: none;
     }
     .bg-block {
         left: -200px;
@@ -286,6 +291,10 @@ input {
         background: white;
         padding: 50px 100px;
         box-shadow: 0 10px 25px 0px rgb(0 0 0 / 8%);
+
+        @media screen and (max-width: $medium-width) {
+            padding: 50px 35px;
+        }
     }
     .about-content {
         h1 {
@@ -365,4 +374,33 @@ footer {
             }
         }
     }
+}
+.index-motivation {
+    #motivation-svg {
+        width: 200px;
+    }
+    .motivation-content {
+        h1 {
+            font-weight: 400;
+        }
+        p {
+            font-size: 18px;
+        }
+        @media screen and (max-width: $large-width) {
+            padding-bottom: 20px;
+        }
+    }
+}
+.display-3 {
+    @media screen and (max-width: $large-width) {
+        font-size: 35px !important;
+    }
+}
+.blockquote {
+    margin: 0px !important;
+}
+.blockquote-footer {
+    background-color: transparent !important;
+    border-left: 5px solid $primaryColor;
+    padding-left: 10px;
 }

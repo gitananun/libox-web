@@ -14,7 +14,7 @@ const IndexCourses = () => {
         />
         <Swiper grabCursor={true} freeMode={true} slidesPerView={'auto'} spaceBetween={30}>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v) => (
-            <SwiperSlide>
+            <SwiperSlide key={v}>
               <IndexCourseItem />
             </SwiperSlide>
           ))}
