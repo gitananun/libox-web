@@ -10,4 +10,5 @@ export interface InputPropsInterface {
   type?: React.HTMLInputTypeAttribute;
   placeholder?: string;
   search?: boolean;
+  className?: string;
 }

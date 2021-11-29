@@ -3,6 +3,7 @@ import IndexCategories from 'components/index/IndexCategories';
 import IndexCourses from 'components/index/IndexCourses';
 import IndexHero from 'components/index/IndexHero';
 import IndexMotivation from 'components/index/IndexMotivation';
+import IndexNewsletter from 'components/index/IndexNewsletter';
 import IndexSearch from 'components/index/IndexSearch';
 import Layout from './Layout';
 
@@ -15,6 +16,7 @@ const Index = () => {
       <IndexAbout />
       <IndexCourses />
       <IndexMotivation />
+      <IndexNewsletter />
     </Layout>
   );
 };

@@ -404,3 +404,16 @@ footer {
     border-left: 5px solid $primaryColor;
     padding-left: 10px;
 }
+.index-newsletter {
+    .container {
+        border-top: 1px solid $primaryColor;
+        border-bottom: 0px;
+        padding: 60px 0px;
+    }
+    * {
+        border-radius: 0 !important;
+    }
+    .subscribe-form {
+        text-align: start !important;
+    }
+}
