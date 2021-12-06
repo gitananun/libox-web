@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import IconRow from '../common/IconRow';
 import OutlinedButton from '../common/OutlinedButton';
 import PrimaryButton from '../common/PrimaryButton';
@@ -21,7 +22,9 @@ const Header = () => {
               </IconRow>
             </div>
             <div className='col-sm-6 col-lg-8 d-flex justify-content-center justify-content-md-end align-items-center'>
-              <OutlinedButton title='sign up' className='border-top-0 border-bottom-0' />
+              <Link to='/signup'>
+                <OutlinedButton title='sign up' className='border-top-0 border-bottom-0' />
+              </Link>
               <PrimaryButton title='log in' />
             </div>
           </div>

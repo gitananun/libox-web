@@ -1,4 +1,4 @@
-import Layout from './Layout';
+import Layout from './layouts/Layout';
 import { mouseParallax } from 'assets/js/main';
 import earthSvg from 'assets/images/earth.svg';
 import marsSvg from 'assets/images/mars.svg';

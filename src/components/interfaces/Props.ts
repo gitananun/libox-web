@@ -7,8 +7,9 @@ export interface ButtonPropsInterface {
 }
 
 export interface InputPropsInterface {
-  type?: React.HTMLInputTypeAttribute;
-  placeholder?: string;
+  label?: string;
   search?: boolean;
   className?: string;
+  placeholder?: string;
+  type?: React.HTMLInputTypeAttribute;
 }

@@ -5,7 +5,7 @@ import IndexHero from 'components/index/IndexHero';
 import IndexMotivation from 'components/index/IndexMotivation';
 import IndexNewsletter from 'components/index/IndexNewsletter';
 import IndexSearch from 'components/index/IndexSearch';
-import Layout from './Layout';
+import Layout from './layouts/Layout';
 
 const Index = () => {
   return (
