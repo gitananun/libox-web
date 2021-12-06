@@ -1,11 +1,11 @@
 import { MouseEventHandler } from 'react';
 
 export interface ButtonPropsInterface {
-  title: string;
+  title?: string;
+  children?: any;
   className?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
-
 export interface InputPropsInterface {
   label?: string;
   search?: boolean;

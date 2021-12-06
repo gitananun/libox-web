@@ -2,12 +2,7 @@
 @import "./media.scss";
 @import "./images.scss";
 @import "./fonts.scss";
-
-$primaryColor: #3a85b4;
-$secondaryColor: #dee2e6;
-
-$secondaryTextColor: #6a7a83;
-$darkTextColor: #333146;
+@import "./colors.scss";
 
 $vertical-space: 80px;
 
@@ -438,14 +433,26 @@ footer {
         background-image: $signup-banner-bg;
         background-size: cover;
     }
-
     input {
         border-radius: 5px !important;
         margin-bottom: 30px;
     }
-
     button {
         width: 100%;
         border-radius: 5px !important;
+    }
+}
+.btn-google {
+    background-color: $google !important;
+    border-color: $google !important;
+    &:hover {
+        color: $google !important;
+    }
+}
+.btn-github {
+    background-color: $github !important;
+    border-color: $github !important;
+    &:hover {
+        color: $github !important;
     }
 }
