@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import NotFound from 'views/NotFound';
 import Signup from 'views/Signup';
 import Signin from 'views/Signin';
+import ForgotPassword from 'views/ForgotPassword';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
 
       <Route path='/signup' element={<Signup />} />
       <Route path='/signin' element={<Signin />} />
+      <Route path='/forgot-password' element={<ForgotPassword />} />
 
       <Route path='*' element={<NotFound />} />
     </Routes>

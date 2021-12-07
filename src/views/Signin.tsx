@@ -20,7 +20,7 @@ const Signin = () => {
         <SocialButton iconClassName='fab fa-github' className='btn-github' title='Sign In with Github' />
         <AuthFormSuggestion text="Don't have account yet?" to='/signup' linkText='Sign Up' />
       </Section>
-      <Section className='col d-flex justify-content-center align-items-end banner signin-banner'>
+      <Section className='col d-flex justify-content-center align-items-end banner banner-signin'>
         <AuthBannerContent />
       </Section>
     </AuthLayout>

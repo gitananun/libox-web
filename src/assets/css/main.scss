@@ -437,6 +437,7 @@ footer {
     .banner {
         background-image: $signup-banner-bg;
         background-size: cover;
+        background-position: center;
 
         .blur-container {
             padding: 20px !important;
@@ -455,8 +456,11 @@ footer {
         }
     }
 
-    .banner.signin-banner {
+    .banner.banner-signin {
         background-image: $signin-banner-bg;
+    }
+    .banner.banner-forgot-password {
+        background-image: $forgot-password-banner-bg;
     }
 
     input {

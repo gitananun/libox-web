@@ -6,7 +6,7 @@ const SigninFormInputs = () => {
     <>
       <FormInput placeholder='libox@best.com' type='email' label='Email' />
       <FormInput placeholder='password' type='password' label='Password' />
-      <Link to='/' className='w-100 text-end mb-3'>
+      <Link to='/forgot-password' className='w-100 text-end mb-3'>
         Forgot Password?
       </Link>
     </>
