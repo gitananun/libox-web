@@ -3,6 +3,7 @@ import 'assets/css/main.scss';
 import { Routes, Route } from 'react-router-dom';
 import NotFound from 'views/NotFound';
 import Signup from 'views/Signup';
+import Signin from 'views/Signin';
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Route path='/' element={<Index />} />
 
       <Route path='/signup' element={<Signup />} />
+      <Route path='/signin' element={<Signin />} />
 
       <Route path='*' element={<NotFound />} />
     </Routes>

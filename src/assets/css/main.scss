@@ -18,6 +18,7 @@ p {
     margin: 0 !important;
 }
 a {
+    color: $primaryColor;
     text-decoration: none !important;
 }
 img {
@@ -453,6 +454,11 @@ footer {
             font-weight: 600 !important;
         }
     }
+
+    .banner.signin-banner {
+        background-image: $signin-banner-bg;
+    }
+
     input {
         border-radius: 5px !important;
         margin-bottom: 15px;

@@ -25,7 +25,9 @@ const Header = () => {
               <Link to='/signup'>
                 <OutlinedButton title='sign up' className='border-top-0 border-bottom-0' />
               </Link>
-              <PrimaryButton title='log in' />
+              <Link to='/signin'>
+                <PrimaryButton title='log in' />
+              </Link>
             </div>
           </div>
         </header>
