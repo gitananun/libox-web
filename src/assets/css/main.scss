@@ -462,15 +462,27 @@ footer {
     .banner.banner-forgot-password {
         background-image: $forgot-password-banner-bg;
     }
-
     input {
         border-radius: 5px !important;
+    }
+    .input-group {
         margin-bottom: 15px;
+        align-items: center;
     }
     button {
         width: 100%;
         border-radius: 5px !important;
     }
+}
+.input-suffix {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: $darkTextColor;
+    font-size: 18px;
 }
 .btn-google {
     background-color: $google !important;
