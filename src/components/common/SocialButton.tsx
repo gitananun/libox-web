@@ -7,7 +7,11 @@ interface SocialButtonPropsInterface extends ButtonPropsInterface {
 
 const SocialButton = (props: SocialButtonPropsInterface) => {
   return (
-    <PrimaryButton title={props.title} className={`btn-primary-rounded ${props.className}`} onClick={props.onClick}>
+    <PrimaryButton
+      title={props.title}
+      onClick={props.onClick}
+      className={`btn-primary-rounded btn-social ${props.className}`}
+    >
       <div className='text-center'>
         <i className={`${props.iconClassName} mx-4`}></i>
         {props.title}

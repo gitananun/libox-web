@@ -404,7 +404,11 @@ footer {
     .container {
         border-top: 1px solid $primaryColor;
         border-bottom: 0px;
-        padding: 60px 0px;
+        padding: 60px 250px;
+
+        @media screen and (max-width: $large-width) {
+            padding: 60px 20px;
+        }
     }
     * {
         border-radius: 0 !important;
@@ -426,11 +430,15 @@ footer {
         width: 100%;
         height: 100vh;
 
+        @media screen and (max-width: $large-width) {
+            height: 100%;
+        }
+
         &:first-child {
             padding: 0px 150px;
 
             @media screen and (max-width: $large-width) {
-                padding: 0px 60px;
+                padding: 20px 60px;
             }
         }
     }
@@ -455,7 +463,6 @@ footer {
             font-weight: 600 !important;
         }
     }
-
     .banner.banner-signin {
         background-image: $signin-banner-bg;
     }
@@ -473,6 +480,9 @@ footer {
         width: 100%;
         border-radius: 5px !important;
     }
+    .btn-back {
+        width: 60px !important;
+    }
 }
 .input-suffix {
     cursor: pointer;
@@ -483,6 +493,9 @@ footer {
     z-index: 10;
     color: $darkTextColor;
     font-size: 18px;
+}
+.btn-social {
+    font-size: 14px !important;
 }
 .btn-google {
     background-color: $google !important;
@@ -497,7 +510,4 @@ footer {
     &:hover {
         color: $github !important;
     }
-}
-.btn-back {
-    width: 60px !important;
 }
