@@ -527,9 +527,6 @@ footer {
         margin-bottom: 15px;
         width: 100%;
     }
-    .course-sidebar {
-        padding-left: 40px;
-    }
     .features {
         background: linear-gradient(65deg, $primaryColor 0%, #1a5e89 100%);
         background-size: cover;
@@ -577,7 +574,7 @@ footer {
         }
     }
     .course-details-nav-wrapper {
-        padding-bottom: 15px;
+        padding-bottom: 30px;
         .nav {
             border: 1px solid $secondaryColor;
             .nav-item {
@@ -602,6 +599,27 @@ footer {
             }
         }
     }
+    .tab-content {
+        .tab-pane {
+            .title {
+                font-size: 30px;
+                font-weight: 700;
+            }
+            .tab-section {
+                margin-top: 30px;
+                &:first-child {
+                    margin-top: 0px;
+                }
+            }
+        }
+    }
+    .share-section {
+        .title {
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+    }
 }
 .avatar {
     vertical-align: middle;
@@ -618,4 +636,22 @@ footer {
 }
 .radius-0 {
     border-radius: 0 !important;
+}
+.icon-circle {
+    border-radius: 60px;
+    border: 1px solid $secondaryColor;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.1s ease-in;
+    &:hover {
+        background: $primaryColor;
+        * {
+            color: white;
+        }
+    }
 }

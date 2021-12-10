@@ -8,11 +8,6 @@ const CourseNavTabs = () => {
           </a>
         </li>
         <li className='nav-item'>
-          <a className='nav-link' href='#curricularm' role='tab' data-toggle='tab'>
-            Curricularm
-          </a>
-        </li>
-        <li className='nav-item'>
           <a className='nav-link' href='#instructor' role='tab' data-toggle='tab'>
             Instructor
           </a>

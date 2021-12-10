@@ -1,10 +1,10 @@
 import CourseBanner from './CourseBanner';
-import CourseCurricTab from './CourseCurricTab';
 import CourseHeader from './CourseHeader';
 import CourseInfoTab from './CourseInfoTab';
 import CourseInstructorTab from './CourseInstructorTab';
 import CourseNavTabs from './CourseNavTabs';
 import CourseReviewsTab from './CourseReviewsTab';
+import CourseShare from './CourseShare';
 
 const CourseContent = () => {
   return (
@@ -15,10 +15,11 @@ const CourseContent = () => {
 
       <div className='tab-content'>
         <CourseInfoTab />
-        <CourseCurricTab />
         <CourseInstructorTab />
         <CourseReviewsTab />
       </div>
+
+      <CourseShare />
     </div>
   );
 };
