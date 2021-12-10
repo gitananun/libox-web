@@ -20,6 +20,9 @@ p {
 a {
     color: $primaryColor;
     text-decoration: none !important;
+    &:hover {
+        color: $primaryColorDark;
+    }
 }
 img {
     user-select: none;
@@ -521,6 +524,7 @@ footer {
         padding: 20px 0;
     }
     .course-banner {
+        margin-bottom: 15px;
         width: 100%;
     }
     .course-sidebar {
@@ -570,6 +574,32 @@ footer {
         }
         .avatar {
             margin-right: 15px;
+        }
+    }
+    .course-details-nav-wrapper {
+        padding-bottom: 15px;
+        .nav {
+            border: 1px solid $secondaryColor;
+            .nav-item {
+                padding: 7px;
+                a {
+                    color: $darkTextColor;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    font-size: 14px;
+                }
+                &.active {
+                    background: $primaryColor;
+                    a {
+                        color: white;
+                    }
+                }
+                .nav-link {
+                    border: 0px;
+                    background: none;
+                    margin-bottom: 0px;
+                }
+            }
         }
     }
 }

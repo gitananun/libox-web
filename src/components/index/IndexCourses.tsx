@@ -7,23 +7,23 @@ import 'swiper/swiper.min.css';
 
 const IndexCourses = () => {
   return (
-    <Link to='/courses/1'>
-      <div className='section index-courses'>
-        <div className='container'>
-          <SectionTitle
-            title='Featured Courses'
-            lead='Find the best courses for your future profession from the world largest library'
-          />
-          <Swiper grabCursor={true} slidesPerView={'auto'} spaceBetween={30}>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v) => (
-              <SwiperSlide key={v}>
+    <div className='section index-courses'>
+      <div className='container'>
+        <SectionTitle
+          title='Featured Courses'
+          lead='Find the best courses for your future profession from the world largest library'
+        />
+        <Swiper grabCursor={true} slidesPerView={'auto'} spaceBetween={30}>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v) => (
+            <SwiperSlide key={v}>
+              <Link to='/courses/1'>
                 <IndexCourseItem />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
-    </Link>
+    </div>
   );
 };
 
