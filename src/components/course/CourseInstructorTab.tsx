@@ -1,11 +1,15 @@
+import CourseInstructor from './CourseInstructor';
+
 const CourseInstructorTab = () => {
   return (
     <div id='instructor' className='tab-pane'>
-      <h3>Instructor</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua.
-      </p>
+      <div className='row'>
+        <div className='col'>
+          <div className='instructor-wrapper'>
+            <CourseInstructor title='David Martin' heading='teacher' />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

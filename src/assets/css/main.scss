@@ -5,6 +5,7 @@
 @import "./colors.scss";
 
 $vertical-space: 80px;
+$transition: all 0.3s ease-in-out;
 
 * {
     box-sizing: border-box !important;
@@ -234,7 +235,7 @@ input {
         width: 100%;
         object-fit: cover;
         position: absolute;
-        transition: 0.3s ease-in;
+        transition: $transition;
         height: 100%;
     }
     &:hover {
@@ -528,9 +529,11 @@ footer {
         width: 100%;
     }
     .features {
+        position: relative;
         background: linear-gradient(65deg, $primaryColor 0%, #1a5e89 100%);
         background-size: cover;
         background-position: center;
+        overflow: hidden;
         .content-container {
             padding: 25px;
             .title {
@@ -548,9 +551,9 @@ footer {
         }
     }
     .img-dotes {
-        position: fixed;
+        position: absolute;
         bottom: 0;
-        right: -250px;
+        right: -49%;
     }
     .course-header {
         margin-bottom: 15px;
@@ -568,9 +571,6 @@ footer {
             .detail-title {
                 font-size: 14px;
             }
-        }
-        .avatar {
-            margin-right: 15px;
         }
     }
     .course-details-nav-wrapper {
@@ -647,11 +647,41 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 0.1s ease-in;
+    transition: $transition;
     &:hover {
         background: $primaryColor;
         * {
             color: white;
+        }
+    }
+}
+.course-instructor {
+    align-items: center;
+    .instructor-title {
+        font-weight: 700;
+        font-size: 16px;
+        transition: $transition;
+    }
+    .avatar {
+        margin-right: 15px;
+    }
+}
+.instructor-wrapper {
+    padding: 20px 35px;
+    transition: all 0.3s ease-in-out;
+    width: max-content;
+    border: 1px solid $secondaryColor;
+    border-left: 4px solid $primaryColor;
+    * {
+        transition: $transition;
+    }
+    &:hover {
+        box-shadow: 9px 16px 46px 0px rgb(47 47 47 / 3%);
+        img {
+            transform: scale(1.1);
+        }
+        .instructor-title {
+            color: $primaryColor !important;
         }
     }
 }

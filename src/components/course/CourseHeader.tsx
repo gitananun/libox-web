@@ -1,5 +1,6 @@
 import OutlinedButton from 'components/common/OutlinedButton';
 import ReviewStars from 'components/common/ReviewStars';
+import CourseInstructor from './CourseInstructor';
 
 const CourseHeader = () => {
   return (
@@ -7,17 +8,7 @@ const CourseHeader = () => {
       <h2 className='title mb-4'>Learn Python from scratch to hero</h2>
       <div className='row'>
         <div className='col col-detail'>
-          <div className='d-flex'>
-            <img
-              alt='avatar'
-              className='avatar'
-              src='https://cdn.pixabay.com/photo/2015/08/25/10/40/ben-knapen-906550_960_720.jpg'
-            />
-            <div>
-              <p className='text-secondary detail-title'>Teacher</p>
-              <p className='text-uppercase text-bold'>David Martin</p>
-            </div>
-          </div>
+          <CourseInstructor heading='Teacher' title='David Martin' />
         </div>
         <div className='col col-detail'>
           <p className='text-secondary detail-title'>Reviews</p>
