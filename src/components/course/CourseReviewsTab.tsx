@@ -1,11 +1,20 @@
+import ReviewStars from 'components/common/ReviewStars';
+import reviewSvg from 'assets/images/review.svg';
+import { mouseParallax } from 'assets/js/main';
+
 const CourseReviewsTab = () => {
   return (
-    <div id='reviews' className='tab-pane'>
-      <h3>Reviews</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua.
-      </p>
+    <div id='reviews' className='tab-pane course-review'>
+      <div className='row'>
+        <div className='col-6'>
+          <p className='review-score'>5</p>
+          <ReviewStars className='review-star-lg' />
+          <p>8 Ratings</p>
+        </div>
+        <div className='col-6' onMouseOver={mouseParallax}>
+          <img className='img-fluid' src={reviewSvg} data-depth='0.8' alt='review' />
+        </div>
+      </div>
     </div>
   );
 };

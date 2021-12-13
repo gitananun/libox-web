@@ -1,5 +1,8 @@
 import { MouseEventHandler } from 'react';
 
+export interface ClassNameInterface {
+  className?: string;
+}
 export interface ButtonPropsInterface {
   title?: string;
   children?: any;

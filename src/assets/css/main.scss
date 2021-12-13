@@ -633,6 +633,10 @@ footer {
 .review-star {
     padding-right: 5px;
     color: $yellowColor;
+
+    &-lg {
+        font-size: 40px;
+    }
 }
 .radius-0 {
     border-radius: 0 !important;
@@ -683,5 +687,17 @@ footer {
         .instructor-title {
             color: $primaryColor !important;
         }
+    }
+}
+.course-review {
+    .col-6 {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .review-score {
+        font-size: 90px;
+        font-weight: 800;
     }
 }
