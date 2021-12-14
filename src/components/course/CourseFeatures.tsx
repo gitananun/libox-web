@@ -1,11 +1,12 @@
 import CourseFeatureRow from './CourseFeatureRow';
 import dotes from 'assets/images/dotes.png';
+import CourseSidebarSectionTitle from './CourseSidebarSectionTitle';
 
 const CourseFeatures = () => {
   return (
-    <div className='features'>
+    <div className='course-features'>
       <div className='content-container text-light'>
-        <p className='title'>Course features</p>
+        <CourseSidebarSectionTitle title='Course Features' />
         <hr className='mt-2 mb-4' />
         <CourseFeatureRow iconClassName='fa fa-file-invoice' title='Lessons' value='69' />
         <CourseFeatureRow iconClassName='fa fa-clock' title='Duration' value='49' />

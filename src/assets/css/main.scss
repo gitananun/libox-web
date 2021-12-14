@@ -528,26 +528,43 @@ footer {
         margin-bottom: 15px;
         width: 100%;
     }
-    .features {
+    .course-sidebar {
+        .title-prefix {
+            width: auto;
+            background: white;
+            height: 3px;
+            &.text-dark {
+                background: $darkTextColor;
+            }
+        }
+        .title {
+            font-weight: 700;
+            font-size: 25px;
+        }
+        .content-container {
+            padding: 25px;
+        }
+        .course-popular {
+            .course-single {
+                .course-title {
+                    font-weight: 800;
+                }
+            }
+        }
+    }
+    .course-features {
         position: relative;
         background: linear-gradient(65deg, $primaryColor 0%, #1a5e89 100%);
         background-size: cover;
         background-position: center;
         overflow: hidden;
-        .content-container {
-            padding: 25px;
-            .title {
-                font-weight: 700;
-                font-size: 25px;
-            }
-            .icon {
-                font-size: 16px;
-            }
-            .name {
-                font-weight: 600;
-                font-size: 18px;
-                margin-left: 15px;
-            }
+        .icon {
+            font-size: 16px;
+        }
+        .name {
+            font-weight: 600;
+            font-size: 18px;
+            margin-left: 15px;
         }
     }
     .img-dotes {
