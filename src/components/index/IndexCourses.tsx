@@ -1,6 +1,5 @@
 import SectionTitle from 'components/common/SectionTitle';
-import IndexCourseItem from 'components/index/IndexCourseItem';
-import { Link } from 'react-router-dom';
+import CourseItem from 'components/shared/CourseItem';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/swiper.min.css';
@@ -16,9 +15,7 @@ const IndexCourses = () => {
         <Swiper grabCursor={true} slidesPerView={'auto'} spaceBetween={30}>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v) => (
             <SwiperSlide key={v}>
-              <Link to='/courses/1'>
-                <IndexCourseItem />
-              </Link>
+              <CourseItem />
             </SwiperSlide>
           ))}
         </Swiper>

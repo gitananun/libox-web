@@ -1,11 +1,22 @@
 import RoundedPrimaryButton from 'components/common/RoundedPrimaryButton';
+import { Link } from 'react-router-dom';
 
-const IndexCourseItem = () => {
+interface Props {
+  img?: string;
+}
+
+const CourseItem = (props: Props) => {
   return (
-    <div className='card index-course-item'>
-      <img className='card-img-top' src='https://img-c.udemycdn.com/course/480x270/1035000_c1aa_6.jpg' alt='course' />
+    <div className='card course-item'>
+      <img
+        className='card-img-top'
+        src={props.img || 'https://img-c.udemycdn.com/course/480x270/1035000_c1aa_6.jpg'}
+        alt='course'
+      />
       <div className='card-body'>
-        <h5 className='card-title'>Docker Mastery: with Kubernetes +Swarm from a Docker Captain</h5>
+        <Link to='/courses/1'>
+          <h5 className='card-title'>Docker Mastery: with Kubernetes +Swarm from a Docker Captain</h5>
+        </Link>
         <p className='card-text text-secondary'>
           Teacher - <a href='#link'>John Back</a>
         </p>
@@ -26,4 +37,4 @@ const IndexCourseItem = () => {
   );
 };
 
-export default IndexCourseItem;
+export default CourseItem;

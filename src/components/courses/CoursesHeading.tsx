@@ -7,10 +7,10 @@ const CoursesHeading = () => {
 
   return (
     <div className='courses-heading'>
-      <div className='row text-center align-items-center'>
+      <div className='row text-center align-items-center mb-5'>
         <h1 className='p-0 m-0'>Courses</h1>
       </div>
-      <div className='row d-flex justify-content-between align-items-center courses-navbar mb-4'>
+      <div className='row d-flex justify-content-between align-items-center courses-navbar mb-5'>
         <div className='col filtering'>
           <i
             className={`fa fa-search icon ${showSearch && 'text-primary'}`}
