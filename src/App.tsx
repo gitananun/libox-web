@@ -6,6 +6,7 @@ import Signup from 'views/Signup';
 import Signin from 'views/Signin';
 import ForgotPassword from 'views/ForgotPassword';
 import Course from 'views/Course';
+import Courses from 'views/Courses';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Route path='/signin' element={<Signin />} />
       <Route path='/forgot-password' element={<ForgotPassword />} />
 
+      <Route path='/courses' element={<Courses />} />
       <Route path='/courses/*' element={<Course />} />
 
       <Route path='*' element={<NotFound />} />

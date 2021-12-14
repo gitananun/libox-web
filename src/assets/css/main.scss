@@ -718,3 +718,61 @@ footer {
         font-weight: 800;
     }
 }
+.courses {
+    .courses-heading {
+        h1 {
+            font-weight: 700;
+            font-size: 55px;
+        }
+        .courses-navbar {
+            margin-top: 30px;
+            border: 1px solid $secondaryColor;
+            padding: 15px 30px;
+            .filtering {
+                .icon {
+                    cursor: pointer;
+                    padding: 15px;
+                    font-size: 20px;
+                    color: $secondaryTextColor;
+                    &:first-child {
+                        padding-left: 0px;
+                        border-right: 1px solid $secondaryColor !important;
+                    }
+                }
+            }
+            .sorting {
+                .sort-type {
+                    padding: 15px;
+                    color: $secondaryTextColor;
+                    cursor: pointer;
+                    font-size: 16px;
+                    &:first-child {
+                        padding-left: 0px;
+                        border-right: 1px solid $secondaryColor;
+                    }
+                }
+            }
+            .courses-nav-tabs-wrapper {
+                width: max-content;
+                .nav-tabs {
+                    border: 0;
+                    .nav-item {
+                        padding-bottom: 5px;
+                        &.active {
+                            .nav-link {
+                                color: $primaryColor;
+                                font-weight: 600;
+                            }
+                            border-bottom: 1px solid $primaryColor;
+                        }
+                        .nav-link {
+                            cursor: pointer;
+                            color: $secondaryTextColor;
+                            border: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
