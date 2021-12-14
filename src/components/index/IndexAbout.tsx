@@ -4,7 +4,7 @@ import rocketSvg from 'assets/images/rocket.svg';
 const IndexAbout = () => {
   return (
     <div className='overflow-hidden'>
-      <div className='container section index-about'>
+      <div className='container section index-about' id='index-about'>
         <div className='bg-block'></div>
         <div className='about-wrapper'>
           <div className='row align-items-center w-100'>

@@ -1,14 +1,16 @@
+import { Link } from 'react-router-dom';
+
 interface Props {
-  href?: string;
+  to?: string;
   children: any;
   active?: boolean;
 }
 
 const NavLink = (props: Props) => {
   return (
-    <a className={`nav-link ${props.active ? 'nav-link-active' : ''}`} aria-current='page' href={props.href ?? '#'}>
+    <Link className={`nav-link ${props.active ? 'nav-link-active' : ''}`} aria-current='page' to={props.to ?? '#'}>
       {props.children}
-    </a>
+    </Link>
   );
 };
 

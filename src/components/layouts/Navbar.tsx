@@ -11,9 +11,10 @@ const Navbar = () => {
       <NavToggler />
       <div className='collapse navbar-collapse justify-content-end' id='navbarNavAltMarkup'>
         <div className='navbar-nav'>
-          <NavLink active={true}>Home</NavLink>
-          <NavLink>About</NavLink>
-          <NavLink>Courses</NavLink>
+          <NavLink active={true} to='/'>
+            Home
+          </NavLink>
+          <NavLink to='/courses'>Courses</NavLink>
           <NavLink>Blog</NavLink>
           <NavLink>Contact</NavLink>
         </div>
