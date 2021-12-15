@@ -2,6 +2,7 @@ import DashboardAccountTab from 'components/dashboard/DashboardAccountTab';
 import DashboardHelpTab from 'components/dashboard/DashboardHelpTab';
 import DashboardNavTabs from 'components/dashboard/DashboardNavTabs';
 import DashboardPasswordTab from 'components/dashboard/DashboardPasswordTab';
+import NotificationsModal from 'components/shared/NotificationsModal';
 import DashboardLayout from './layouts/DashboardLayout';
 
 const Dashboard = () => {
@@ -21,6 +22,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+      <NotificationsModal />
     </DashboardLayout>
   );
 };

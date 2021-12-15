@@ -672,6 +672,7 @@ footer {
     align-items: center;
     justify-content: center;
     transition: $transition;
+    color: $secondaryTextColor;
     &:hover {
         background: $primaryColor;
         * {
@@ -885,5 +886,75 @@ footer {
                 }
             }
         }
+    }
+}
+.modal-backdrop {
+    background: rgb($color: $darkTextColor, $alpha: 0.4);
+}
+.modal {
+    opacity: 0;
+    transition: $transition;
+    &.in {
+        opacity: 1;
+    }
+    .close {
+        color: $secondaryTextColor;
+        cursor: pointer;
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    .modal-title {
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .modal-header {
+        border: 0;
+    }
+    .modal-body {
+        margin-bottom: 10px;
+    }
+    .modal-content {
+        padding: 10px 15px;
+        border: 0 !important;
+        .indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: $primaryColor;
+            border-radius: 50%;
+        }
+    }
+    .modal-footer {
+        .footer-text {
+            cursor: pointer;
+            color: $primaryColor;
+            font-size: 14px;
+        }
+    }
+}
+.notification {
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border-bottom: 1px solid $secondaryColor;
+    transition: $transition;
+    cursor: pointer;
+
+    &:first-child {
+        padding-top: 0px;
+    }
+    &:last-child {
+        border-bottom: 0;
+    }
+    &:hover {
+        padding: 15px;
+        background-color: rgb($color: $secondaryColor, $alpha: 0.3);
+    }
+    .text {
+        color: $darkTextColor;
+    }
+    .timestamp {
+        margin-top: 5px !important;
+        color: $secondaryTextColor;
+        font-size: 12px;
     }
 }

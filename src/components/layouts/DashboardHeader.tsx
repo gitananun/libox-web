@@ -9,7 +9,7 @@ const DashboardHeader = () => {
           <DashboardHeaderUser />
         </div>
         <div className='col d-flex align-items-center icons justify-content-end gap-4'>
-          <i className='fal fa-bell'></i>
+          <i className='fal fa-bell' data-toggle='modal' data-target='#notifications-modal'></i>
           <span className='divider'>|</span>
           <i className='fal fa-cog'></i>
           <RoundedPrimaryButton title='Logout' />
