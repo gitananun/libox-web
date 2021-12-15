@@ -1,6 +1,6 @@
 const DashboardHelpTab = () => {
   return (
-    <div id='help' className='tab-pane in active'>
+    <div id='help' className='tab-pane'>
       <p className='title'>Help</p>
       <div className='section'>
         <div className='header'>
