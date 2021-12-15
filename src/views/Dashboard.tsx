@@ -1,6 +1,7 @@
 import DashboardAccountTab from 'components/dashboard/DashboardAccountTab';
 import DashboardHelpTab from 'components/dashboard/DashboardHelpTab';
 import DashboardNavTabs from 'components/dashboard/DashboardNavTabs';
+import DashboardPasswordTab from 'components/dashboard/DashboardPasswordTab';
 import DashboardLayout from './layouts/DashboardLayout';
 
 const Dashboard = () => {
@@ -14,6 +15,7 @@ const Dashboard = () => {
           <div className='col-10'>
             <div className='tab-content h-100'>
               <DashboardAccountTab />
+              <DashboardPasswordTab />
               <DashboardHelpTab />
             </div>
           </div>

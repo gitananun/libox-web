@@ -814,9 +814,14 @@ footer {
                 font-size: 14px;
             }
         }
-        .settings-icon {
-            font-size: 20px;
-            cursor: pointer;
+        .icons {
+            i {
+                font-size: 20px;
+                cursor: pointer;
+            }
+            .divider {
+                color: $secondaryColor;
+            }
         }
     }
     .dashboard-nav-tabs-wrapper {

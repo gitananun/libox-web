@@ -8,6 +8,11 @@ const DashboardNavTabs = () => {
           </a>
         </li>
         <li className='nav-item'>
+          <a className='nav-link' href='#password' role='tab' data-toggle='tab'>
+            Password
+          </a>
+        </li>
+        <li className='nav-item'>
           <a className='nav-link' href='#help' role='tab' data-toggle='tab'>
             Help
           </a>

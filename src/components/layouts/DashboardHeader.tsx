@@ -8,8 +8,10 @@ const DashboardHeader = () => {
         <div className='col'>
           <DashboardHeaderUser />
         </div>
-        <div className='col d-flex align-items-center justify-content-end gap-4'>
-          <i className='fa fa-cog settings-icon'></i>
+        <div className='col d-flex align-items-center icons justify-content-end gap-4'>
+          <i className='fal fa-bell'></i>
+          <span className='divider'>|</span>
+          <i className='fal fa-cog'></i>
           <RoundedPrimaryButton title='Logout' />
         </div>
       </div>
