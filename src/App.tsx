@@ -7,6 +7,7 @@ import Signin from 'views/Signin';
 import ForgotPassword from 'views/ForgotPassword';
 import Course from 'views/Course';
 import Courses from 'views/Courses';
+import Dashboard from 'views/Dashboard';
 
 const App = () => {
   return (
@@ -19,6 +20,8 @@ const App = () => {
 
       <Route path='/courses' element={<Courses />} />
       <Route path='/courses/*' element={<Course />} />
+
+      <Route path='/dashboard' element={<Dashboard />} />
 
       <Route path='*' element={<NotFound />} />
     </Routes>

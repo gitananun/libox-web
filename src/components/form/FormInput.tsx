@@ -15,6 +15,7 @@ const FormInput = (props: InputPropsInterface) => {
         <span className={props.search ? 'fa fa-search text-secondary' : ''}></span>
         <input
           id={props.label}
+          value={props.value}
           placeholder={props.placeholder}
           className='form-control form-input'
           type={obscure ? props.type : 'text'}

@@ -2,15 +2,15 @@ import { useState } from 'react';
 import CoursesHeadingTopCategories from './CoursesHeadingTopCategories';
 import CoursesSearch from './CoursesSearch';
 
-const CoursesHeading = () => {
-  const [showSearch, setShowSearch] = useState(true);
+const CoursesHeader = () => {
+  const [showSearch, setShowSearch] = useState(false);
 
   return (
-    <div className='courses-heading'>
+    <div className='courses-heading w-100'>
       <div className='row text-center align-items-center mb-5'>
         <h1 className='p-0 m-0'>Courses</h1>
       </div>
-      <div className='row d-flex justify-content-between align-items-center courses-navbar mb-5'>
+      <div className='row d-flex justify-content-between align-items-center courses-navbar mb-4'>
         <div className='col filtering'>
           <i
             className={`fa fa-search icon ${showSearch && 'text-primary'}`}
@@ -35,4 +35,4 @@ const CoursesHeading = () => {
   );
 };
 
-export default CoursesHeading;
+export default CoursesHeader;

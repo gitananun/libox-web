@@ -5,17 +5,20 @@ import AuthHeading from 'components/auth/AuthHeading';
 import SigninFormInputs from 'components/auth/SigninFormInputs';
 import RoundedPrimaryButton from 'components/common/RoundedPrimaryButton';
 import SocialButton from 'components/common/SocialButton';
+import { useNavigate } from 'react-router-dom';
 import AuthLayout from './layouts/AuthLayout';
 import Section from './layouts/Section';
 
 const Signin = () => {
+  const navigate = useNavigate();
+
   return (
     <AuthLayout>
       <Section className='col d-flex flex-column justify-content-center align-items-center'>
         <AuthBackButton to='/' />
         <AuthHeading title='Welcome back!' subtitle='Please enter your details' />
         <SigninFormInputs />
-        <RoundedPrimaryButton title='Sign In' className='mb-2' />
+        <RoundedPrimaryButton title='Sign In' className='mb-2' onClick={() => navigate('/dashboard')} />
         <SocialButton iconClassName='fab fa-google' className='btn-google mb-2' title='Sign In with Google' />
         <SocialButton iconClassName='fab fa-github' className='btn-github' title='Sign In with Github' />
         <AuthFormSuggestion text="Don't have account yet?" to='/signup' linkText='Sign Up' />

@@ -149,6 +149,9 @@ input {
         color: $primaryColor !important;
     }
 }
+.btn-rounded {
+    border-radius: 50px !important;
+}
 #scroll-top {
     z-index: 100;
     position: fixed;
@@ -780,5 +783,102 @@ footer {
     margin-bottom: 25px;
     .course-item {
         width: fit-content !important;
+    }
+}
+.pagination-nav {
+    .page-item {
+        .page-link {
+            color: $secondaryTextColor;
+        }
+    }
+}
+.dashboard {
+    .dashboard-header {
+        border-top: 1px solid $secondaryColor;
+        padding-top: 17px;
+        padding-bottom: 15px;
+        border-left: 0;
+        border-right: 0;
+        button {
+            border-radius: 0 !important;
+        }
+        .header-user {
+            .avatar {
+                margin-right: 15px;
+            }
+            .name {
+                font-weight: 600;
+                font-size: 18px;
+            }
+            .email {
+                font-size: 14px;
+            }
+        }
+        .settings-icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
+    .dashboard-nav-tabs-wrapper {
+        .nav {
+            display: block;
+            border: 0px;
+            .nav-item {
+                &.active {
+                    border-left: 1px solid $primaryColor;
+                    .nav-link {
+                        color: $primaryColor;
+                    }
+                }
+                .nav-link {
+                    font-weight: 600;
+                    margin-bottom: 0px;
+                    border: 0px !important;
+                    color: $secondaryTextColor;
+                }
+            }
+        }
+    }
+    .tab-content {
+        padding: 0px 20px;
+        border-left: 1px solid $secondaryColor;
+        .tab-pane {
+            .title {
+                font-size: 35px;
+                font-weight: 700;
+                padding-bottom: 15px;
+                border-bottom: 1px solid $secondaryColor;
+            }
+            .section {
+                margin-top: 30px;
+                border-bottom: 1px solid $secondaryColor;
+                padding: 0;
+                padding-bottom: 25px;
+                &:last-child {
+                    border-bottom: 0px;
+                    padding-bottom: 0px;
+                }
+                .header {
+                    .section-title {
+                        font-size: 20px;
+                        padding-bottom: 10px;
+                    }
+                    .section-description {
+                        font-size: 14px;
+                        width: 80%;
+                        color: $secondaryTextColor;
+                    }
+                }
+                .content {
+                    margin-top: 40px;
+                    input {
+                        border-radius: 5px !important;
+                    }
+                    .row {
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
     }
 }

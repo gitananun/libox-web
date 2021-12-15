@@ -11,7 +11,7 @@ const CoursesContent = () => {
   ];
   return (
     <div className='courses-content'>
-      <div className='row d-flex justify-content-between align-items-center mt-5'>
+      <div className='row d-flex justify-content-between align-items-center mt-4'>
         {images.map((img) => (
           <div className='col-12 col-sm-6 col-md-6 col-lg-4 d-flex justify-content-center align-items-center courses-single'>
             <CourseItem img={img} />

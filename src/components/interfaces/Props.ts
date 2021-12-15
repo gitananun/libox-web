@@ -11,6 +11,7 @@ export interface ButtonPropsInterface {
 }
 export interface InputPropsInterface {
   label?: string;
+  value?: string;
   search?: boolean;
   className?: string;
   placeholder?: string;
