@@ -850,6 +850,10 @@ footer {
         .nav {
             display: block;
             border: 0px;
+
+            @media screen and (max-width: $large-width) {
+                display: flex;
+            }
             .nav-item {
                 &.active {
                     border-left: 1px solid $primaryColor;

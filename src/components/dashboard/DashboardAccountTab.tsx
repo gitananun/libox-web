@@ -19,7 +19,7 @@ const DashboardAccountTab = () => {
             <div className='col-12 col-lg-6'>
               <FormInput label='Name' placeholder='libox@best.io' value='jennica@libox.io' />
             </div>
-            <div className='col-12 col-lg-6'>
+            <div className='col-12 col-lg-6 mt-3 mt-lg-0'>
               <FormInput label='Lastname' placeholder='libox@best.io' value='jennica@libox.io' />
             </div>
           </div>

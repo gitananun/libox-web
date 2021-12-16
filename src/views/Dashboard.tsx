@@ -11,11 +11,11 @@ const Dashboard = () => {
     <DashboardLayout>
       <div className='container'>
         <div className='row'>
-          <div className='col-2'>
+          <div className='col-12 col-lg-2'>
             <DashboardNavTabs />
           </div>
-          <div className='col-10'>
-            <div className='tab-content h-100'>
+          <div className='col-12 col-lg-10'>
+            <div className='tab-content mb-5 h-100'>
               <DashboardAccountTab />
               <DashboardPasswordTab />
               <DashboardHelpTab />

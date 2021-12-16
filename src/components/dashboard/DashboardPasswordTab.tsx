@@ -20,7 +20,7 @@ const DashboardPasswordTab = () => {
               <div className='col-12 col-lg-6'>
                 <FormInput type={'password'} label='Password' placeholder='password' />
               </div>
-              <div className='col-12 col-lg-6'>
+              <div className='col-12 col-lg-6 mt-3 mt-lg-0'>
                 <FormInput label='Confirm password' placeholder='password' />
               </div>
             </div>
