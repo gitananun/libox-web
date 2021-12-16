@@ -11,7 +11,7 @@ const DashboardHeader = () => {
         <div className='col d-flex align-items-center icons justify-content-end gap-4'>
           <i className='fal fa-bell' data-toggle='modal' data-target='#notifications-modal'></i>
           <span className='divider'>|</span>
-          <i className='fal fa-cog'></i>
+          <i className='fal fa-cog' data-toggle='modal' data-target='#settings-modal'></i>
           <RoundedPrimaryButton title='Logout' />
         </div>
       </div>

@@ -944,6 +944,7 @@ footer {
     }
     &:last-child {
         border-bottom: 0;
+        padding-bottom: 0;
     }
     &:hover {
         padding: 15px;
@@ -956,5 +957,38 @@ footer {
         margin-top: 5px !important;
         color: $secondaryTextColor;
         font-size: 12px;
+    }
+}
+.setting {
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border-bottom: 1px solid $secondaryColor;
+    transition: $transition;
+    cursor: pointer;
+
+    &:first-child {
+        padding-top: 0px;
+    }
+    &:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+    }
+    .text {
+        color: $darkTextColor;
+    }
+    .description {
+        margin-top: 5px !important;
+        color: $secondaryTextColor;
+        font-size: 12px;
+    }
+    .form-switch {
+        .form-check-input {
+            width: 55px !important;
+            border-color: $secondaryColor !important;
+
+            &:checked {
+                background-color: $primaryColor !important;
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@ const Modal = (props: Props) => {
       <div className='modal-dialog' role='document'>
         <div className='modal-content'>
           <div className='modal-header'>
-            <p className='modal-title'>Notifications</p>
+            <p className='modal-title text-capitalize'>{props.title}</p>
             <i className='close fa fa-times' data-dismiss='modal'></i>
           </div>
           <div className='modal-body'>{props.children}</div>
