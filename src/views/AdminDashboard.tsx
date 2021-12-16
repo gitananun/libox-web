@@ -1,23 +1,28 @@
-import DashboardAccountTab from 'components/dashboard/tabs/DashboardAccountTab';
-import DashboardHelpTab from 'components/dashboard/tabs/DashboardHelpTab';
-import DashboardNavTabs from 'components/dashboard/DashboardNavTabs';
-import DashboardPasswordTab from 'components/dashboard/tabs/DashboardPasswordTab';
+import AdminDashboardNavTabs from 'components/dashboard/admin/AdminDashboardNavTabs';
 import DashboardSettingsModal from 'components/dashboard/DashboardSettingsModal';
+import DashboardAccountTab from 'components/dashboard/tabs/DashboardAccountTab';
+import DashboardCoursesTab from 'components/dashboard/tabs/DashboardCoursesTab';
+import DashboardHelpTab from 'components/dashboard/tabs/DashboardHelpTab';
+import DashboardPasswordTab from 'components/dashboard/tabs/DashboardPasswordTab';
 import NotificationsModal from 'components/shared/NotificationsModal';
 import DashboardLayout from './layouts/DashboardLayout';
 
-const Dashboard = () => {
+const AdminDashboard = () => {
   return (
     <DashboardLayout>
       <div className='container'>
         <div className='row'>
+          <div className='col-12'>
+            <div className='alert alert-primary text-light mb-5'>Your are admin</div>
+          </div>
           <div className='col-12 col-lg-2'>
-            <DashboardNavTabs />
+            <AdminDashboardNavTabs />
           </div>
           <div className='col-12 col-lg-10'>
             <div className='tab-content mb-5 h-100'>
               <DashboardAccountTab />
               <DashboardPasswordTab />
+              <DashboardCoursesTab />
               <DashboardHelpTab />
             </div>
           </div>
@@ -29,4 +34,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default AdminDashboard;

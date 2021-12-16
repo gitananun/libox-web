@@ -3,12 +3,16 @@ import CoursesHeader from 'components/courses/CoursesHeader';
 import PaginationNav from 'components/shared/PaginationNav';
 import Layout from './layouts/Layout';
 
-const Courses = () => {
+interface Props {
+  dashboard?: boolean;
+}
+
+const Courses = (props: Props) => {
   return (
     <Layout>
       <div className='courses'>
         <div className='container d-flex flex-column justify-content-between align-items-center py-5'>
-          <CoursesHeader />
+          <CoursesHeader title={props.dashboard ? 'My Library' : undefined} />
           <CoursesContent />
           <PaginationNav />
         </div>

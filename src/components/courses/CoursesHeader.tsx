@@ -2,13 +2,17 @@ import { useState } from 'react';
 import CoursesHeadingTopCategories from './CoursesHeadingTopCategories';
 import CoursesSearch from './CoursesSearch';
 
-const CoursesHeader = () => {
+interface Props {
+  title?: string;
+}
+
+const CoursesHeader = (props: Props) => {
   const [showSearch, setShowSearch] = useState(false);
 
   return (
     <div className='courses-heading w-100'>
       <div className='row text-center align-items-center mb-5'>
-        <h1 className='p-0 m-0'>Courses</h1>
+        <h1 className='p-0 m-0'>{props.title || 'Courses'}</h1>
       </div>
       <div className='row d-flex justify-content-between align-items-center courses-navbar mb-4'>
         <div className='col filtering'>

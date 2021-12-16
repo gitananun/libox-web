@@ -8,6 +8,7 @@ import ForgotPassword from 'views/ForgotPassword';
 import Course from 'views/Course';
 import Courses from 'views/Courses';
 import Dashboard from 'views/Dashboard';
+import AdminDashboard from 'views/AdminDashboard';
 
 const App = () => {
   return (
@@ -22,6 +23,9 @@ const App = () => {
       <Route path='/courses/*' element={<Course />} />
 
       <Route path='/dashboard' element={<Dashboard />} />
+      <Route path='/dashboard/courses' element={<Courses dashboard={true} />} />
+
+      <Route path='/admin/dashboard' element={<AdminDashboard />} />
 
       <Route path='*' element={<NotFound />} />
     </Routes>

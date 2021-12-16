@@ -912,6 +912,31 @@ footer {
             }
         }
     }
+    .dashboard-courses-tab {
+        .content {
+            .nav {
+                display: flex;
+                border: 0px;
+                @media screen and (max-width: $large-width) {
+                    display: flex;
+                }
+                .nav-item {
+                    &.active {
+                        border-bottom: 1px solid $primaryColor;
+                        .nav-link {
+                            color: $primaryColor;
+                        }
+                    }
+                    .nav-link {
+                        font-weight: 600;
+                        margin-bottom: 0px;
+                        border: 0px !important;
+                        color: $secondaryTextColor;
+                    }
+                }
+            }
+        }
+    }
 }
 .modal-backdrop {
     background: rgb($color: $darkTextColor, $alpha: 0.4);
