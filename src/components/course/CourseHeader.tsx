@@ -18,8 +18,8 @@ const CourseHeader = () => {
           <p className='text-secondary detail-title'>Price</p>
           <p className='text-bold'>$10.99</p>
         </div>
-        <div className='col col-detail border-0 text-end'>
-          <OutlinedButton title='view more' />
+        <div className='col-lg col-12 col-12 col-detail border-0 text-end'>
+          <OutlinedButton title='view more' className='view-more' />
         </div>
       </div>
     </div>

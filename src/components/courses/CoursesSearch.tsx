@@ -4,7 +4,7 @@ import FormSelect from 'components/form/FormSelect';
 
 const CoursesSearch = () => {
   return (
-    <div className='row w-100 d-flex justify-content-between align-items-center'>
+    <div className='row w-100 d-flex justify-content-between align-items-center gap-lg-0 gap-sm-2 search-row'>
       <div className='col-lg-3 col-12 justify-content-center'>
         <FormSelect options={['Design', 'Development', 'Music']} />
       </div>

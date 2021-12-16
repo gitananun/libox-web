@@ -18,16 +18,16 @@ const CoursesHeader = () => {
           ></i>
           <i className='fal fa-filter icon'></i>
         </div>
-        <div className='col d-flex justify-content-center'>
+        <div className='col d-flex justify-content-center categories'>
           <CoursesHeadingTopCategories />
         </div>
-        <div className='col d-flex justify-content-end sorting'>
+        <div className='col d-flex justify-content-lg-end  sorting'>
           <p className='sort-type'>Recency</p>
           <p className='sort-type'>Alphabetically</p>
         </div>
       </div>
       {showSearch && (
-        <div className='courses-search'>
+        <div className='courses-search d-flex align-items-center justify-content-center'>
           <CoursesSearch />
         </div>
       )}

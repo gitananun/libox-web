@@ -532,6 +532,9 @@ footer {
         width: 100%;
     }
     .course-sidebar {
+        @media screen and (max-width: $large-width) {
+            margin-top: 30px;
+        }
         .title-prefix {
             width: auto;
             background: white;
@@ -590,6 +593,12 @@ footer {
             }
             .detail-title {
                 font-size: 14px;
+            }
+            .view-more {
+                @media screen and (max-width: $large-width) {
+                    width: 100%;
+                    margin-top: 15px;
+                }
             }
         }
     }
@@ -723,6 +732,11 @@ footer {
     }
 }
 .courses {
+    .search-row {
+        @media screen and (max-width: $large-width) {
+            gap: 10px;
+        }
+    }
     .courses-heading {
         h1 {
             font-weight: 700;
@@ -742,6 +756,13 @@ footer {
                         padding-left: 0px;
                         border-right: 1px solid $secondaryColor !important;
                     }
+                }
+            }
+            .categories {
+                @media screen and (max-width: $medium-width) {
+                    border-top: 1px solid $secondaryColor;
+                    border-bottom: 1px solid $secondaryColor;
+                    padding: 10px 0px;
                 }
             }
             .sorting {
