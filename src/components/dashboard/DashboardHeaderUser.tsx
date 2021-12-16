@@ -1,6 +1,6 @@
 const DashboardHeaderUser = () => {
   return (
-    <div className='d-flex align-items-center header-user'>
+    <div className='d-flex align-items-center justify-content-center justify-content-md-start header-user'>
       <img
         alt='Amazon'
         className='avatar'
