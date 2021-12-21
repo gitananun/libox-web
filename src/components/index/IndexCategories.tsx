@@ -16,7 +16,7 @@ const IndexCategories = () => {
         <SectionTitle title='Favorite Categories' lead='Find the best category for your future profession' />
         <div className='row d-flex justify-content-center text-center align-items-center'>
           {['Design', 'Development', 'Music', 'Movie', 'Car', 'Score'].map((cat, i) => (
-            <div className='category-single col-10 col-md-4 col-lg-3'>
+            <div className='category-single col-10 col-md-4 col-lg-3' key={i}>
               <img src={images[i]} alt='category' />
               <div className='category-name blur-container-light'>
                 <h3>{cat}</h3>

@@ -5,9 +5,15 @@ import IndexHero from 'components/index/IndexHero';
 import IndexMotivation from 'components/index/IndexMotivation';
 import IndexNewsletter from 'components/index/IndexNewsletter';
 import IndexSearch from 'components/index/IndexSearch';
+import { useEffect } from 'react';
+import { fetchCourses } from 'services/courses';
 import Layout from './layouts/Layout';
 
 const Index = () => {
+  useEffect(() => {
+    fetchCourses().then((data) => console.log(data));
+  }, []);
+
   return (
     <Layout>
       <IndexHero />
