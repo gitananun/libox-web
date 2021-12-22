@@ -1,10 +1,11 @@
+import { CourseModelPropsInterface } from 'components/interfaces/Props';
 import CourseFeatures from './CourseFeatures';
 import CoursePopular from './CoursePopular';
 
-const CourseSidebar = () => {
+const CourseSidebar = (props: CourseModelPropsInterface) => {
   return (
     <div className='col-12 col-lg-4 d-flex flex-column gap-4 course-sidebar'>
-      <CourseFeatures />
+      <CourseFeatures course={props.course} />
       <CoursePopular />
     </div>
   );

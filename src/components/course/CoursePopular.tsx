@@ -17,7 +17,7 @@ const CoursePopular = () => {
         <hr />
         <div className='d-flex justify-content-between flex-column gap-4'>
           {images.map((img) => (
-            <Link to='/courses/1' className='text-dark'>
+            <Link to='/courses/1' key={img} className='text-dark'>
               <div className='row course-single d-flex justify-content-center align-items-center'>
                 <div className='col-4'>
                   <img src={img} alt='course' className='img-fluid' />

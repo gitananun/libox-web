@@ -1,11 +1,20 @@
 import { ClassNameInterface } from 'components/interfaces/Props';
 
-const ReviewStars = (props: ClassNameInterface) => {
+interface Props extends ClassNameInterface {
+  rating: number;
+}
+
+const ReviewStars = (props: Props) => {
   return (
     <ul className='list-unstyled d-flex'>
-      {[1, 2, 3, 4, 5].map(() => (
-        <li>
-          <i className={`fa fa-star review-star ${props.className}`}></i>
+      {[...Array(props.rating)].map((v, i) => (
+        <li key={i}>
+          <i className={`fa fa-star review-star ${props.className ?? ''}`}></i>
+        </li>
+      ))}
+      {[...Array(5 - props.rating)].map((v, i) => (
+        <li key={i}>
+          <i className={`far fa-star review-star ${props.className ?? ''}`}></i>
         </li>
       ))}
     </ul>

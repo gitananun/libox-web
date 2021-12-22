@@ -15,6 +15,7 @@ const Index = () => {
 
   useEffect(() => {
     fetchCourses().then((data) => setCourses(data.items));
+    return () => setCourses([]);
   }, []);
 
   return (

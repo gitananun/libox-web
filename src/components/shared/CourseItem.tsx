@@ -1,17 +1,19 @@
 import RoundedPrimaryButton from 'components/common/RoundedPrimaryButton';
 import { CourseModel } from 'data/models/CourseModel';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface Props {
   course: CourseModel;
 }
 
 const CourseItem = (props: Props) => {
+  const navigate = useNavigate();
+
   return (
     <div className='card course-item'>
       <img className='card-img-top' src='https://img-c.udemycdn.com/course/480x270/1035000_c1aa_6.jpg' alt='course' />
       <div className='card-body'>
-        <Link to='/courses/1'>
+        <Link to={`/courses/${props.course.slug}`}>
           <h5 className='card-title'>{props.course.title}</h5>
         </Link>
         <p className='card-text text-secondary'>
@@ -25,10 +27,10 @@ const CourseItem = (props: Props) => {
             <i className='fa fa-calendar'></i> - {props.course.length} hours
           </p>
           <p className='course-details'>
-            <i className='fa fa-dollar-sign'></i> - {props.course.price ?? 'Free'}
+            <i className='fa fa-dollar-sign'></i> - {props.course.price}
           </p>
         </div>
-        <RoundedPrimaryButton title='View More' />
+        <RoundedPrimaryButton onClick={() => navigate(`/courses/${props.course.slug}`)} title='View More' />
       </div>
     </div>
   );

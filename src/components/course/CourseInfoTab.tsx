@@ -1,24 +1,17 @@
-const CourseInfoTab = () => {
+import { CourseModelPropsInterface } from 'components/interfaces/Props';
+
+const CourseInfoTab = (props: CourseModelPropsInterface) => {
   return (
     <div id='information' className='tab-pane in active'>
       <div className='tab-section'>
         <h3 className='title'>Course Description</h3>
-        <p className='text-secondary'>
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-          est laborum."
-        </p>
+        <p className='text-secondary'>{props.course.description}</p>
       </div>
       <div className='tab-section'>
         <h3 className='title'>Our Objectives</h3>
         <p className='text-secondary'>
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-          est laborum."
+          Libox provides you with resources in order to have a grow in your future profession. This is the platform
+          where you can find everything needed for self-education. Be consistent and mindful 🐳
         </p>
       </div>
     </div>

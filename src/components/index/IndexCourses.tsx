@@ -17,7 +17,7 @@ const IndexCourses = (props: Props) => {
           title='Featured Courses'
           lead='Find the best courses for your future profession from the world largest library'
         />
-        <Swiper grabCursor={true} slidesPerView={'auto'} spaceBetween={30}>
+        <Swiper slidesPerView={'auto'} spaceBetween={30}>
           {props.courses.map((c) => (
             <SwiperSlide key={c.id}>
               <CourseItem course={c} />

@@ -1,4 +1,4 @@
-import CoursesContent from 'components/courses/CoursesContent';
+// import CoursesContent from 'components/courses/CoursesContent';
 import CoursesHeader from 'components/courses/CoursesHeader';
 import PaginationNav from 'components/shared/PaginationNav';
 import Layout from './layouts/Layout';
@@ -13,7 +13,7 @@ const Courses = (props: Props) => {
       <div className='courses'>
         <div className='container d-flex flex-column justify-content-between align-items-center py-5'>
           <CoursesHeader title={props.dashboard ? 'My Library' : undefined} />
-          <CoursesContent />
+          {/* <CoursesContent /> */}
           <PaginationNav />
         </div>
       </div>

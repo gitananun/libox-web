@@ -1,3 +1,4 @@
+import { CourseModel } from 'data/models/CourseModel';
 import { MouseEventHandler } from 'react';
 
 export interface ClassNameInterface {
@@ -16,4 +17,8 @@ export interface InputPropsInterface {
   className?: string;
   placeholder?: string;
   type?: React.HTMLInputTypeAttribute;
+}
+
+export interface CourseModelPropsInterface {
+  course: CourseModel;
 }

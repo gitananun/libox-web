@@ -1,6 +1,7 @@
+import { CourseModelPropsInterface } from 'components/interfaces/Props';
 import CourseItem from 'components/shared/CourseItem';
 
-const CoursesContent = () => {
+const CoursesContent = (props: CourseModelPropsInterface) => {
   const images = [
     'https://img-c.udemycdn.com/course/480x270/4427730_5388.jpg',
     'https://img-c.udemycdn.com/course/480x270/3604434_7884_3.jpg',
@@ -14,7 +15,7 @@ const CoursesContent = () => {
       <div className='row d-flex justify-content-between align-items-center mt-4'>
         {images.map((img) => (
           <div className='col-12 col-sm-6 col-md-6 col-lg-4 d-flex justify-content-center align-items-center courses-single'>
-            <CourseItem course={{ id: 1, title: 'hi', slug: 'there' }} />
+            <CourseItem course={props.course} />
           </div>
         ))}
       </div>
