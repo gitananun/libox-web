@@ -5,13 +5,16 @@ import IndexHero from 'components/index/IndexHero';
 import IndexMotivation from 'components/index/IndexMotivation';
 import IndexNewsletter from 'components/index/IndexNewsletter';
 import IndexSearch from 'components/index/IndexSearch';
-import { useEffect } from 'react';
+import { CourseModel } from 'data/models/CourseModel';
+import { useEffect, useState } from 'react';
 import { fetchCourses } from 'services/courses';
 import Layout from './layouts/Layout';
 
 const Index = () => {
+  const [courses, setCourses] = useState<CourseModel[]>([]);
+
   useEffect(() => {
-    fetchCourses();
+    fetchCourses().then((data) => setCourses(data.items));
   }, []);
 
   return (
@@ -20,7 +23,7 @@ const Index = () => {
       <IndexSearch />
       <IndexCategories />
       <IndexAbout />
-      <IndexCourses />
+      <IndexCourses courses={courses} />
       <IndexMotivation />
       <IndexNewsletter />
     </Layout>

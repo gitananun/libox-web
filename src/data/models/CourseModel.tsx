@@ -1,5 +1,5 @@
-export interface Course {
-  id: bigint;
+export interface CourseModel {
+  id: number;
   slug: string;
   title: string;
   rating?: number;
@@ -12,12 +12,12 @@ export interface Course {
   createdAt?: Date;
 }
 
-export const courseFromMap = (map: any): Course => ({
+export const courseFromMap = (map: any): CourseModel => ({
   id: map['id'],
   slug: map['slug'],
   title: map['title'],
   rating: map['rating'],
-  price: map['price'],
+  price: map['price']?.toFixed(2),
   length: map['length'],
   language: map['language'],
   likes: map['likes'],

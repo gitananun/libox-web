@@ -1,10 +1,15 @@
 import SectionTitle from 'components/common/SectionTitle';
 import CourseItem from 'components/shared/CourseItem';
+import { CourseModel } from 'data/models/CourseModel';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/swiper.min.css';
 
-const IndexCourses = () => {
+interface Props {
+  courses: CourseModel[];
+}
+
+const IndexCourses = (props: Props) => {
   return (
     <div className='section index-courses'>
       <div className='container'>
@@ -13,9 +18,9 @@ const IndexCourses = () => {
           lead='Find the best courses for your future profession from the world largest library'
         />
         <Swiper grabCursor={true} slidesPerView={'auto'} spaceBetween={30}>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v) => (
-            <SwiperSlide key={v}>
-              <CourseItem />
+          {props.courses.map((c) => (
+            <SwiperSlide key={c.id}>
+              <CourseItem course={c} />
             </SwiperSlide>
           ))}
         </Swiper>
