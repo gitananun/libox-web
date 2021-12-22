@@ -11,7 +11,7 @@ import Layout from './layouts/Layout';
 
 const Index = () => {
   useEffect(() => {
-    fetchCourses().then((data) => console.log(data));
+    fetchCourses();
   }, []);
 
   return (
