@@ -1,4 +1,6 @@
-const CourseNavTabs = () => {
+import { CourseModelPropsInterface } from 'components/interfaces/Props';
+
+const CourseNavTabs = (props: CourseModelPropsInterface) => {
   return (
     <div className='course-details-nav-wrapper'>
       <ul className='nav nav-tabs' role='tablist'>
@@ -7,11 +9,13 @@ const CourseNavTabs = () => {
             Information
           </a>
         </li>
-        <li className='nav-item'>
-          <a className='nav-link' href='#instructor' role='tab' data-toggle='tab'>
-            Instructor
-          </a>
-        </li>
+        {props.course.instructors.length !== 0 && (
+          <li className='nav-item'>
+            <a className='nav-link' href='#instructor' role='tab' data-toggle='tab'>
+              Instructors
+            </a>
+          </li>
+        )}
         <li className='nav-item'>
           <a className='nav-link' href='#reviews' role='tab' data-toggle='tab'>
             Reviews

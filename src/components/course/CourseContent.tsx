@@ -12,11 +12,11 @@ const CourseContent = (props: CourseModelPropsInterface) => {
     <div className='col-12 col-lg-8'>
       <CourseHeader course={props.course} />
       <CourseBanner />
-      <CourseNavTabs />
+      <CourseNavTabs course={props.course} />
 
       <div className='tab-content'>
         <CourseInfoTab course={props.course} />
-        <CourseInstructorTab />
+        <CourseInstructorTab course={props.course} />
         <CourseReviewsTab course={props.course} />
       </div>
 

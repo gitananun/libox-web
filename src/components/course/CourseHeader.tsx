@@ -8,9 +8,14 @@ const CourseHeader = (props: CourseModelPropsInterface) => {
     <div className='course-header'>
       <h2 className='title mb-4'>{props.course.title}</h2>
       <div className='row'>
-        <div className='col col-detail'>
-          <CourseInstructor heading='Teacher' title='David Martin' />
-        </div>
+        {props.course.instructors.length !== 0 && (
+          <div className='col col-detail'>
+            <CourseInstructor
+              heading={props.course.instructors[0].jobTitle}
+              title={props.course.instructors[0].fullName}
+            />
+          </div>
+        )}
         <div className='col col-detail'>
           <p className='text-secondary detail-title'>Reviews</p>
           <ReviewStars rating={props.course.rating} />

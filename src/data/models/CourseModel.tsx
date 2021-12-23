@@ -1,4 +1,5 @@
 import languages from 'utils/languages';
+import { instructorFromMap, InstructorModel } from './InstructorModel';
 
 export interface CourseModel {
   id: number;
@@ -12,6 +13,7 @@ export interface CourseModel {
   description: string;
   lastUpdated: Date;
   createdAt: Date;
+  instructors: InstructorModel[];
 }
 
 export const courseFromMap = (map: any): CourseModel => {
@@ -27,5 +29,6 @@ export const courseFromMap = (map: any): CourseModel => {
     language: map['language'] && languages[map['language']].name,
     price: map['price']?.toFixed(2) ?? 'free',
     lastUpdated: new Date(map['last_updated']),
+    instructors: map['instructors'] ? map['instructors'].map((e: any) => instructorFromMap(e)) : [],
   };
 };

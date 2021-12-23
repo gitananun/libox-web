@@ -17,7 +17,11 @@ const CourseItem = (props: Props) => {
           <h5 className='card-title'>{props.course.title}</h5>
         </Link>
         <p className='card-text text-secondary'>
-          Teacher - <a href='#link'>John Back</a>
+          {props.course.instructors.length !== 0 && (
+            <>
+              {props.course.instructors[0].jobTitle} - <a href='#link'>{props.course.instructors[0].fullName} </a>
+            </>
+          )}
         </p>
       </div>
 

@@ -701,22 +701,24 @@ footer {
     }
 }
 .instructor-wrapper {
-    padding: 20px 35px;
-    transition: all 0.3s ease-in-out;
-    width: max-content;
-    border: 1px solid $secondaryColor;
-    border-left: 4px solid $primaryColor;
+    .course-instructor {
+        transition: all 0.3s ease-in-out;
+        padding: 20px 35px;
+        width: max-content;
+        border: 1px solid $secondaryColor;
+        border-left: 4px solid $primaryColor;
+        &:hover {
+            box-shadow: 9px 16px 46px 0px rgb(47 47 47 / 3%);
+            img {
+                transform: scale(1.05);
+            }
+            .instructor-title {
+                color: $primaryColor !important;
+            }
+        }
+    }
     * {
         transition: $transition;
-    }
-    &:hover {
-        box-shadow: 9px 16px 46px 0px rgb(47 47 47 / 3%);
-        img {
-            transform: scale(1.05);
-        }
-        .instructor-title {
-            color: $primaryColor !important;
-        }
     }
 }
 .course-review {
