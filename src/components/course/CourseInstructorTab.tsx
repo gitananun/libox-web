@@ -8,7 +8,7 @@ const CourseInstructorTab = (props: CourseModelPropsInterface) => {
         <div className='col'>
           <div className='instructor-wrapper d-flex gap-5'>
             {props.course.instructors.map((i) => (
-              <CourseInstructor title={i.fullName} heading={i.jobTitle} />
+              <CourseInstructor key={i.id} title={i.fullName} heading={i.jobTitle} />
             ))}
           </div>
         </div>

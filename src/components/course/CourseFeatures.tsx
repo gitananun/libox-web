@@ -9,18 +9,24 @@ const CourseFeatures = (props: CourseModelPropsInterface) => {
       <div className='content-container text-light'>
         <CourseSidebarSectionTitle title='Course Features' />
         <hr className='mt-2 mb-4' />
-        <CourseFeatureRow iconClassName='fa fa-file-invoice' title='Lessons' value='69' />
+        {props.course.lessons && (
+          <CourseFeatureRow iconClassName='fa fa-file-invoice' title='Lessons' value={`${props.course.lessons}`} />
+        )}
         {props.course.length && (
           <CourseFeatureRow iconClassName='fa fa-clock' title='Duration' value={`${props.course.length}`} />
         )}
-        <CourseFeatureRow iconClassName='fa fa-certificate' title='Certification' value='Yes' />
-        <CourseFeatureRow iconClassName='fa fa-key' title='Prerequisite' value='None' />
+        <CourseFeatureRow
+          title='Certification'
+          iconClassName='fa fa-certificate'
+          value={props.course.certification ? 'Yes' : 'No'}
+        />
+
         {props.course.language && (
           <CourseFeatureRow iconClassName='fa fa-language' title='Language' value={props.course.language} />
         )}
-        <CourseFeatureRow iconClassName='fa fa-thumbs-up' title='Skills' value='Any' />
-        <CourseFeatureRow iconClassName='fa fa-file-signature' title='Assessments' value='Yes' />
-        <CourseFeatureRow iconClassName='fa fa-eye' title='Viewers' value={`${props.course.likes}`} />
+        {props.course.viewers && (
+          <CourseFeatureRow iconClassName='fa fa-eye' title='Viewers' value={`${props.course.viewers}`} />
+        )}
       </div>
       <img className='img-dotes img-fluid' src={dotes} alt='dots' />
     </div>

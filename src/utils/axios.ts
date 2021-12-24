@@ -24,6 +24,9 @@ export const instance = (): AxiosInstance => {
         case 401:
           warningToast('🔑 permissions denied');
           break;
+        case 422:
+          errorToast('📌 validation denied');
+          break;
         default:
           errorToast('🧯 something went wrong');
       }

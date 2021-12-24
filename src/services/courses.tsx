@@ -2,9 +2,9 @@ import { instance } from 'utils/axios';
 import { PaginatedResponse, SuccessResponse } from 'data/shared/Response';
 import { CourseModel, courseFromMap } from 'data/models/CourseModel';
 
-export const fetchCourses = async () =>
+export const fetchCourses = async (scope?: string) =>
   await instance()
-    .get('courses')
+    .get(`courses?scope=${scope ?? ''}`)
     .then((res): PaginatedResponse<CourseModel> => {
       res.data.body.items = res.data.body.items.map((e: any) => courseFromMap(e));
       return res.data.body;

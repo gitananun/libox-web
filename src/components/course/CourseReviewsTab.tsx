@@ -10,7 +10,7 @@ const CourseReviewsTab = (props: CourseModelPropsInterface) => {
         <div className='col-6'>
           <p className='review-score'>{props.course.rating}</p>
           <ReviewStars className='review-star-lg' rating={props.course.rating} />
-          <p>8 Ratings</p>
+          <p>{props.course.likes} Likes</p>
         </div>
         <div className='col-6' onMouseOver={mouseParallax}>
           <img className='img-fluid' src={reviewSvg} data-depth='0.8' alt='review' />

@@ -8,10 +8,11 @@ import CourseReviewsTab from './CourseReviewsTab';
 import CourseShare from './CourseShare';
 
 const CourseContent = (props: CourseModelPropsInterface) => {
+  console.log(props.course);
   return (
     <div className='col-12 col-lg-8'>
       <CourseHeader course={props.course} />
-      <CourseBanner />
+      <CourseBanner course={props.course} />
       <CourseNavTabs course={props.course} />
 
       <div className='tab-content'>
