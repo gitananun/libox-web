@@ -13,9 +13,9 @@ export interface CourseModel {
   createdAt: Date;
   lessons?: number;
   viewers?: number;
+  imageUrl: string;
   language?: string;
   lastUpdated: Date;
-  imageUrl?: string;
   description: string;
   certification: boolean;
   categories: CategoryModel[];

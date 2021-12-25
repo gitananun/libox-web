@@ -11,7 +11,7 @@ const CourseItem = (props: Props) => {
 
   return (
     <div className='card course-item'>
-      <img className='card-img-top' src='https://img-c.udemycdn.com/course/480x270/1035000_c1aa_6.jpg' alt='course' />
+      <img className='card-img-top' src={props.course.imageUrl} alt='course' />
       <div className='card-body'>
         <Link to={`/courses/${props.course.slug}`}>
           <h5 className='card-title'>{props.course.title}</h5>
