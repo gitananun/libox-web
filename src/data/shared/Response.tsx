@@ -1,4 +1,5 @@
 export interface SuccessResponse<T> {
+  success: boolean;
   body: T;
 }
 

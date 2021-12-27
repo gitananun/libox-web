@@ -20,6 +20,7 @@ const CourseItem = (props: Props) => {
           {props.course.instructors.length !== 0 && (
             <>
               {props.course.instructors[0].jobTitle} - <a href='#link'>{props.course.instructors[0].fullName} </a>
+              ...
             </>
           )}
         </p>
