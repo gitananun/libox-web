@@ -9,8 +9,12 @@ import AuthLayout from './layouts/AuthLayout';
 import Section from './layouts/Section';
 import { authRegister } from '../services/auth';
 import { setAccessToken } from 'utils/api';
+import { useSelector } from 'react-redux';
+import { RootState } from 'store/rootReducer';
 
 const Signup = () => {
+  const state = useSelector((state: RootState) => state);
+
   const onRegister = () => {
     authRegister({ name: 'Tigran', lastname: 'Muradyan', email: 'tig404208bk.ru', password: 'nartigani' }).then(
       (data) => data && setAccessToken(data.body.accessToken)
@@ -21,6 +25,7 @@ const Signup = () => {
     <AuthLayout>
       <Section className='col d-flex flex-column justify-content-center align-items-center'>
         <AuthBackButton to='/' />
+        {console.log(state.validation)}
         <AuthHeading title="Let's start from here" subtitle='Please enter your details' />
         <SignupFormInputs />
         <RoundedPrimaryButton title='Sign Up' className='mb-2' onClick={onRegister} />

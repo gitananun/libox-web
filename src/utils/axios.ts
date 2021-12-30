@@ -1,5 +1,7 @@
+import { rejectValidation } from './../store/Validation/validation.actions';
 import { infoToast, errorToast, warningToast } from './../components/shared/Toast';
 import axios, { AxiosInstance } from 'axios';
+import store from 'store/store';
 
 export class UnauthenticatedException extends Error {}
 export class InternalServerException extends Error {}
@@ -9,6 +11,8 @@ export const instance = (): AxiosInstance => {
   const instance = axios.create({
     baseURL: `${process.env.REACT_APP_API_BASE_URL}/api`,
   });
+
+  const { dispatch } = store;
 
   instance.interceptors.response.use(
     (response) => response,
@@ -25,6 +29,7 @@ export const instance = (): AxiosInstance => {
           warningToast('🔑 permissions denied');
           break;
         case 422:
+          dispatch(rejectValidation(error.response.data.errors));
           errorToast(`📌 ${error.response.data.message}`);
           break;
         default:
