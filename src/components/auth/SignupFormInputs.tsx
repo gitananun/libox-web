@@ -1,11 +1,51 @@
 import FormInput from 'components/form/FormInput';
+import { ValidationErrors } from 'components/interfaces/Shared';
 
-const SignupFormInputs = () => {
+interface Props {
+  errors: ValidationErrors;
+  nameRef: React.LegacyRef<HTMLInputElement>;
+  emailRef: React.LegacyRef<HTMLInputElement>;
+  lastnameRef: React.LegacyRef<HTMLInputElement>;
+  passwordRef: React.LegacyRef<HTMLInputElement>;
+}
+
+const SignupFormInputs = (props: Props) => {
   return (
     <>
-      <FormInput placeholder='libox@best.com' type='email' label='Email' />
-      <FormInput placeholder='password' type='password' label='Password' />
-      <FormInput placeholder='password' type='password' label='Confirm Password' />
+      <div className='row'>
+        <div className='col-6'>
+          <FormInput
+            type='text'
+            label='Name'
+            placeholder='Libox'
+            innerRef={props.nameRef}
+            error={props.errors?.name && props.errors.name[0]}
+          />
+        </div>
+        <div className='col-6'>
+          <FormInput
+            type='string'
+            label='Lastname'
+            placeholder='Armenyan'
+            innerRef={props.lastnameRef}
+            error={props.errors?.lastname && props.errors.lastname[0]}
+          />
+        </div>
+      </div>
+      <FormInput
+        type='email'
+        label='Email'
+        placeholder='libox@me.co'
+        innerRef={props.emailRef}
+        error={props.errors?.email && props.errors.email[0]}
+      />
+      <FormInput
+        type='password'
+        label='Password'
+        placeholder='password'
+        innerRef={props.passwordRef}
+        error={props.errors?.password && props.errors.password[0]}
+      />
     </>
   );
 };

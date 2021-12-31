@@ -5,8 +5,18 @@ import DashboardPasswordTab from 'components/dashboard/tabs/DashboardPasswordTab
 import DashboardSettingsModal from 'components/dashboard/DashboardSettingsModal';
 import NotificationsModal from 'components/shared/NotificationsModal';
 import DashboardLayout from './layouts/DashboardLayout';
+import { useEffect } from 'react';
+import { authSelf } from 'services/auth';
+import store from 'store/store';
+import { login } from 'store/Auth/auth.actions';
 
 const Dashboard = () => {
+  const { dispatch } = store;
+
+  useEffect(() => {
+    authSelf().then((data) => dispatch(login(data.body)));
+  }, [dispatch]);
+
   return (
     <DashboardLayout>
       <div className='container'>

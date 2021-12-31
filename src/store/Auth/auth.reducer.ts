@@ -1,26 +1,24 @@
-import { ValidationErrors } from './../../components/interfaces/Shared';
-import { REJECT, RESOLVE } from './validation.types';
+import { UserModel } from './../../data/models/UserModel';
 import { ReduxAction } from 'components/interfaces/Redux';
+import { LOGIN, LOGOUT } from './auth.types';
 
 interface StateInterface {
-  errors: ValidationErrors;
+  user?: UserModel;
 }
 
-const INITIAL_STATE: StateInterface = {
-  errors: {},
-};
+const INITIAL_STATE: StateInterface = {};
 
 const reducer = (state = INITIAL_STATE, action: ReduxAction): StateInterface => {
   switch (action.type) {
-    case REJECT:
+    case LOGIN:
       return {
         ...state,
-        errors: action.payload,
+        user: action.payload,
       };
-    case RESOLVE:
+    case LOGOUT:
       return {
         ...state,
-        errors: {},
+        user: undefined,
       };
     default:
       return state;

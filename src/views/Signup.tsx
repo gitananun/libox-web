@@ -8,27 +8,49 @@ import SocialButton from 'components/common/SocialButton';
 import AuthLayout from './layouts/AuthLayout';
 import Section from './layouts/Section';
 import { authRegister } from '../services/auth';
-import { setAccessToken } from 'utils/api';
+import { getAccessToken, setAccessToken } from 'utils/api';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/rootReducer';
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const state = useSelector((state: RootState) => state);
 
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const lastnameRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+
+  const navigate = useNavigate();
+
   const onRegister = () => {
-    authRegister({ name: 'Tigran', lastname: 'Muradyan', email: 'tig404208bk.ru', password: 'nartigani' }).then(
-      (data) => data && setAccessToken(data.body.accessToken)
-    );
+    authRegister({
+      name: nameRef.current?.value.trim(),
+      email: emailRef.current?.value.trim(),
+      lastname: lastnameRef.current?.value.trim(),
+      password: passwordRef.current?.value.trim(),
+    }).then((data) => {
+      data && setAccessToken(data.body.accessToken);
+      getAccessToken() && navigate('/dashboard');
+    });
   };
 
   return (
     <AuthLayout>
       <Section className='col d-flex flex-column justify-content-center align-items-center'>
         <AuthBackButton to='/' />
-        {console.log(state.validation)}
         <AuthHeading title="Let's start from here" subtitle='Please enter your details' />
-        <SignupFormInputs />
-        <RoundedPrimaryButton title='Sign Up' className='mb-2' onClick={onRegister} />
+        <div className='w-100'>
+          <SignupFormInputs
+            nameRef={nameRef}
+            emailRef={emailRef}
+            lastnameRef={lastnameRef}
+            passwordRef={passwordRef}
+            errors={state.validation.errors}
+          />
+          <RoundedPrimaryButton title='Sign Up' type='submit' className='mb-2' onClick={onRegister} />
+        </div>
         <SocialButton iconClassName='fab fa-google' className='btn-google mb-2' title='Sign Up with Google' />
         <SocialButton iconClassName='fab fa-github' className='btn-github' title='Sign Up with Github' />
         <AuthFormSuggestion text='Already registered?' to='/signin' linkText='Sign In' />

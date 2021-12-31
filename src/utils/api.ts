@@ -1,4 +1,3 @@
-export const onValidationRejected = (res: any) => {};
-
-export const setAccessToken = (token: string) => localStorage.setItem('access_token', token);
-export const getAccessToken = (): string | null => localStorage.getItem('access_token');
+export const setAccessToken = (token: string): void => localStorage.setItem('accessToken', token);
+export const getAccessToken = (): string | null => localStorage.getItem('accessToken');
+export const removeAccessToken = (): void => localStorage.removeItem('accessToken');

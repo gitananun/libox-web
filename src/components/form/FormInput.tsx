@@ -16,9 +16,12 @@ const FormInput = (props: InputPropsInterface) => {
         <input
           id={props.label}
           value={props.value}
+          ref={props.innerRef}
+          onBlur={props.onBlur}
+          onChange={props.onChange}
           placeholder={props.placeholder}
-          className='form-control form-input'
           type={obscure ? props.type : 'text'}
+          className={`form-control form-input ${props.error && 'border-danger'}`}
         />
         {props.type === 'password' && (
           <span
@@ -26,6 +29,7 @@ const FormInput = (props: InputPropsInterface) => {
             onClick={() => setObscure(!obscure)}
           ></span>
         )}
+        {props.error && <div className='invalid-feedback d-block'>{props.error}</div>}
       </div>
     </>
   );

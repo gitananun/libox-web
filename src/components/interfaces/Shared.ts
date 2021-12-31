@@ -1,3 +1,3 @@
-export interface ValidationError {
+export interface ValidationErrors {
   [error: string]: string[];
 }
