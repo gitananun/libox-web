@@ -8,13 +8,16 @@ import SocialButton from 'components/common/SocialButton';
 import { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { authLogin } from 'services/auth';
+import { authLogin, authSelf } from 'services/auth';
+import { loginAction } from 'store/Auth/auth.actions';
 import { RootState } from 'store/rootReducer';
-import { getAccessToken, setAccessToken } from 'utils/api';
+import store from 'store/store';
+import { getAccessToken, setAccessToken } from 'utils/shared';
 import AuthLayout from './layouts/AuthLayout';
 import Section from './layouts/Section';
 
 const Signin = () => {
+  const { dispatch } = store;
   const state = useSelector((state: RootState) => state);
 
   const emailRef = useRef<HTMLInputElement>(null);
@@ -28,7 +31,8 @@ const Signin = () => {
       password: passwordRef.current?.value.trim(),
     }).then((data) => {
       data && setAccessToken(data.body.accessToken);
-      getAccessToken() && navigate('/dashboard');
+      authSelf().then((data) => dispatch(loginAction(data.body)));
+      getAccessToken() && navigate('/');
     });
   };
 

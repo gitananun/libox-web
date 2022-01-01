@@ -1,4 +1,4 @@
-import { getAccessToken } from './api';
+import { getAccessToken } from './shared';
 import { rejectValidationAction, resolveValidationAction } from './../store/Validation/validation.actions';
 import { infoToast, errorToast, warningToast } from './../components/shared/Toast';
 import axios, { AxiosInstance } from 'axios';

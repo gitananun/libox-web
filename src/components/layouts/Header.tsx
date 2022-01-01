@@ -1,9 +1,13 @@
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { RootState } from 'store/rootReducer';
 import IconRow from '../common/IconRow';
 import OutlinedButton from '../common/OutlinedButton';
 import PrimaryButton from '../common/PrimaryButton';
 
 const Header = () => {
+  const user = useSelector((state: RootState) => state.auth.user);
+
   return (
     <div className='border-bottom' id='header'>
       <div className='container'>
@@ -22,12 +26,20 @@ const Header = () => {
               </IconRow>
             </div>
             <div className='col-sm-6 col-lg-8 d-flex justify-content-center justify-content-md-end align-items-center'>
-              <Link to='/signup'>
-                <OutlinedButton title='sign up' className='border-top-0 border-bottom-0' />
-              </Link>
-              <Link to='/signin'>
-                <PrimaryButton title='log in' />
-              </Link>
+              {!user ? (
+                <>
+                  <Link to='/signup'>
+                    <OutlinedButton title='sign up' className='border-top-0 border-bottom-0' />
+                  </Link>
+                  <Link to='/signin'>
+                    <PrimaryButton title='log in' />
+                  </Link>
+                </>
+              ) : (
+                <Link to='/dashboard'>
+                  <OutlinedButton title='my dashboard' className='border-top-0 border-bottom-0' />
+                </Link>
+              )}
             </div>
           </div>
         </header>

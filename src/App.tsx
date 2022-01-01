@@ -9,18 +9,38 @@ import Course from 'views/Course';
 import Courses from 'views/Courses';
 import Dashboard from 'views/Dashboard';
 import AdminDashboard from 'views/AdminDashboard';
+import { isAuthenticated } from 'utils/shared';
+import store from 'store/store';
+import { useEffect } from 'react';
+import { authSelf } from 'services/auth';
+import { loginAction } from 'store/Auth/auth.actions';
+import { useSelector } from 'react-redux';
+import { RootState } from 'store/rootReducer';
 
 const App = () => {
+  const { dispatch } = store;
+  const user = useSelector((state: RootState) => state.auth.user);
+
+  useEffect(() => {
+    isAuthenticated() && authSelf().then((data) => dispatch(loginAction(data.body)));
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route path='/' element={<Index />} />
 
-      <Route path='/dashboard' element={<Dashboard />} />
-      <Route path='/dashboard/courses' element={<Courses dashboard={true} />} />
-
-      <Route path='/signup' element={<Signup />} />
-      <Route path='/signin' element={<Signin />} />
-      <Route path='/forgot-password' element={<ForgotPassword />} />
+      {user ? (
+        <>
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/dashboard/courses' element={<Courses dashboard={true} />} />
+        </>
+      ) : (
+        <>
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/signin' element={<Signin />} />
+          <Route path='/forgot-password' element={<ForgotPassword />} />
+        </>
+      )}
 
       <Route path='/courses' element={<Courses />} />
       <Route path='/courses/:slug' element={<Course />} />

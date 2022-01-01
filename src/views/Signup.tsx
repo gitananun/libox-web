@@ -8,7 +8,7 @@ import SocialButton from 'components/common/SocialButton';
 import AuthLayout from './layouts/AuthLayout';
 import Section from './layouts/Section';
 import { authRegister } from '../services/auth';
-import { getAccessToken, setAccessToken } from 'utils/api';
+import { getAccessToken, setAccessToken } from 'utils/shared';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/rootReducer';
 import { useRef } from 'react';
