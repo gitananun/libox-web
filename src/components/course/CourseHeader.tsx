@@ -7,7 +7,6 @@ import CourseInstructor from './CourseInstructor';
 const CourseHeader = () => {
   const course = useSelector((state: RootState) => state.course.course);
 
-  console.log(course);
   return (
     <div className='course-header'>
       <h2 className='title mb-4'>{course.title}</h2>
