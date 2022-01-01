@@ -1,5 +1,6 @@
 import SectionTitle from 'components/common/SectionTitle';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { RootState } from 'store/rootReducer';
 
 const IndexCategories = () => {
@@ -23,7 +24,9 @@ const IndexCategories = () => {
             <div className='category-single col-10 col-md-4 col-lg-3' key={c.id}>
               <img src={images[i]} alt='category' />
               <div className='category-name blur-container-light'>
-                <h3>{c.name}</h3>
+                <Link to={`/categories/${c.slug}`} className='text-light'>
+                  <h3>{c.name}</h3>
+                </Link>
               </div>
             </div>
           ))}
