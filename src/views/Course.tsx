@@ -1,26 +1,25 @@
 import CourseContent from 'components/course/CourseContent';
 import CourseSidebar from 'components/course/CourseSidebar';
-import { CourseModel } from 'data/models/CourseModel';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { fetchCourse, fetchCourses } from 'services/courses';
 import { fetchCourseAction } from 'store/Course/course.actions';
+import { fetchPopularCoursesAction } from 'store/Courses/courses.actions';
 import { RootState } from 'store/rootReducer';
 import store from 'store/store';
 import Layout from './layouts/Layout';
 
 const Course = () => {
-  const { dispatch } = store;
-  const state = useSelector((state: RootState) => state);
-
   let { slug } = useParams();
-  const [courses, setCourses] = useState<CourseModel[]>([]);
+
+  const { dispatch } = store;
+  const course = useSelector((state: RootState) => state.course.course);
 
   useEffect(() => {
     if (slug) {
-      fetchCourse(slug).then((c) => dispatch(fetchCourseAction(c.body)));
-      fetchCourses('popular').then((c) => setCourses(c.items));
+      fetchCourse(slug).then((data) => dispatch(fetchCourseAction(data.body)));
+      fetchCourses('popular').then((data) => dispatch(fetchPopularCoursesAction(data.items)));
     }
   }, [slug, dispatch]);
 
@@ -29,10 +28,10 @@ const Course = () => {
       <div className='course-details'>
         <div className='container wrapper'>
           <div className='row m-0'>
-            {state.course.course && (
+            {course && (
               <>
                 <CourseContent />
-                <CourseSidebar courses={courses} />
+                <CourseSidebar />
               </>
             )}
           </div>
