@@ -1,6 +1,9 @@
-import { CourseModelPropsInterface } from 'components/interfaces/Props';
+import { useSelector } from 'react-redux';
+import { RootState } from 'store/rootReducer';
 
-const CourseNavTabs = (props: CourseModelPropsInterface) => {
+const CourseNavTabs = () => {
+  const course = useSelector((state: RootState) => state.course.course);
+
   return (
     <div className='course-details-nav-wrapper'>
       <ul className='nav nav-tabs' role='tablist'>
@@ -9,7 +12,7 @@ const CourseNavTabs = (props: CourseModelPropsInterface) => {
             Information
           </a>
         </li>
-        {props.course.instructors.length !== 0 && (
+        {course.instructors?.length !== 0 && (
           <li className='nav-item'>
             <a className='nav-link' href='#instructor' role='tab' data-toggle='tab'>
               Instructors

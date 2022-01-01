@@ -1,21 +1,24 @@
-import { CourseModelPropsInterface } from 'components/interfaces/Props';
+import { useSelector } from 'react-redux';
+import { RootState } from 'store/rootReducer';
 
-const CourseInfoTab = (props: CourseModelPropsInterface) => {
+const CourseInfoTab = () => {
+  const course = useSelector((state: RootState) => state.course.course);
+
   return (
     <div id='information' className='tab-pane in active'>
-      {props.course.categories.length !== 0 && (
+      {course.categories?.length !== 0 && (
         <div className='tab-section d-flex'>
-          {props.course.categories.map((c, i) => (
+          {course.categories?.map((c, i) => (
             <div key={c.id}>
               <small className='text-primary'>{c.name}</small>
-              {props.course.categories.length - 1 !== i && <span className='text-secondary mx-2'>/</span>}
+              {course.categories!.length - 1 !== i && <span className='text-secondary mx-2'>/</span>}
             </div>
           ))}
         </div>
       )}
       <div className='tab-section'>
         <h3 className='title'>Course Description</h3>
-        <p className='text-secondary'>{props.course.description}</p>
+        <p className='text-secondary'>{course.description}</p>
       </div>
       <div className='tab-section'>
         <h3 className='title'>Our Objectives</h3>

@@ -1,10 +1,14 @@
-import { CourseModelPropsInterface } from 'components/interfaces/Props';
+import { useSelector } from 'react-redux';
+import { RootState } from 'store/rootReducer';
 
-const CourseBanner = (props: CourseModelPropsInterface) =>
-  props.course.imageUrl ? (
-    <img alt='course-banner' className='img-fluid course-banner' src={props.course.imageUrl} />
+const CourseBanner = () => {
+  const course = useSelector((state: RootState) => state.course.course);
+
+  return course.imageUrl ? (
+    <img alt='course-banner' className='img-fluid course-banner' src={course.imageUrl} />
   ) : (
     <></>
   );
+};
 
 export default CourseBanner;

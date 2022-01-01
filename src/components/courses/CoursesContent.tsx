@@ -1,7 +1,11 @@
-import { CourseModelPropsInterface } from 'components/interfaces/Props';
 import CourseItem from 'components/shared/CourseItem';
+import { CourseModel } from 'data/models/CourseModel';
 
-const CoursesContent = (props: CourseModelPropsInterface) => {
+interface Props {
+  course: CourseModel;
+}
+
+const CoursesContent = (props: Props) => {
   const images = [
     'https://img-c.udemycdn.com/course/480x270/4427730_5388.jpg',
     'https://img-c.udemycdn.com/course/480x270/3604434_7884_3.jpg',

@@ -1,32 +1,31 @@
 import CourseFeatureRow from './CourseFeatureRow';
 import dotes from 'assets/images/dotes.png';
 import CourseSidebarSectionTitle from './CourseSidebarSectionTitle';
-import { CourseModelPropsInterface } from 'components/interfaces/Props';
+import { useSelector } from 'react-redux';
+import { RootState } from 'store/rootReducer';
 
-const CourseFeatures = (props: CourseModelPropsInterface) => {
+const CourseFeatures = () => {
+  const course = useSelector((state: RootState) => state.course.course);
+
   return (
     <div className='course-features'>
       <div className='content-container text-light'>
         <CourseSidebarSectionTitle title='Course Features' />
         <hr className='mt-2 mb-4' />
-        {props.course.lessons && (
-          <CourseFeatureRow iconClassName='fa fa-file-invoice' title='Lessons' value={`${props.course.lessons}`} />
+        {course.lessons && (
+          <CourseFeatureRow iconClassName='fa fa-file-invoice' title='Lessons' value={`${course.lessons}`} />
         )}
-        {props.course.length && (
-          <CourseFeatureRow iconClassName='fa fa-clock' title='Duration' value={`${props.course.length}`} />
-        )}
+        {course.length && <CourseFeatureRow iconClassName='fa fa-clock' title='Duration' value={`${course.length}`} />}
         <CourseFeatureRow
           title='Certification'
           iconClassName='fa fa-certificate'
-          value={props.course.certification ? 'Yes' : 'No'}
+          value={course.certification ? 'Yes' : 'No'}
         />
 
-        {props.course.language && (
-          <CourseFeatureRow iconClassName='fa fa-language' title='Language' value={props.course.language} />
+        {course.language && (
+          <CourseFeatureRow iconClassName='fa fa-language' title='Language' value={course.language} />
         )}
-        {props.course.viewers && (
-          <CourseFeatureRow iconClassName='fa fa-eye' title='Viewers' value={`${props.course.viewers}`} />
-        )}
+        {course.viewers && <CourseFeatureRow iconClassName='fa fa-eye' title='Viewers' value={`${course.viewers}`} />}
       </div>
       <img className='img-dotes img-fluid' src={dotes} alt='dots' />
     </div>

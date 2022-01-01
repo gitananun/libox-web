@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 
-import validationReducer from '../store/Validation/validation.reducer';
 import authReducer from '../store/Auth/auth.reducer';
+import courseReducer from '../store/Course/course.reducer';
+import validationReducer from '../store/Validation/validation.reducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
+  course: courseReducer,
   validation: validationReducer,
 });
 

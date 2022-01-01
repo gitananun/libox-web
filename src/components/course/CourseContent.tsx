@@ -1,4 +1,3 @@
-import { CourseModelPropsInterface } from 'components/interfaces/Props';
 import CourseBanner from './CourseBanner';
 import CourseHeader from './CourseHeader';
 import CourseInfoTab from './CourseInfoTab';
@@ -7,18 +6,17 @@ import CourseNavTabs from './CourseNavTabs';
 import CourseReviewsTab from './CourseReviewsTab';
 import CourseShare from './CourseShare';
 
-const CourseContent = (props: CourseModelPropsInterface) => {
-  console.log(props.course);
+const CourseContent = () => {
   return (
     <div className='col-12 col-lg-8'>
-      <CourseHeader course={props.course} />
-      <CourseBanner course={props.course} />
-      <CourseNavTabs course={props.course} />
+      <CourseHeader />
+      <CourseBanner />
+      <CourseNavTabs />
 
       <div className='tab-content'>
-        <CourseInfoTab course={props.course} />
-        <CourseInstructorTab course={props.course} />
-        <CourseReviewsTab course={props.course} />
+        <CourseInfoTab />
+        <CourseInstructorTab />
+        <CourseReviewsTab />
       </div>
 
       <CourseShare />

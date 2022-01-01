@@ -1,4 +1,3 @@
-import { CourseModel } from 'data/models/CourseModel';
 import { MouseEventHandler } from 'react';
 
 export interface ClassNameInterface {
@@ -22,8 +21,4 @@ export interface InputPropsInterface {
   innerRef?: React.LegacyRef<HTMLInputElement>;
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
-}
-
-export interface CourseModelPropsInterface {
-  course: CourseModel;
 }
