@@ -7,7 +7,7 @@ const ScrollTopBtn = () => {
     window.addEventListener('scroll', () =>
       document.documentElement.scrollTop > 300 ? setVisible(true) : setVisible(false)
     );
-    return () => setVisible(false);
+    return () => window.removeEventListener('scroll', () => {});
   }, []);
 
   return (

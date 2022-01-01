@@ -11,8 +11,8 @@ import store from 'store/store';
 import Layout from './layouts/Layout';
 
 const Course = () => {
-  const state = useSelector((state: RootState) => state);
   const { dispatch } = store;
+  const state = useSelector((state: RootState) => state);
 
   let { slug } = useParams();
   const [courses, setCourses] = useState<CourseModel[]>([]);

@@ -1,2 +1,2 @@
-export const REJECT = 'REJECT';
-export const RESOLVE = 'RESOLVE';
+export const VALIDATION_REJECT = 'VALIDATION_REJECT';
+export const VALIDATION_RESOLVE = 'VALIDATION_RESOLVE';

@@ -1,8 +1,8 @@
 import { CourseModel } from './../../data/models/CourseModel';
 import { ReduxAction } from '../../components/interfaces/Redux';
-import { FETCH } from './course.types';
+import { FETCH_COURSE } from './course.types';
 
 export const fetchCourseAction = (course: CourseModel): ReduxAction => ({
-  type: FETCH,
+  type: FETCH_COURSE,
   payload: course,
 });

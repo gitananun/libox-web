@@ -1,26 +1,21 @@
-import { ValidationErrors } from './../../components/interfaces/Shared';
-import { VALIDATION_REJECT, VALIDATION_RESOLVE } from './validation.types';
+import { CourseModel } from './../../data/models/CourseModel';
 import { ReduxAction } from 'components/interfaces/Redux';
+import { FETCH_COURSES } from './courses.types';
 
 interface StateInterface {
-  errors: ValidationErrors;
+  courses: CourseModel[];
 }
 
 const INITIAL_STATE: StateInterface = {
-  errors: {},
+  courses: [],
 };
 
 const reducer = (state = INITIAL_STATE, action: ReduxAction): StateInterface => {
   switch (action.type) {
-    case VALIDATION_REJECT:
+    case FETCH_COURSES:
       return {
         ...state,
-        errors: action.payload,
-      };
-    case VALIDATION_RESOLVE:
-      return {
-        ...state,
-        errors: {},
+        courses: action.payload,
       };
     default:
       return state;
