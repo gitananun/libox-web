@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { fetchCourse, fetchCourses } from 'services/courses';
-import { fetch } from 'store/Course/course.actions';
+import { fetchCourseAction } from 'store/Course/course.actions';
 import { RootState } from 'store/rootReducer';
 import store from 'store/store';
 import Layout from './layouts/Layout';
@@ -19,7 +19,7 @@ const Course = () => {
 
   useEffect(() => {
     if (slug) {
-      fetchCourse(slug).then((c) => dispatch(fetch(c.body)));
+      fetchCourse(slug).then((c) => dispatch(fetchCourseAction(c.body)));
       fetchCourses('popular').then((c) => setCourses(c.items));
     }
   }, [slug, dispatch]);

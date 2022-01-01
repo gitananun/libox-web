@@ -2,11 +2,11 @@ import { UserModel } from './../../data/models/UserModel';
 import { ReduxAction } from '../../components/interfaces/Redux';
 import { LOGIN, LOGOUT } from './auth.types';
 
-export const login = (user: UserModel): ReduxAction => ({
+export const loginAction = (user: UserModel): ReduxAction => ({
   type: LOGIN,
   payload: user,
 });
 
-export const logout = (): ReduxAction => ({
+export const logoutAction = (): ReduxAction => ({
   type: LOGOUT,
 });
