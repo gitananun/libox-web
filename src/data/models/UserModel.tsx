@@ -7,6 +7,7 @@ export interface UserModel {
   dateOfBirth?: Date;
   emailVerifiedAt: Date;
   createdAt: Date;
+  fullName: string;
 }
 
 export const userFromMap = (map: any): UserModel => {
@@ -19,5 +20,6 @@ export const userFromMap = (map: any): UserModel => {
     dateOfBirth: map['date_of_birth'],
     emailVerifiedAt: map['email_verified_at'],
     createdAt: map['createdAt'],
+    fullName: map['name'] + ' ' + map['lastname'],
   };
 };

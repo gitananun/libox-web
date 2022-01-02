@@ -1,4 +1,4 @@
-import { getAccessToken } from './shared';
+import { getAccessToken, removeAccessToken } from './shared';
 import { rejectValidationAction, resolveValidationAction } from './../store/Validation/validation.actions';
 import { infoToast, errorToast, warningToast } from './../components/shared/Toast';
 import axios, { AxiosInstance } from 'axios';
@@ -35,7 +35,7 @@ export const instance = (args?: Instance): AxiosInstance => {
           window.location.replace('/not-found');
           break;
         case 401:
-          window.location.replace('/signin');
+          removeAccessToken();
           dispatch(resolveValidationAction());
           warningToast(`🔑 ${error.response.data.message}`);
           break;
