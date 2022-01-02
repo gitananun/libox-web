@@ -1,8 +1,12 @@
 import OutlinedButton from 'components/common/OutlinedButton';
 import RoundedPrimaryButton from 'components/common/RoundedPrimaryButton';
 import FormInput from 'components/form/FormInput';
+import { useSelector } from 'react-redux';
+import { RootState } from 'store/rootReducer';
 
 const DashboardPasswordTab = () => {
+  const user = useSelector((state: RootState) => state.auth.user!);
+
   return (
     <div id='password' className='tab-pane'>
       <p className='title'>Password</p>
@@ -25,7 +29,7 @@ const DashboardPasswordTab = () => {
               </div>
             </div>
             <div className='row'>
-              <FormInput label='Email' placeholder='libox@best.io' value='jennica@libox.io' />
+              <FormInput label='Email' placeholder='libox@best.io' defaultValue={user.email} readOnly={true} />
             </div>
             <div className='row mt-5 mb-0'>
               <div className='col'>

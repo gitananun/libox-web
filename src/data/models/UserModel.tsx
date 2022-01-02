@@ -2,7 +2,7 @@ export interface UserModel {
   id: number;
   name?: string;
   lastname?: string;
-  email: number;
+  email: string;
   role?: number;
   dateOfBirth?: Date;
   emailVerifiedAt: Date;

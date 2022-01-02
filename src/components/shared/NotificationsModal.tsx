@@ -8,8 +8,8 @@ const NotificationsModal = () => {
       title='Notifications'
       footerChildren={<p className='footer-text'>View all notifications</p>}
     >
-      {[1, 2, 3, 4].map(() => (
-        <NotificationItem />
+      {[1, 2, 3, 4].map((i) => (
+        <NotificationItem key={i} />
       ))}
     </Modal>
   );

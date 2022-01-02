@@ -15,8 +15,10 @@ export interface InputPropsInterface {
   label?: string;
   value?: string;
   search?: boolean;
+  readOnly?: boolean;
   className?: string;
   placeholder?: string;
+  defaultValue?: string;
   type?: React.HTMLInputTypeAttribute;
   innerRef?: React.LegacyRef<HTMLInputElement>;
   onBlur?: React.FocusEventHandler<HTMLInputElement>;

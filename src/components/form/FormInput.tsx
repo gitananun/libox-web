@@ -14,12 +14,14 @@ const FormInput = (props: InputPropsInterface) => {
       <div className={`input-group input-group-lg ${props.search ? 'search-input' : ''} ${props.className ?? ''}`}>
         <span className={props.search ? 'fa fa-search text-secondary' : ''}></span>
         <input
+          readOnly={props.readOnly || false}
           id={props.label}
           value={props.value}
           ref={props.innerRef}
           onBlur={props.onBlur}
           onChange={props.onChange}
           placeholder={props.placeholder}
+          defaultValue={props.defaultValue}
           type={obscure ? props.type : 'text'}
           className={`form-control form-input ${props.error && 'border-danger'}`}
         />
