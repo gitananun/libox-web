@@ -1,6 +1,6 @@
 import { NotificationModel } from './../../data/models/NotificationModel';
 import { ReduxAction } from 'components/interfaces/Redux';
-import { FETCH_NOTIFICATIONS, READ_NOTIFICATION } from './notifications.types';
+import { FETCH_NOTIFICATIONS, READ_NOTIFICATION, READ_NOTIFICATIONS } from './notifications.types';
 
 interface StateInterface {
   notifications: NotificationModel[];
@@ -20,6 +20,12 @@ const reducer = (state = INITIAL_STATE, action: ReduxAction): StateInterface => 
     case READ_NOTIFICATION:
       const notificationIndex = state.notifications.findIndex((c) => c.id === action.payload);
       state.notifications[notificationIndex].readAt = new Date(Date.now());
+      return {
+        ...state,
+        notifications: state.notifications,
+      };
+    case READ_NOTIFICATIONS:
+      state.notifications.forEach((n) => (n.readAt = new Date(Date.now())));
       return {
         ...state,
         notifications: state.notifications,

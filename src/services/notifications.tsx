@@ -14,6 +14,12 @@ export const readNotification = async (id: string) =>
   await instance({ auth: true })
     .get(`auth/users/notifications/${id}`)
     .then((res): SuccessResponse<string> => {
-      console.log(res.data.body);
+      return res.data;
+    });
+
+export const readNotifications = async () =>
+  await instance({ auth: true })
+    .put('auth/users/notifications')
+    .then((res): SuccessResponse<string> => {
       return res.data;
     });

@@ -9,7 +9,7 @@ const PaginationNav = () => {
           </a>
         </li>
         {[1, 2, 3, 4, 5].map((page) => (
-          <li className='page-item'>
+          <li className='page-item' key={page}>
             <a className='page-link' href='#as'>
               {page}
             </a>
