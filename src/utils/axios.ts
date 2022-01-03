@@ -40,6 +40,7 @@ export const instance = (args?: Instance): AxiosInstance => {
           break;
         case 422:
           dispatch(rejectValidationAction(error.response.data.errors));
+          warningToast(`🔑 ${error.response.data.message}`);
           break;
         default:
           errorToast('🧯 something went wrong');

@@ -25,7 +25,7 @@ const FormInput = (props: InputPropsInterface) => {
           type={obscure ? props.type : 'text'}
           className={`form-control form-input ${props.error && 'border-danger'}`}
         />
-        {props.type === 'password' && (
+        {props.type === 'password' && !props.withoutObscure && (
           <span
             className={`input-suffix text-secondary fa fa-eye${!obscure ? '-slash' : ''}`}
             onClick={() => setObscure(!obscure)}

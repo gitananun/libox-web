@@ -16,6 +16,17 @@ export interface AuthLoginParams {
   password?: string;
 }
 
+export interface AuthForgotPasswordParams {
+  email: string;
+}
+
+export interface AuthResetPasswordParams {
+  token: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
 export const authRegister = async (params: AuthRegisterParams) =>
   await instance()
     .post('auth/register', params)
@@ -37,5 +48,22 @@ export const authSelf = async () =>
     .get('auth/self')
     .then((res): SuccessResponse<UserModel> => {
       res.data.body = userFromMap(res.data.body);
+      return res.data;
+    });
+
+export const authForgotPassword = async (params: AuthForgotPasswordParams) =>
+  await instance()
+    .post('auth/forgot-password', params)
+    .then((res): SuccessResponse<string> => {
+      return res.data;
+    });
+
+export const authResetPassword = async (params: AuthResetPasswordParams) =>
+  await instance()
+    .post(`auth/reset-password?token=${params.token}`, {
+      ...params,
+      password_confirmation: params.confirmPassword,
+    })
+    .then((res): SuccessResponse<string> => {
       return res.data;
     });
