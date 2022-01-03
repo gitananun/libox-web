@@ -32,7 +32,6 @@ export const instance = (args?: Instance): AxiosInstance => {
           break;
         case 404:
           infoToast('📡 something not found detected');
-          window.location.replace('/not-found');
           break;
         case 401:
           removeAccessToken();

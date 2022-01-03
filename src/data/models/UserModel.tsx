@@ -19,7 +19,7 @@ export const userFromMap = (map: any): UserModel => {
     role: map['role'],
     dateOfBirth: map['date_of_birth'],
     emailVerifiedAt: map['email_verified_at'],
-    createdAt: map['createdAt'],
+    createdAt: map['created_at'],
     fullName: map['name'] + ' ' + map['lastname'],
   };
 };

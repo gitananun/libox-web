@@ -5,6 +5,7 @@ import courseReducer from '../store/Course/course.reducer';
 import coursesReducer from '../store/Courses/courses.reducer';
 import categoriesReducer from '../store/Categories/categories.reducer';
 import validationReducer from '../store/Validation/validation.reducer';
+import notificationsReducer from '../store/Notifications/notifications.reducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   courses: coursesReducer,
   categories: categoriesReducer,
   validation: validationReducer,
+  notifications: notificationsReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

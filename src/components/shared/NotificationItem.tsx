@@ -1,23 +1,35 @@
 import CircularIcon from 'components/common/CircularIcon';
+import { NotificationModel } from 'data/models/NotificationModel';
 
-const NotificationItem = () => {
+interface Props {
+  notification: NotificationModel;
+  onRead: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+const NotificationItem = (props: Props) => {
   return (
     <div className='notification'>
       <div className='row'>
         <div className='col-8'>
           <div className='row'>
-            <div className='col-1'>
-              <span className='indicator'></span>
-            </div>
+            {!props.notification.readAt && (
+              <div className='col-1'>
+                <span className='indicator'></span>
+              </div>
+            )}
             <div className='col'>
-              <p className='text'>Your password has been changed successfully.</p>
-              <p className='timestamp'>Jul 23, 2021 at 09:15 AM</p>
+              <p className='text'>{props.notification.title}</p>
+              <p className='timestamp'>{new Date(props.notification.createdAt).toUTCString()}</p>
             </div>
           </div>
         </div>
-        <div className='col-4 d-flex align-items-center justify-content-end'>
-          <CircularIcon iconClassName='fal fa-lock' />
-        </div>
+        {!props.notification.readAt && (
+          <div className='col-4 d-flex align-items-center justify-content-end'>
+            <button onClick={props.onRead} className='btn'>
+              <CircularIcon iconClassName='fal fa-eye' />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
