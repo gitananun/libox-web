@@ -11,7 +11,7 @@ import store from 'store/store';
 import Layout from './layouts/Layout';
 
 const Course = () => {
-  let { slug } = useParams();
+  const { slug } = useParams();
 
   const { dispatch } = store;
   const course = useSelector((state: RootState) => state.course.course);

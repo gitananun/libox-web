@@ -1,13 +1,14 @@
 interface Props {
-  options?: string[];
+  options?: { title: any; value: any }[];
+  innerRef?: React.LegacyRef<HTMLSelectElement>;
 }
 
 const FormSelect = (props: Props) => {
   return (
-    <select className='form-select text-center form-select-lg'>
-      {props.options?.map((option) => (
-        <option key={option} value={option}>
-          {option}
+    <select className='form-select text-center form-select-lg' ref={props.innerRef}>
+      {props.options?.map((o) => (
+        <option key={o.value} value={o.value}>
+          {o.title}
         </option>
       ))}
     </select>

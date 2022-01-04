@@ -15,6 +15,7 @@ export interface InputPropsInterface {
   label?: string;
   value?: string;
   search?: boolean;
+  required?: boolean;
   readOnly?: boolean;
   className?: string;
   placeholder?: string;
