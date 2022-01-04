@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { copyToClipboard } from 'utils/shared';
 import CoursesHeadingTopCategories from './CoursesHeadingTopCategories';
 import CoursesSearch from './CoursesSearch';
 
@@ -10,6 +12,7 @@ interface Props {
 }
 
 const CoursesHeader = (props: Props) => {
+  const navigate = useNavigate();
   const [showSearch, setShowSearch] = useState(false);
 
   return (
@@ -20,7 +23,7 @@ const CoursesHeader = (props: Props) => {
       <div className='row d-flex justify-content-between align-items-center courses-navbar mb-4'>
         <div className='col filtering'>
           <i
-            className={`fa fa-search icon ${showSearch && 'text-primary'}`}
+            className={`fal fa-search icon ${showSearch && 'text-primary'}`}
             onClick={() => setShowSearch(!showSearch)}
           ></i>
           <i className='fal fa-filter icon'></i>
@@ -28,9 +31,13 @@ const CoursesHeader = (props: Props) => {
         <div className='col d-flex justify-content-center categories'>
           <CoursesHeadingTopCategories />
         </div>
-        <div className='col d-flex justify-content-lg-end  sorting'>
-          <p className='sort-type'>Recency</p>
-          <p className='sort-type'>Alphabetically</p>
+        <div className='col d-flex justify-content-lg-end shareing'>
+          <p className='share-type'>
+            <i className='fal fa-redo' onClick={() => navigate('/courses')}></i>
+          </p>
+          <p className='share-type'>
+            <i className='fal fa-copy' onClick={() => copyToClipboard(window.location.href)}></i>
+          </p>
         </div>
       </div>
       {showSearch && (

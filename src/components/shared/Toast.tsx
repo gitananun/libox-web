@@ -12,4 +12,5 @@ const config: ToastOptions<{}> = {
 
 export const infoToast = (msg: string) => toast.info(msg, config);
 export const errorToast = (msg: string) => toast.error(msg, config);
+export const successToast = (msg: string) => toast.success(msg, config);
 export const warningToast = (msg: string) => toast.warning(msg, config);
