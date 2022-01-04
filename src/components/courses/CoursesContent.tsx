@@ -8,12 +8,9 @@ interface Props {
 const CoursesContent = (props: Props) => {
   return (
     <div className='courses-content'>
-      <div className='row d-flex justify-content-between align-items-center mt-4'>
+      <div className='row d-flex justify-content-start align-items-center mt-4'>
         {props.courses.map((c) => (
-          <div
-            key={c.id}
-            className='col-12 col-sm-6 col-md-6 col-lg-4 d-flex justify-content-center align-items-center courses-single'
-          >
+          <div key={c.id} className='col-4 align-items-center courses-single'>
             <CourseItem course={c} />
           </div>
         ))}

@@ -1,11 +1,8 @@
-interface Props {
-  options?: { title: any; value: any }[];
-  innerRef?: React.LegacyRef<HTMLSelectElement>;
-}
+import { SelectPropsInterface } from 'components/interfaces/Props';
 
-const FormSelect = (props: Props) => {
+const FormSelect = (props: SelectPropsInterface) => {
   return (
-    <select className='form-select text-center form-select-lg' ref={props.innerRef}>
+    <select className='form-select text-center form-select-lg' ref={props.innerRef} defaultValue={props.defaultValue}>
       {props.options?.map((o) => (
         <option key={o.value} value={o.value}>
           {o.title}

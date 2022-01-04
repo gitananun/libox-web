@@ -30,14 +30,12 @@ const Index = () => {
   const onSearch = () => {
     const value = titleRef.current?.value.trim();
 
-    if (value) {
-      searchCourses({ title: value, category: categoryRef.current?.value }).then((data) => {
-        dispatch(fetchCoursesAction(data.items));
-        navigate(`/courses/search/${value}?category=${categoryRef.current?.value}`);
-      });
-    } else {
-      infoToast('Please search with valid keyword');
-    }
+    value
+      ? searchCourses({ title: value, category: categoryRef.current?.value }).then((data) => {
+          dispatch(fetchCoursesAction(data.items));
+          navigate(`/courses/search/${value}?category=${categoryRef.current?.value}`);
+        })
+      : infoToast('Please search with valid keyword');
   };
 
   return (

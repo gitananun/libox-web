@@ -4,6 +4,9 @@ import CoursesSearch from './CoursesSearch';
 
 interface Props {
   title?: string;
+  onSearch: React.MouseEventHandler<HTMLButtonElement>;
+  titleRef: React.LegacyRef<HTMLInputElement>;
+  categoryRef: React.LegacyRef<HTMLSelectElement>;
 }
 
 const CoursesHeader = (props: Props) => {
@@ -32,7 +35,7 @@ const CoursesHeader = (props: Props) => {
       </div>
       {showSearch && (
         <div className='courses-search d-flex align-items-center justify-content-center'>
-          <CoursesSearch />
+          <CoursesSearch onSearch={props.onSearch} titleRef={props.titleRef} categoryRef={props.categoryRef} />
         </div>
       )}
     </div>

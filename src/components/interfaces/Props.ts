@@ -26,3 +26,9 @@ export interface InputPropsInterface {
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
+
+export interface SelectPropsInterface {
+  options?: { title: any; value: any }[];
+  innerRef?: React.LegacyRef<HTMLSelectElement>;
+  defaultValue?: string | number | readonly string[] | undefined;
+}
