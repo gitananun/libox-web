@@ -3,6 +3,7 @@ export interface CategoryModel {
   name: string;
   slug: string;
   parentId?: number;
+  coursesCount: number;
 }
 
 export const categoryFromMap = (map: any): CategoryModel => {
@@ -11,5 +12,6 @@ export const categoryFromMap = (map: any): CategoryModel => {
     name: map['name'],
     slug: map['slug'],
     parentId: map['parent_id'],
+    coursesCount: map['courses_count'],
   };
 };

@@ -235,6 +235,7 @@ input {
     padding: 0;
     margin: 10px;
     height: 250px;
+    cursor: crosshair;
     img {
         z-index: -1;
         top: 0;
@@ -809,7 +810,11 @@ footer {
 .courses-single {
     margin-bottom: 35px;
     .course-item {
-        width: fit-content !important;
+        width: 400px;
+        height: 420px;
+        .card-img-top {
+            height: inherit;
+        }
     }
 }
 .pagination-nav {

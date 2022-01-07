@@ -5,7 +5,7 @@ import { infoToast } from 'components/shared/Toast';
 import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { fetchCategories } from 'services/categories';
+import { fetchCategories, fetchCategoryCourses } from 'services/categories';
 import { fetchCourses, searchCourses } from 'services/courses';
 import { fetchCategoriesAction } from 'store/Categories/categories.actions';
 import { fetchCoursesAction } from 'store/Courses/courses.actions';
@@ -44,13 +44,26 @@ const Courses = (props: Props) => {
 
   const onSearch = () => {
     const value = titleRef.current?.value.trim();
+    if (value)
+      searchCourses({ title: value, category: categoryRef.current?.value }).then((data) => {
+        dispatch(fetchCoursesAction(data.items));
+        navigate(`/courses/search/${value}?category=${categoryRef.current?.value}`);
+      });
+    else infoToast('Please search with valid keyword');
+  };
 
-    value
-      ? searchCourses({ title: value, category: categoryRef.current?.value }).then((data) => {
-          dispatch(fetchCoursesAction(data.items));
-          navigate(`/courses/search/${value}?category=${categoryRef.current?.value}`);
-        })
-      : infoToast('Please search with valid keyword');
+  const onCategory = async (slug: string, id: string) => {
+    fetchCategoryCourses(slug).then((data) => dispatch(fetchCoursesAction(data.items)));
+    if (categoryRef.current) categoryRef.current.value = id;
+  };
+
+  const onReset = async () => {
+    navigate('/courses');
+    if (categoryRef.current && titleRef.current) {
+      titleRef.current.value = '';
+      categoryRef.current.value = state.categories.categories[0].id.toString();
+    }
+    fetchCourses().then((data) => dispatch(fetchCoursesAction(data.items)));
   };
 
   return (
@@ -58,10 +71,12 @@ const Courses = (props: Props) => {
       <div className='courses'>
         <div className='container d-flex flex-column justify-content-between align-items-center py-5'>
           <CoursesHeader
-            title={props.dashboard ? 'My Library' : undefined}
+            onReset={onReset}
             onSearch={onSearch}
             titleRef={titleRef}
+            onCategory={onCategory}
             categoryRef={categoryRef}
+            title={props.dashboard ? 'My Library' : undefined}
           />
           <CoursesContent courses={state.courses.courses} />
           <PaginationNav />

@@ -1,18 +1,18 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { copyToClipboard } from 'utils/shared';
 import CoursesHeadingTopCategories from './CoursesHeadingTopCategories';
 import CoursesSearch from './CoursesSearch';
 
 interface Props {
   title?: string;
-  onSearch: React.MouseEventHandler<HTMLButtonElement>;
+  onReset(): void;
+  onSearch: React.MouseEventHandler;
+  onCategory(slug: string, id: string): void;
   titleRef: React.LegacyRef<HTMLInputElement>;
   categoryRef: React.LegacyRef<HTMLSelectElement>;
 }
 
 const CoursesHeader = (props: Props) => {
-  const navigate = useNavigate();
   const [showSearch, setShowSearch] = useState(false);
 
   return (
@@ -29,11 +29,11 @@ const CoursesHeader = (props: Props) => {
           <i className='fal fa-filter icon'></i>
         </div>
         <div className='col d-flex justify-content-center categories'>
-          <CoursesHeadingTopCategories />
+          <CoursesHeadingTopCategories onCategory={props.onCategory} />
         </div>
         <div className='col d-flex justify-content-lg-end shareing'>
           <p className='share-type'>
-            <i className='fal fa-redo' onClick={() => navigate('/courses')}></i>
+            <i className='fal fa-redo' onClick={props.onReset}></i>
           </p>
           <p className='share-type'>
             <i className='fal fa-copy' onClick={() => copyToClipboard(window.location.href)}></i>
