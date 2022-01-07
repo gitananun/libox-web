@@ -2,7 +2,7 @@ import CoursesContent from 'components/courses/CoursesContent';
 import CoursesHeader from 'components/courses/CoursesHeader';
 import PaginationNav from 'components/shared/PaginationNav';
 import { infoToast } from 'components/shared/Toast';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { fetchCategories, fetchCategoryCourses } from 'services/categories';
@@ -27,33 +27,40 @@ const Courses = (props: Props) => {
   const titleRef = useRef<HTMLInputElement>(null);
   const categoryRef = useRef<HTMLSelectElement>(null);
 
-  useEffect(() => {
-    if (state.categories.categories.length === 0) {
-      fetchCategories().then((data) => dispatch(fetchCategoriesAction(data.items)));
-    }
-
+  const onFetchCourses = useCallback(() => {
     let category = searchParams.get('category');
     if (!category || !+category) category = null;
     else if (categoryRef.current) categoryRef.current.value = category;
 
     if (title) {
-      searchCourses({ title, category: category }).then((data) => dispatch(fetchCoursesAction(data.items)));
+      searchCourses({ title, category: category }).then((data) => dispatch(fetchCoursesAction(data)));
       if (titleRef.current) titleRef.current.value = title;
-    } else fetchCourses().then((data) => dispatch(fetchCoursesAction(data.items)));
-  }, [dispatch, title, searchParams, state.categories.categories]);
+    } else {
+      let page = searchParams.get('page');
+      if (!page || !+page) page = null;
+      fetchCourses({ page: page }).then((data) => dispatch(fetchCoursesAction(data)));
+    }
+  }, [dispatch, searchParams, title]);
+
+  useEffect(() => {
+    if (state.categories.categories.length === 0) {
+      fetchCategories().then((data) => dispatch(fetchCategoriesAction(data.items)));
+    }
+    onFetchCourses();
+  }, [dispatch, state.categories.categories.length, onFetchCourses]);
 
   const onSearch = () => {
     const value = titleRef.current?.value.trim();
     if (value)
       searchCourses({ title: value, category: categoryRef.current?.value }).then((data) => {
-        dispatch(fetchCoursesAction(data.items));
+        dispatch(fetchCoursesAction(data));
         navigate(`/courses/search/${value}?category=${categoryRef.current?.value}`);
       });
     else infoToast('Please search with valid keyword');
   };
 
   const onCategory = async (slug: string, id: string) => {
-    fetchCategoryCourses(slug).then((data) => dispatch(fetchCoursesAction(data.items)));
+    fetchCategoryCourses(slug).then((data) => dispatch(fetchCoursesAction(data)));
     if (categoryRef.current) categoryRef.current.value = id;
   };
 
@@ -63,7 +70,7 @@ const Courses = (props: Props) => {
       titleRef.current.value = '';
       categoryRef.current.value = state.categories.categories[0].id.toString();
     }
-    fetchCourses().then((data) => dispatch(fetchCoursesAction(data.items)));
+    fetchCourses().then((data) => dispatch(fetchCoursesAction(data)));
   };
 
   return (
@@ -79,7 +86,7 @@ const Courses = (props: Props) => {
             title={props.dashboard ? 'My Library' : undefined}
           />
           <CoursesContent courses={state.courses.courses} />
-          <PaginationNav />
+          <PaginationNav current={state.courses.currentPage} last={state.courses.lastPage} />
         </div>
       </div>
     </Layout>

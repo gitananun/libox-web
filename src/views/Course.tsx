@@ -19,7 +19,7 @@ const Course = () => {
   useEffect(() => {
     if (slug) {
       fetchCourse(slug).then((data) => dispatch(fetchCourseAction(data.body)));
-      fetchCourses('popular').then((data) => dispatch(fetchPopularCoursesAction(data.items)));
+      fetchCourses({ scope: 'popular' }).then((data) => dispatch(fetchPopularCoursesAction(data.items)));
     }
   }, [slug, dispatch]);
 

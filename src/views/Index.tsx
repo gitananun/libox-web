@@ -20,7 +20,7 @@ const Index = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchCourses().then((data) => dispatch(fetchCoursesAction(data.items)));
+    fetchCourses().then((data) => dispatch(fetchCoursesAction(data)));
     fetchCategories().then((data) => dispatch(fetchCategoriesAction(data.items)));
   }, [dispatch]);
 
@@ -32,7 +32,7 @@ const Index = () => {
 
     value
       ? searchCourses({ title: value, category: categoryRef.current?.value }).then((data) => {
-          dispatch(fetchCoursesAction(data.items));
+          dispatch(fetchCoursesAction(data));
           navigate(`/courses/search/${value}?category=${categoryRef.current?.value}`);
         })
       : infoToast('Please search with valid keyword');
