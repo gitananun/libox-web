@@ -1,3 +1,4 @@
+import { fetchCoursesAction, searchCoursesAction } from 'actions/courses';
 import IndexAbout from 'components/index/IndexAbout';
 import IndexCategories from 'components/index/IndexCategories';
 import IndexCourses from 'components/index/IndexCourses';
@@ -9,9 +10,7 @@ import { infoToast } from 'components/shared/Toast';
 import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchCategories } from 'services/categories';
-import { fetchCourses, searchCourses } from 'services/courses';
 import { fetchCategoriesStateAction } from 'store/Categories/categories.actions';
-import { fetchCoursesStateAction } from 'store/Courses/courses.actions';
 import store from 'store/store';
 import Layout from './layouts/Layout';
 
@@ -20,7 +19,7 @@ const Index = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchCourses().then((data) => dispatch(fetchCoursesStateAction(data)));
+    fetchCoursesAction();
     fetchCategories().then((data) => dispatch(fetchCategoriesStateAction(data.items)));
   }, [dispatch]);
 
@@ -30,12 +29,11 @@ const Index = () => {
   const onSearch = () => {
     const value = titleRef.current?.value.trim();
 
-    value
-      ? searchCourses({ title: value, category: categoryRef.current?.value }).then((data) => {
-          dispatch(fetchCoursesStateAction(data));
-          navigate(`/courses/search/${value}?category=${categoryRef.current?.value}`);
-        })
-      : infoToast('Please search with valid keyword');
+    if (value)
+      searchCoursesAction({ title: value, category: categoryRef.current?.value }).then(() =>
+        navigate(`/courses/search/${value}?category=${categoryRef.current?.value}`)
+      );
+    else infoToast('Please search with valid keyword');
   };
 
   return (
