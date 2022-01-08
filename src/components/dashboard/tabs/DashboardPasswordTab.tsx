@@ -36,9 +36,7 @@ const DashboardPasswordTab = () => {
         infoToast(data.message!);
         navigate('/dashboard');
       });
-    } else {
-      warningToast('Passwords must match');
-    }
+    } else warningToast('Passwords must match');
   };
 
   const cancel = () => navigate('/dashboard');

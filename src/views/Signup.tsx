@@ -7,12 +7,12 @@ import RoundedPrimaryButton from 'components/common/RoundedPrimaryButton';
 import SocialButton from 'components/common/SocialButton';
 import AuthLayout from './layouts/AuthLayout';
 import Section from './layouts/Section';
-import { authRegister } from '../services/auth';
 import { getAccessToken, setAccessToken } from 'utils/shared';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/rootReducer';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { authRegisterAction } from 'actions/auth';
 
 const Signup = () => {
   const state = useSelector((state: RootState) => state);
@@ -25,7 +25,7 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const onRegister = () => {
-    authRegister({
+    authRegisterAction({
       name: nameRef.current?.value.trim(),
       email: emailRef.current?.value.trim(),
       lastname: lastnameRef.current?.value.trim(),

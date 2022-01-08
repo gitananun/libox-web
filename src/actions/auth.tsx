@@ -1,8 +1,13 @@
 import { ReduxAction } from 'components/interfaces/Redux';
+import { AuthTokenModel } from 'data/models/AuthTokenModel';
 import { SuccessResponse } from 'data/shared/Response';
 import {
   authForgotPassword,
   AuthForgotPasswordParams,
+  authLogin,
+  AuthLoginParams,
+  authRegister,
+  AuthRegisterParams,
   authResetPassword,
   AuthResetPasswordParams,
   authSelf,
@@ -22,4 +27,12 @@ export const authForgotPasswordAction = async (params: AuthForgotPasswordParams)
 
 export const authResetPasswordAction = async (params: AuthResetPasswordParams): Promise<SuccessResponse<string>> => {
   return authResetPassword(params);
+};
+
+export const authLoginAction = async (params: AuthLoginParams): Promise<SuccessResponse<AuthTokenModel>> => {
+  return authLogin(params);
+};
+
+export const authRegisterAction = async (params: AuthRegisterParams): Promise<SuccessResponse<AuthTokenModel>> => {
+  return authRegister(params);
 };

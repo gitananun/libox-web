@@ -6,16 +6,12 @@ import DashboardSettingsModal from 'components/dashboard/DashboardSettingsModal'
 import NotificationsModal from 'components/shared/NotificationsModal';
 import DashboardLayout from './layouts/DashboardLayout';
 import { useEffect } from 'react';
-import { authSelf } from 'services/auth';
-import store from 'store/store';
-import { loginStateAction } from 'store/Auth/auth.actions';
+import { authSelfAction } from 'actions/auth';
 
 const Dashboard = () => {
-  const { dispatch } = store;
-
   useEffect(() => {
-    authSelf().then((data) => dispatch(loginStateAction(data.body)));
-  }, [dispatch]);
+    authSelfAction();
+  }, []);
 
   return (
     <DashboardLayout>
