@@ -1,3 +1,4 @@
+import { fetchCategoriesAction } from 'actions/categories';
 import { fetchCoursesAction, searchCoursesAction } from 'actions/courses';
 import IndexAbout from 'components/index/IndexAbout';
 import IndexCategories from 'components/index/IndexCategories';
@@ -9,19 +10,15 @@ import IndexSearch from 'components/index/IndexSearch';
 import { infoToast } from 'components/shared/Toast';
 import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { fetchCategories } from 'services/categories';
-import { fetchCategoriesStateAction } from 'store/Categories/categories.actions';
-import store from 'store/store';
 import Layout from './layouts/Layout';
 
 const Index = () => {
-  const { dispatch } = store;
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchCoursesAction();
-    fetchCategories().then((data) => dispatch(fetchCategoriesStateAction(data.items)));
-  }, [dispatch]);
+    fetchCategoriesAction();
+  });
 
   const titleRef = useRef<HTMLInputElement>(null);
   const categoryRef = useRef<HTMLSelectElement>(null);
