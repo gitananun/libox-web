@@ -1,31 +1,19 @@
+import { fetchNotificationsAction, readNotificationAction, readNotificationsAction } from 'actions/notifications';
 import Modal from 'components/shared/Modal';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { fetchNotifications, readNotification, readNotifications } from 'services/notifications';
-import {
-  fetchNotificationsStateAction,
-  readNotificationStateAction,
-  readNotificationsStateAction,
-} from 'store/Notifications/notifications.actions';
 import { RootState } from 'store/rootReducer';
-import store from 'store/store';
 import NotificationItem from './NotificationItem';
 
 const NotificationsModal = () => {
-  const { dispatch } = store;
   const state = useSelector((state: RootState) => state);
 
   useEffect(() => {
-    fetchNotifications().then((data) => dispatch(fetchNotificationsStateAction(data.items)));
-  }, [dispatch]);
+    fetchNotificationsAction();
+  }, []);
 
-  const onRead = (id: string) => {
-    readNotification(id).then(() => dispatch(readNotificationStateAction(id)));
-  };
-
-  const onReadAll = () => {
-    readNotifications().then(() => dispatch(readNotificationsStateAction()));
-  };
+  const onRead = (id: string) => readNotificationAction({ id });
+  const onReadAll = () => readNotificationsAction();
 
   return (
     <Modal

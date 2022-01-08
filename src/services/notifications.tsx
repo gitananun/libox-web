@@ -2,6 +2,10 @@ import { instance } from 'utils/axios';
 import { PaginatedResponse, SuccessResponse } from 'data/shared/Response';
 import { notificationFromMap, NotificationModel } from 'data/models/NotificationModel';
 
+export interface ReadNotificationParams {
+  id: string;
+}
+
 export const fetchNotifications = async () =>
   await instance({ auth: true })
     .get('auth/users/notifications')
@@ -10,9 +14,9 @@ export const fetchNotifications = async () =>
       return res.data.body;
     });
 
-export const readNotification = async (id: string) =>
+export const readNotification = async (params: ReadNotificationParams) =>
   await instance({ auth: true })
-    .get(`auth/users/notifications/${id}`)
+    .get(`auth/users/notifications/${params.id}`)
     .then((res): SuccessResponse<string> => {
       return res.data;
     });
