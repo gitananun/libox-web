@@ -4,7 +4,7 @@ import { RootState } from 'store/rootReducer';
 import CourseSidebarSectionTitle from './CourseSidebarSectionTitle';
 
 const CoursePopular = () => {
-  const popular = useSelector((state: RootState) => state.courses.popular);
+  const state = useSelector((state: RootState) => state);
 
   return (
     <div className='course-popular blur-container'>
@@ -12,7 +12,7 @@ const CoursePopular = () => {
         <CourseSidebarSectionTitle title='Popular Courses' textColor='text-dark' />
         <hr />
         <div className='d-flex justify-content-between flex-column gap-4'>
-          {popular.map((c) => (
+          {state.courses.courses.map((c) => (
             <Link to='/courses/1' key={c.id} className='text-dark'>
               <div className='row course-single d-flex justify-content-center align-items-center'>
                 {c.imageUrl && (
