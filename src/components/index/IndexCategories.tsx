@@ -24,7 +24,7 @@ const IndexCategories = () => {
               <img src={images[i]} alt='category' />
               <div className='category-name blur-container-light'>
                 <h3>{c.name}</h3>
-                <p>{c.coursesCount}+ courses</p>
+                <p>{c.coursesCount} courses</p>
               </div>
             </div>
           ))}

@@ -15,12 +15,6 @@ const PaginationNav = (props: Props) => {
   return (
     <nav className='pagination-nav mt-5'>
       <ul className='pagination'>
-        <li className='page-item'>
-          <a className='page-link' href='#as' aria-label='Previous'>
-            <span aria-hidden='true'>&laquo;</span>
-            <span className='sr-only'>Previous</span>
-          </a>
-        </li>
         {totalPages().map((page) => (
           <li className='page-item' key={page}>
             <Link className='page-link' to={`?page=${page}`}>
@@ -28,13 +22,6 @@ const PaginationNav = (props: Props) => {
             </Link>
           </li>
         ))}
-
-        <li className='page-item'>
-          <a className='page-link' href='#as' aria-label='Next'>
-            <span aria-hidden='true'>&raquo;</span>
-            <span className='sr-only'>Next</span>
-          </a>
-        </li>
       </ul>
     </nav>
   );
