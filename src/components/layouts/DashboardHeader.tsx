@@ -1,7 +1,11 @@
 import RoundedPrimaryButton from 'components/common/RoundedPrimaryButton';
 import DashboardHeaderUser from 'components/dashboard/DashboardHeaderUser';
 
-const DashboardHeader = () => {
+interface Props {
+  onLogout(): void;
+}
+
+const DashboardHeader = (props: Props) => {
   return (
     <div className='container dashboard-header mb-4'>
       <div className='row'>
@@ -12,7 +16,7 @@ const DashboardHeader = () => {
           <i className='fal fa-bell' data-toggle='modal' data-target='#notifications-modal'></i>
           <span className='divider'>|</span>
           <i className='fal fa-cog' data-toggle='modal' data-target='#settings-modal'></i>
-          <RoundedPrimaryButton title='Logout' />
+          <RoundedPrimaryButton title='Logout' onClick={props.onLogout} />
         </div>
       </div>
     </div>

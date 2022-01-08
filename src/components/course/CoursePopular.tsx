@@ -13,7 +13,7 @@ const CoursePopular = () => {
         <hr />
         <div className='d-flex justify-content-between flex-column gap-4'>
           {state.courses.courses.map((c) => (
-            <Link to='/courses/1' key={c.id} className='text-dark'>
+            <Link to={`/courses/${c.slug}`} key={c.id} className='text-dark'>
               <div className='row course-single d-flex justify-content-center align-items-center'>
                 {c.imageUrl && (
                   <div className='col-4'>

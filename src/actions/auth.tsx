@@ -12,8 +12,9 @@ import {
   AuthResetPasswordParams,
   authSelf,
 } from 'services/auth';
-import { loginStateAction } from 'store/Auth/auth.actions';
+import { loginStateAction, logoutStateAction } from 'store/Auth/auth.actions';
 import store from 'store/store';
+import { removeAccessToken } from 'utils/shared';
 
 const { dispatch } = store;
 
@@ -35,4 +36,9 @@ export const authLoginAction = async (params: AuthLoginParams): Promise<SuccessR
 
 export const authRegisterAction = async (params: AuthRegisterParams): Promise<SuccessResponse<AuthTokenModel>> => {
   return authRegister(params);
+};
+
+export const authLogoutAction = async () => {
+  removeAccessToken();
+  dispatch(logoutStateAction());
 };
