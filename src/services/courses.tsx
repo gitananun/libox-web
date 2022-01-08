@@ -11,6 +11,10 @@ export interface SearchCoursesParams {
   category?: string | null;
 }
 
+export interface SearchCourseParams {
+  slug: string;
+}
+
 export const fetchCourses = async (params?: FetchCoursesParams) =>
   await instance()
     .get(`courses?page=${params?.page}&scope=${params?.scope ?? ''}`)
@@ -27,9 +31,9 @@ export const searchCourses = async (params?: SearchCoursesParams) =>
       return res.data.body;
     });
 
-export const fetchCourse = async (slug: string) =>
+export const fetchCourse = async (params: SearchCourseParams) =>
   await instance()
-    .get(`courses/${slug}`)
+    .get(`courses/${params.slug}`)
     .then((res): SuccessResponse<CourseModel> => {
       res.data.body = courseFromMap(res.data.body);
       return res.data;

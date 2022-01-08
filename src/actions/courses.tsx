@@ -1,5 +1,13 @@
 import { ReduxAction } from 'components/interfaces/Redux';
-import { fetchCourses, FetchCoursesParams, searchCourses, SearchCoursesParams } from 'services/courses';
+import {
+  fetchCourse,
+  fetchCourses,
+  FetchCoursesParams,
+  SearchCourseParams,
+  searchCourses,
+  SearchCoursesParams,
+} from 'services/courses';
+import { fetchCourseStateAction } from 'store/Course/course.actions';
 import { fetchCoursesStateAction } from 'store/Courses/courses.actions';
 import store from 'store/store';
 
@@ -11,4 +19,8 @@ export const fetchCoursesAction = async (params?: FetchCoursesParams): Promise<R
 
 export const searchCoursesAction = async (params?: SearchCoursesParams): Promise<ReduxAction> => {
   return searchCourses(params).then((data) => dispatch(fetchCoursesStateAction(data)));
+};
+
+export const fetchCourseAction = async (params: SearchCourseParams): Promise<ReduxAction> => {
+  return fetchCourse(params).then((data) => dispatch(fetchCourseStateAction(data.body)));
 };
