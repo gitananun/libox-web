@@ -13,7 +13,7 @@ import { isAuthenticated } from 'utils/shared';
 import store from 'store/store';
 import { useEffect } from 'react';
 import { authSelf } from 'services/auth';
-import { loginAction } from 'store/Auth/auth.actions';
+import { loginStateAction } from 'store/Auth/auth.actions';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/rootReducer';
 
@@ -22,7 +22,7 @@ const App = () => {
   const user = useSelector((state: RootState) => state.auth.user);
 
   useEffect(() => {
-    isAuthenticated() && authSelf().then((data) => dispatch(loginAction(data.body)));
+    isAuthenticated() && authSelf().then((data) => dispatch(loginStateAction(data.body)));
   }, [dispatch]);
 
   return (

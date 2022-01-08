@@ -1,5 +1,5 @@
 import { getAccessToken, removeAccessToken } from './shared';
-import { rejectValidationAction, resolveValidationAction } from './../store/Validation/validation.actions';
+import { rejectValidationStateAction, resolveValidationStateAction } from './../store/Validation/validation.actions';
 import { infoToast, errorToast, warningToast } from './../components/shared/Toast';
 import axios, { AxiosInstance } from 'axios';
 import store from 'store/store';
@@ -22,7 +22,7 @@ export const instance = (args?: Instance): AxiosInstance => {
 
   instance.interceptors.response.use(
     (response) => {
-      dispatch(resolveValidationAction());
+      dispatch(resolveValidationStateAction());
       return response;
     },
     (error) => {
@@ -35,11 +35,11 @@ export const instance = (args?: Instance): AxiosInstance => {
           break;
         case 401:
           removeAccessToken();
-          dispatch(resolveValidationAction());
+          dispatch(resolveValidationStateAction());
           warningToast(`🔑 ${error.response.data.message}`);
           break;
         case 422:
-          dispatch(rejectValidationAction(error.response.data.errors));
+          dispatch(rejectValidationStateAction(error.response.data.errors));
           warningToast(`🔑 ${error.response.data.message}`);
           break;
         default:

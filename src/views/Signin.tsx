@@ -9,7 +9,7 @@ import { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { authLogin, authSelf } from 'services/auth';
-import { loginAction } from 'store/Auth/auth.actions';
+import { loginStateAction } from 'store/Auth/auth.actions';
 import { RootState } from 'store/rootReducer';
 import store from 'store/store';
 import { getAccessToken, setAccessToken } from 'utils/shared';
@@ -31,7 +31,7 @@ const Signin = () => {
       password: passwordRef.current?.value.trim(),
     }).then((data) => {
       data && setAccessToken(data.body.accessToken);
-      authSelf().then((data) => dispatch(loginAction(data.body)));
+      authSelf().then((data) => dispatch(loginStateAction(data.body)));
       getAccessToken() && navigate('/');
     });
   };

@@ -7,8 +7,8 @@ import { useSelector } from 'react-redux';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { fetchCategories, fetchCategoryCourses } from 'services/categories';
 import { fetchCourses, searchCourses } from 'services/courses';
-import { fetchCategoriesAction } from 'store/Categories/categories.actions';
-import { fetchCoursesAction } from 'store/Courses/courses.actions';
+import { fetchCategoriesStateAction } from 'store/Categories/categories.actions';
+import { fetchCoursesStateAction } from 'store/Courses/courses.actions';
 import { RootState } from 'store/rootReducer';
 import store from 'store/store';
 import Layout from './layouts/Layout';
@@ -33,18 +33,18 @@ const Courses = (props: Props) => {
     else if (categoryRef.current) categoryRef.current.value = category;
 
     if (title) {
-      searchCourses({ title, category: category }).then((data) => dispatch(fetchCoursesAction(data)));
+      searchCourses({ title, category: category }).then((data) => dispatch(fetchCoursesStateAction(data)));
       if (titleRef.current) titleRef.current.value = title;
     } else {
       let page = searchParams.get('page');
       if (!page || !+page) page = null;
-      fetchCourses({ page: page }).then((data) => dispatch(fetchCoursesAction(data)));
+      fetchCourses({ page: page }).then((data) => dispatch(fetchCoursesStateAction(data)));
     }
   }, [dispatch, searchParams, title]);
 
   useEffect(() => {
     if (state.categories.categories.length === 0) {
-      fetchCategories().then((data) => dispatch(fetchCategoriesAction(data.items)));
+      fetchCategories().then((data) => dispatch(fetchCategoriesStateAction(data.items)));
     }
     onFetchCourses();
   }, [dispatch, state.categories.categories.length, onFetchCourses]);
@@ -53,14 +53,14 @@ const Courses = (props: Props) => {
     const value = titleRef.current?.value.trim();
     if (value)
       searchCourses({ title: value, category: categoryRef.current?.value }).then((data) => {
-        dispatch(fetchCoursesAction(data));
+        dispatch(fetchCoursesStateAction(data));
         navigate(`/courses/search/${value}?category=${categoryRef.current?.value}`);
       });
     else infoToast('Please search with valid keyword');
   };
 
   const onCategory = async (slug: string, id: string) => {
-    fetchCategoryCourses(slug).then((data) => dispatch(fetchCoursesAction(data)));
+    fetchCategoryCourses(slug).then((data) => dispatch(fetchCoursesStateAction(data)));
     if (categoryRef.current) categoryRef.current.value = id;
   };
 
@@ -70,7 +70,7 @@ const Courses = (props: Props) => {
       titleRef.current.value = '';
       categoryRef.current.value = state.categories.categories[0].id.toString();
     }
-    fetchCourses().then((data) => dispatch(fetchCoursesAction(data)));
+    fetchCourses().then((data) => dispatch(fetchCoursesStateAction(data)));
   };
 
   return (

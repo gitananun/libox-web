@@ -4,8 +4,8 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { fetchCourse, fetchCourses } from 'services/courses';
-import { fetchCourseAction } from 'store/Course/course.actions';
-import { fetchPopularCoursesAction } from 'store/Courses/courses.actions';
+import { fetchCourseStateAction } from 'store/Course/course.actions';
+import { fetchPopularCoursesStateAction } from 'store/Courses/courses.actions';
 import { RootState } from 'store/rootReducer';
 import store from 'store/store';
 import Layout from './layouts/Layout';
@@ -18,8 +18,8 @@ const Course = () => {
 
   useEffect(() => {
     if (slug) {
-      fetchCourse(slug).then((data) => dispatch(fetchCourseAction(data.body)));
-      fetchCourses({ scope: 'popular' }).then((data) => dispatch(fetchPopularCoursesAction(data.items)));
+      fetchCourse(slug).then((data) => dispatch(fetchCourseStateAction(data.body)));
+      fetchCourses({ scope: 'popular' }).then((data) => dispatch(fetchPopularCoursesStateAction(data.items)));
     }
   }, [slug, dispatch]);
 

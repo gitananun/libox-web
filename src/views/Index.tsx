@@ -10,8 +10,8 @@ import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchCategories } from 'services/categories';
 import { fetchCourses, searchCourses } from 'services/courses';
-import { fetchCategoriesAction } from 'store/Categories/categories.actions';
-import { fetchCoursesAction } from 'store/Courses/courses.actions';
+import { fetchCategoriesStateAction } from 'store/Categories/categories.actions';
+import { fetchCoursesStateAction } from 'store/Courses/courses.actions';
 import store from 'store/store';
 import Layout from './layouts/Layout';
 
@@ -20,8 +20,8 @@ const Index = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchCourses().then((data) => dispatch(fetchCoursesAction(data)));
-    fetchCategories().then((data) => dispatch(fetchCategoriesAction(data.items)));
+    fetchCourses().then((data) => dispatch(fetchCoursesStateAction(data)));
+    fetchCategories().then((data) => dispatch(fetchCategoriesStateAction(data.items)));
   }, [dispatch]);
 
   const titleRef = useRef<HTMLInputElement>(null);
@@ -32,7 +32,7 @@ const Index = () => {
 
     value
       ? searchCourses({ title: value, category: categoryRef.current?.value }).then((data) => {
-          dispatch(fetchCoursesAction(data));
+          dispatch(fetchCoursesStateAction(data));
           navigate(`/courses/search/${value}?category=${categoryRef.current?.value}`);
         })
       : infoToast('Please search with valid keyword');

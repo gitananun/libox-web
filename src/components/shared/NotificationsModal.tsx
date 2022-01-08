@@ -3,9 +3,9 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { fetchNotifications, readNotification, readNotifications } from 'services/notifications';
 import {
-  fetchNotificationsAction,
-  readNotificationAction,
-  readNotificationsAction,
+  fetchNotificationsStateAction,
+  readNotificationStateAction,
+  readNotificationsStateAction,
 } from 'store/Notifications/notifications.actions';
 import { RootState } from 'store/rootReducer';
 import store from 'store/store';
@@ -16,15 +16,15 @@ const NotificationsModal = () => {
   const state = useSelector((state: RootState) => state);
 
   useEffect(() => {
-    fetchNotifications().then((data) => dispatch(fetchNotificationsAction(data.items)));
+    fetchNotifications().then((data) => dispatch(fetchNotificationsStateAction(data.items)));
   }, [dispatch]);
 
   const onRead = (id: string) => {
-    readNotification(id).then(() => dispatch(readNotificationAction(id)));
+    readNotification(id).then(() => dispatch(readNotificationStateAction(id)));
   };
 
   const onReadAll = () => {
-    readNotifications().then(() => dispatch(readNotificationsAction()));
+    readNotifications().then(() => dispatch(readNotificationsStateAction()));
   };
 
   return (
