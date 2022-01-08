@@ -1,3 +1,4 @@
+import { fetchCategoriesAction, fetchCategoryCoursesAction } from 'actions/categories';
 import { fetchCoursesAction, searchCoursesAction } from 'actions/courses';
 import CoursesContent from 'components/courses/CoursesContent';
 import CoursesHeader from 'components/courses/CoursesHeader';
@@ -6,11 +7,7 @@ import { infoToast } from 'components/shared/Toast';
 import { useCallback, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { fetchCategories, fetchCategoryCourses } from 'services/categories';
-import { fetchCategoriesStateAction } from 'store/Categories/categories.actions';
-import { fetchCoursesStateAction } from 'store/Courses/courses.actions';
 import { RootState } from 'store/rootReducer';
-import store from 'store/store';
 import Layout from './layouts/Layout';
 
 interface Props {
@@ -18,7 +15,6 @@ interface Props {
 }
 
 const Courses = (props: Props) => {
-  const { dispatch } = store;
   const { title } = useParams();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -39,11 +35,9 @@ const Courses = (props: Props) => {
   }, [searchParams, title]);
 
   useEffect(() => {
-    if (state.categories.categories.length === 0) {
-      fetchCategories().then((data) => dispatch(fetchCategoriesStateAction(data.items)));
-    }
+    if (state.categories.categories.length === 0) fetchCategoriesAction();
     onFetchCourses();
-  }, [dispatch, state.categories.categories.length, onFetchCourses]);
+  }, [state.categories.categories.length, onFetchCourses]);
 
   const onSearch = () => {
     const value = titleRef.current?.value.trim();
@@ -55,7 +49,7 @@ const Courses = (props: Props) => {
   };
 
   const onCategory = async (slug: string, id: string) => {
-    fetchCategoryCourses(slug).then((data) => dispatch(fetchCoursesStateAction(data)));
+    fetchCategoryCoursesAction({ slug });
     if (categoryRef.current) categoryRef.current.value = id;
   };
 
