@@ -10,20 +10,17 @@ import Courses from 'views/Courses';
 import Dashboard from 'views/Dashboard';
 import AdminDashboard from 'views/AdminDashboard';
 import { isAuthenticated } from 'utils/shared';
-import store from 'store/store';
 import { useEffect } from 'react';
-import { authSelf } from 'services/auth';
-import { loginStateAction } from 'store/Auth/auth.actions';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/rootReducer';
+import { authSelfAction } from 'actions/auth';
 
 const App = () => {
-  const { dispatch } = store;
   const user = useSelector((state: RootState) => state.auth.user);
 
   useEffect(() => {
-    isAuthenticated() && authSelf().then((data) => dispatch(loginStateAction(data.body)));
-  }, [dispatch]);
+    isAuthenticated() && authSelfAction();
+  }, []);
 
   return (
     <Routes>

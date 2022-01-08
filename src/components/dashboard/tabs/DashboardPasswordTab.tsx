@@ -1,3 +1,4 @@
+import { authForgotPasswordAction, authResetPasswordAction } from 'actions/auth';
 import OutlinedButton from 'components/common/OutlinedButton';
 import RoundedPrimaryButton from 'components/common/RoundedPrimaryButton';
 import FormInput from 'components/form/FormInput';
@@ -5,7 +6,6 @@ import { infoToast, warningToast } from 'components/shared/Toast';
 import { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { authForgotPassword, authResetPassword } from 'services/auth';
 import { RootState } from 'store/rootReducer';
 
 const DashboardPasswordTab = () => {
@@ -17,7 +17,7 @@ const DashboardPasswordTab = () => {
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
 
   const forgotPassword = () => {
-    authForgotPassword({ email: state.auth.user!.email }).then((data) => infoToast(data.message!));
+    authForgotPasswordAction({ email: state.auth.user!.email }).then((data) => infoToast(data.message!));
   };
 
   const onReset = () => {
@@ -27,7 +27,7 @@ const DashboardPasswordTab = () => {
       confirmPasswordRef.current?.value &&
       confirmPasswordRef.current.value === passwordRef.current.value
     ) {
-      authResetPassword({
+      authResetPasswordAction({
         email: state.auth.user!.email,
         token: searchParams.get('token')!,
         password: passwordRef.current?.value.trim(),
