@@ -11,3 +11,8 @@ export const copyToClipboard = (text: string): void => {
 };
 
 export const getLanguagesEntries = Object.entries(languages).map((e) => ({ value: e[0], title: e[1].name }));
+
+export const getCertificationOptions = [
+  { title: 'Yes, course is certified', value: true },
+  { title: 'No', value: false },
+];

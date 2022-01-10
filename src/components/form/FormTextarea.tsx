@@ -11,6 +11,7 @@ const FormTextArea = (props: TextAreaPropsInterface) => {
       <div className='input-group'>
         <textarea
           id={props.label}
+          rows={props.rows ?? 6}
           placeholder={props.placeholder}
           required={props.required || false}
           readOnly={props.readOnly || false}

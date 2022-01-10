@@ -28,6 +28,8 @@ export interface InputPropsInterface {
 }
 
 export interface TextAreaPropsInterface {
+  rows?: number;
+  cols?: number;
   error?: string;
   label?: string;
   value?: string;
