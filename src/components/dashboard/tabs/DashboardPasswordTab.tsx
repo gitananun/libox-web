@@ -53,51 +53,49 @@ const DashboardPasswordTab = () => {
           </p>
         </div>
         <div className='content'>
-          <div className='content'>
-            <div className='row'>
-              <div className='col-12 col-lg-6'>
-                <FormInput
-                  type={'password'}
-                  label='Password'
-                  innerRef={passwordRef}
-                  placeholder='password'
-                  defaultValue='password'
-                  withoutObscure={true}
-                  readOnly={!searchParams.has('token')}
-                />
-              </div>
-              <div className='col-12 col-lg-6 mt-3 mt-lg-0'>
-                <FormInput
-                  type={'password'}
-                  label='Confirm password'
-                  placeholder='password'
-                  defaultValue='password'
-                  withoutObscure={true}
-                  innerRef={confirmPasswordRef}
-                  readOnly={!searchParams.has('token')}
-                />
-              </div>
+          <div className='row'>
+            <div className='col-12 col-lg-6'>
+              <FormInput
+                type={'password'}
+                label='Password'
+                innerRef={passwordRef}
+                placeholder='password'
+                defaultValue='password'
+                withoutObscure={true}
+                readOnly={!searchParams.has('token')}
+              />
             </div>
-            <div className='row mt-5 mb-0'>
-              {searchParams.has('token') ? (
-                <>
-                  <div className='col'>
-                    <OutlinedButton className='w-100 btn-rounded' title='Cancel' onClick={cancel} />
-                  </div>
-                  <div className='col'>
-                    <RoundedPrimaryButton className='w-100' title='Reset' onClick={onReset} />
-                  </div>
-                </>
-              ) : (
-                <div className='col-6'>
-                  <RoundedPrimaryButton
-                    className='w-100 btn-rounded'
-                    title='Request reset password'
-                    onClick={forgotPassword}
-                  />
+            <div className='col-12 col-lg-6 mt-3 mt-lg-0'>
+              <FormInput
+                type={'password'}
+                label='Confirm password'
+                placeholder='password'
+                defaultValue='password'
+                withoutObscure={true}
+                innerRef={confirmPasswordRef}
+                readOnly={!searchParams.has('token')}
+              />
+            </div>
+          </div>
+          <div className='row mt-5 mb-0'>
+            {searchParams.has('token') ? (
+              <>
+                <div className='col'>
+                  <OutlinedButton className='w-100 btn-rounded' title='Cancel' onClick={cancel} />
                 </div>
-              )}
-            </div>
+                <div className='col'>
+                  <RoundedPrimaryButton className='w-100' title='Reset' onClick={onReset} />
+                </div>
+              </>
+            ) : (
+              <div className='col-6'>
+                <RoundedPrimaryButton
+                  className='w-100 btn-rounded'
+                  title='Request reset password'
+                  onClick={forgotPassword}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>

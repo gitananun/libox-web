@@ -27,8 +27,29 @@ export interface InputPropsInterface {
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
+export interface TextAreaPropsInterface {
+  error?: string;
+  label?: string;
+  value?: string;
+  required?: boolean;
+  readOnly?: boolean;
+  className?: string;
+  placeholder?: string;
+  innerRef?: React.LegacyRef<HTMLInputElement>;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+}
+
 export interface SelectPropsInterface {
+  label?: string;
+  className?: string;
   options?: { title: any; value: any }[];
   innerRef?: React.LegacyRef<HTMLSelectElement>;
   defaultValue?: string | number | readonly string[] | undefined;
+}
+
+export interface ChipPropsInterface {
+  label: string;
+  checked?: boolean;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
 }

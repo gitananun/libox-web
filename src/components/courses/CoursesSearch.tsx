@@ -16,7 +16,11 @@ const CoursesSearch = (props: Props) => {
   return (
     <div className='row w-100 d-flex justify-content-between align-items-center gap-lg-0 gap-sm-2 search-row'>
       <div className='col-lg-3 col-12 justify-content-center'>
-        <FormSelect innerRef={props.categoryRef} options={categories.map((c) => ({ title: c.name, value: c.id }))} />
+        <FormSelect
+          className='text-center'
+          innerRef={props.categoryRef}
+          options={categories.map((c) => ({ title: c.name, value: c.id }))}
+        />
       </div>
       <div className='col-lg-7 col-12 text-center justify-content-end'>
         <FormInput type='text' search={true} innerRef={props.titleRef} placeholder='What do you want to learn today?' />

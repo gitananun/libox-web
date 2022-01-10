@@ -10,7 +10,7 @@ const DashboardAccountTab = () => {
   const user = useSelector((state: RootState) => state.auth.user!);
 
   return (
-    <div id='account' className='tab-pane in active'>
+    <div id='account' className='tab-pane'>
       <p className='title'>
         Account
         {readOnly && (

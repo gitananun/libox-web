@@ -7,6 +7,7 @@ import NotificationsModal from 'components/shared/NotificationsModal';
 import DashboardLayout from './layouts/DashboardLayout';
 import { useEffect } from 'react';
 import { authSelfAction } from 'actions/auth';
+import DashboardCoursesTab from 'components/dashboard/tabs/DashboardCoursesTab';
 
 const Dashboard = () => {
   useEffect(() => {
@@ -22,6 +23,7 @@ const Dashboard = () => {
           </div>
           <div className='col-12 col-lg-10'>
             <div className='tab-content mb-5 h-100'>
+              <DashboardCoursesTab />
               <DashboardAccountTab />
               <DashboardPasswordTab />
               <DashboardHelpTab />

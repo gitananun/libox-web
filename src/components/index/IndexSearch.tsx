@@ -18,7 +18,11 @@ const IndexSearch = (props: Props) => {
     <SearchWrapper>
       <div className='row w-100 d-flex justify-content-between align-items-center'>
         <div className='col-lg-3 col-12 justify-content-center'>
-          <FormSelect options={categories.map((c) => ({ title: c.name, value: c.id }))} innerRef={props.categoryRef} />
+          <FormSelect
+            className='text-center'
+            innerRef={props.categoryRef}
+            options={categories.map((c) => ({ title: c.name, value: c.id }))}
+          />
         </div>
         <div className='col-lg-7 col-12 text-center justify-content-end'>
           <FormInput
