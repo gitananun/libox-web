@@ -1,6 +1,7 @@
 import { instance } from 'utils/axios';
 import { PaginatedResponse, SuccessResponse } from 'data/shared/Response';
 import { CourseModel, courseFromMap } from 'data/models/CourseModel';
+import { StoreCourseBody } from 'components/interfaces/Services';
 
 export interface FetchCoursesParams {
   scope?: string;
@@ -34,6 +35,14 @@ export const searchCourses = async (params?: SearchCoursesParams) =>
 export const fetchCourse = async (params: SearchCourseParams) =>
   await instance()
     .get(`courses/${params.slug}`)
+    .then((res): SuccessResponse<CourseModel> => {
+      res.data.body = courseFromMap(res.data.body);
+      return res.data;
+    });
+
+export const storeCourse = async (body: Partial<StoreCourseBody>) =>
+  await instance({ auth: true })
+    .post('auth/courses', body)
     .then((res): SuccessResponse<CourseModel> => {
       res.data.body = courseFromMap(res.data.body);
       return res.data;

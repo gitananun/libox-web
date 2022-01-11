@@ -13,7 +13,7 @@ const FormSelect = (props: SelectPropsInterface) => {
         ref={props.innerRef}
         onChange={props.onChange}
         defaultValue={props.defaultValue}
-        className={`form-select ${props.className ?? ''}`}
+        className={`form-select ${props.className ?? ''} ${props.error && 'border-danger'}`}
       >
         {props.options?.map((o) => (
           <option key={o.value} value={o.value}>
@@ -21,6 +21,7 @@ const FormSelect = (props: SelectPropsInterface) => {
           </option>
         ))}
       </select>
+      {props.error && <div className='invalid-feedback d-block'>{props.error}</div>}
     </>
   );
 };

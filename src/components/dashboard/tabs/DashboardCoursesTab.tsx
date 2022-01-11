@@ -1,24 +1,18 @@
 import { fetchBadgesAction } from 'actions/badges';
 import { fetchCategoriesAction } from 'actions/categories';
+import { storeCourseAction } from 'actions/courses';
+import OutlinedButton from 'components/common/OutlinedButton';
+import RoundedPrimaryButton from 'components/common/RoundedPrimaryButton';
+import { StoreCourseBody } from 'components/interfaces/Services';
 
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from 'store/rootReducer';
 import DashboardCoursesTabFormContent from '../DashboardCoursesTabFormContent';
 
-export interface CreateCourseFormResult {
-  image: any;
-  title: string;
-  badge: number;
-  lessons: number;
-  createdAt: Date;
-  updatedAt: Date;
-  language: string;
-  description: string;
-  categories: number[];
-  certification: boolean;
-}
-
 const DashboardCoursesTab = () => {
-  const [formResult, setFormResult] = useState<Partial<CreateCourseFormResult>>({});
+  const state = useSelector((state: RootState) => state);
+  const [formResult, setFormResult] = useState<Partial<StoreCourseBody>>({});
 
   useEffect(() => {
     fetchCategoriesAction();
@@ -36,9 +30,11 @@ const DashboardCoursesTab = () => {
     }
   };
 
-  const onFormInputChange = (input: keyof CreateCourseFormResult, value: any) => {
+  const onFormInputChange = (input: keyof StoreCourseBody, value: any) => {
     setFormResult({ ...formResult, [input]: value });
   };
+
+  const onSubmit = () => storeCourseAction(formResult);
 
   return (
     <div id='courses' className='tab-pane dashboard-courses-tab in active'>
@@ -54,9 +50,18 @@ const DashboardCoursesTab = () => {
         <div className='content'>
           <DashboardCoursesTabFormContent
             checkCategory={checkCategory}
+            errors={state.validation.errors}
             onFormInputChange={onFormInputChange}
             checkedCategories={formResult.categories ?? []}
           />
+          <div className='row mt-5 mb-0'>
+            <div className='col'>
+              <OutlinedButton className='w-100 btn-rounded' title='Reset All' />
+            </div>
+            <div className='col'>
+              <RoundedPrimaryButton className='w-100' title='Post to Library' onClick={onSubmit} />
+            </div>
+          </div>
         </div>
       </div>
     </div>
