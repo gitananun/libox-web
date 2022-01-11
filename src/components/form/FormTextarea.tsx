@@ -12,6 +12,7 @@ const FormTextArea = (props: TextAreaPropsInterface) => {
         <textarea
           id={props.label}
           rows={props.rows ?? 6}
+          onChange={props.onChange}
           placeholder={props.placeholder}
           required={props.required || false}
           readOnly={props.readOnly || false}

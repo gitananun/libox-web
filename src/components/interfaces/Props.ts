@@ -39,7 +39,7 @@ export interface TextAreaPropsInterface {
   placeholder?: string;
   innerRef?: React.LegacyRef<HTMLInputElement>;
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
 }
 
 export interface SelectPropsInterface {
@@ -47,6 +47,7 @@ export interface SelectPropsInterface {
   className?: string;
   options?: { title: any; value: any }[];
   innerRef?: React.LegacyRef<HTMLSelectElement>;
+  onChange?: React.ChangeEventHandler<HTMLSelectElement>;
   defaultValue?: string | number | readonly string[] | undefined;
 }
 

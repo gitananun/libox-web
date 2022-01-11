@@ -11,6 +11,7 @@ const FormSelect = (props: SelectPropsInterface) => {
       <select
         id={props.label}
         ref={props.innerRef}
+        onChange={props.onChange}
         defaultValue={props.defaultValue}
         className={`form-select ${props.className ?? ''}`}
       >
