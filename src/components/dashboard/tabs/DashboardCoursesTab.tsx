@@ -4,6 +4,7 @@ import { storeCourseAction } from 'actions/courses';
 import OutlinedButton from 'components/common/OutlinedButton';
 import RoundedPrimaryButton from 'components/common/RoundedPrimaryButton';
 import { StoreCourseBody } from 'components/interfaces/Services';
+import { successToast } from 'components/shared/Toast';
 
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -23,6 +24,7 @@ const DashboardCoursesTab = () => {
     const result = formResult.categories ?? [];
     if (result) {
       const catIndex = formResult.categories?.indexOf(id);
+
       if (catIndex && catIndex > -1) result.splice(catIndex, 1);
       else result.push(id);
 
@@ -34,10 +36,16 @@ const DashboardCoursesTab = () => {
     setFormResult({ ...formResult, [input]: value });
   };
 
-  const onSubmit = () => storeCourseAction(formResult);
+  const onSubmit = () =>
+    storeCourseAction(formResult).then(() => {
+      successToast('Course created successfully');
+      setInterval(() => {
+        window.location.reload();
+      }, 2000);
+    });
 
   return (
-    <div id='courses' className='tab-pane dashboard-courses-tab in active'>
+    <div id='courses' className='tab-pane dashboard-courses-tab'>
       <p className='title'>Courses</p>
       <div className='section'>
         <div className='header'>

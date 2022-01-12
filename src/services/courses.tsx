@@ -16,6 +16,24 @@ export interface SearchCourseParams {
   slug: string;
 }
 
+const getStoreFormData = (body: Partial<StoreCourseBody>) => {
+  const formData = new FormData();
+
+  if (!body.categories) body.categories = [];
+  if (!body.instructors) body.instructors = [];
+
+  for (const i in body) {
+    const key = i as keyof StoreCourseBody;
+
+    if (Array.isArray(body[key])) body[key].forEach((id: any) => formData.append(`${i}[]`, `${id}`));
+    else formData.append(i, body[key]);
+  }
+
+  if (body.badge) formData.append('badge_id', body.badge.toString());
+
+  return formData;
+};
+
 export const fetchCourses = async (params?: FetchCoursesParams) =>
   await instance()
     .get(`courses?page=${params?.page}&scope=${params?.scope ?? ''}`)
@@ -40,10 +58,17 @@ export const fetchCourse = async (params: SearchCourseParams) =>
       return res.data;
     });
 
-export const storeCourse = async (body: Partial<StoreCourseBody>) =>
-  await instance({ auth: true })
-    .post('auth/courses', body)
+export const storeCourse = async (body: Partial<StoreCourseBody>) => {
+  const formData = getStoreFormData(body);
+
+  return await instance({ auth: true })
+    .post('auth/courses', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
     .then((res): SuccessResponse<CourseModel> => {
       res.data.body = courseFromMap(res.data.body);
       return res.data;
     });
+};

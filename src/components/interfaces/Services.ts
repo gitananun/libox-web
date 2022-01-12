@@ -3,10 +3,9 @@ export interface StoreCourseBody {
   title: string;
   badge: number;
   lessons: number;
-  createdAt: Date;
-  updatedAt: Date;
   language: string;
   description: string;
   categories: number[];
+  instructors: number[];
   certification: boolean;
 }

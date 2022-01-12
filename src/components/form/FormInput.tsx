@@ -17,6 +17,7 @@ const FormInput = (props: InputPropsInterface) => {
           id={props.label}
           value={props.value}
           ref={props.innerRef}
+          accept={props.accept}
           onBlur={props.onBlur}
           onChange={props.onChange}
           placeholder={props.placeholder}

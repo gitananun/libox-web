@@ -12,9 +12,12 @@ const FormSelect = (props: SelectPropsInterface) => {
         id={props.label}
         ref={props.innerRef}
         onChange={props.onChange}
-        defaultValue={props.defaultValue}
+        defaultValue={props.defaultValue ?? ''}
         className={`form-select ${props.className ?? ''} ${props.error && 'border-danger'}`}
       >
+        <option value={''} disabled>
+          Select {props.label?.toLowerCase()}
+        </option>
         {props.options?.map((o) => (
           <option key={o.value} value={o.value}>
             {o.title}

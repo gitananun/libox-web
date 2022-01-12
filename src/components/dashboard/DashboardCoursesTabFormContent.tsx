@@ -54,9 +54,10 @@ const DashboardCoursesTabFormContent = (props: Props) => {
           <FormInput
             label='Cover'
             type={'file'}
+            accept='image/*'
             className='radius-5 mb-3'
             error={props.errors?.image && props.errors.image[0]}
-            onChange={(v: any) => props.onFormInputChange('image', v.target.files[0] || v.dataTransfer.files[0])}
+            onChange={(v: any) => props.onFormInputChange('image', v.target.files[0])}
           />
           <small className='text-secondary'>
             The file must be image with the formats png/jpg/webp.
@@ -97,7 +98,7 @@ const DashboardCoursesTabFormContent = (props: Props) => {
       </div>
       <div className='row'>
         <div className='d-flex flex-wrap gap-3'>
-          <label className='form-label w-100 mb-0'>Categories</label>
+          <label className={`form-label w-100 mb-0 ${props.errors?.categories ? 'text-danger' : ''}`}>Categories</label>
           {state.categories.categories.map((c) => (
             <FormChip
               key={c.id}
@@ -106,26 +107,7 @@ const DashboardCoursesTabFormContent = (props: Props) => {
               checked={props.checkedCategories.find((e) => e === c.id) !== undefined}
             />
           ))}
-        </div>
-      </div>
-      <div className='row'>
-        <div className='col-6'>
-          <FormInput
-            type={'date'}
-            label='Created at'
-            className='radius-5'
-            error={props.errors?.created_at && props.errors.created_at[0]}
-            onChange={(v) => props.onFormInputChange('createdAt', v.target.value)}
-          />
-        </div>
-        <div className='col-6'>
-          <FormInput
-            type={'date'}
-            label='Last Updated'
-            className='radius-5'
-            error={props.errors?.last_updated && props.errors.last_updated[0]}
-            onChange={(v) => props.onFormInputChange('updatedAt', v.target.value)}
-          />
+          {props.errors?.categories && <div className='invalid-feedback d-block'> {props.errors.categories[0]} </div>}
         </div>
       </div>
     </>

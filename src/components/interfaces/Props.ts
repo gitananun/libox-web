@@ -14,6 +14,7 @@ export interface InputPropsInterface {
   error?: string;
   label?: string;
   value?: string;
+  accept?: string;
   search?: boolean;
   required?: boolean;
   readOnly?: boolean;
