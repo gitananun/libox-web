@@ -10,9 +10,9 @@ const FormSelect = (props: SelectPropsInterface) => {
       )}
       <select
         id={props.label}
+        value={props.value}
         ref={props.innerRef}
         onChange={props.onChange}
-        defaultValue={props.defaultValue ?? ''}
         className={`form-select ${props.className ?? ''} ${props.error && 'border-danger'}`}
       >
         <option value={''} disabled>

@@ -12,6 +12,8 @@ interface Props {
   errors: ValidationErrors;
   checkedCategories: number[];
   checkCategory(id: number): void;
+  formResult: Partial<StoreCourseBody>;
+  imageRef: React.LegacyRef<HTMLInputElement>;
   onFormInputChange(input: keyof StoreCourseBody, value: any): void;
 }
 
@@ -26,6 +28,7 @@ const DashboardCoursesTabFormContent = (props: Props) => {
             type='text'
             label='Title'
             placeholder='Title'
+            value={props.formResult.title ?? ''}
             error={props.errors?.title && props.errors.title[0]}
             onChange={(v) => props.onFormInputChange('title', v.target.value)}
           />
@@ -35,6 +38,7 @@ const DashboardCoursesTabFormContent = (props: Props) => {
             label='Language'
             options={getLanguagesEntries}
             className='radius-5 text-left'
+            value={props.formResult.language ?? ''}
             error={props.errors?.language && props.errors.language[0]}
             onChange={(v) => props.onFormInputChange('language', v.target.value)}
           />
@@ -46,6 +50,7 @@ const DashboardCoursesTabFormContent = (props: Props) => {
             label='Description'
             className='radius-5'
             placeholder='Best library course ever'
+            value={props.formResult.description ?? ''}
             error={props.errors?.description && props.errors.description[0]}
             onChange={(v) => props.onFormInputChange('description', v.target.value)}
           />
@@ -56,6 +61,7 @@ const DashboardCoursesTabFormContent = (props: Props) => {
             label='Cover'
             accept='image/*'
             className='radius-5 mb-3'
+            innerRef={props.imageRef}
             error={props.errors?.image && props.errors.image[0]}
             onChange={(v: any) => props.onFormInputChange('image', v.target.files[0])}
           />
@@ -71,6 +77,7 @@ const DashboardCoursesTabFormContent = (props: Props) => {
           <FormSelect
             label='Badge'
             className='radius-5'
+            value={props.formResult.badge?.toString() ?? ''}
             error={props.errors?.badge && props.errors.badge[0]}
             onChange={(v) => props.onFormInputChange('badge', v.target.value)}
             options={state.badges.badges.map((c) => ({ title: c.name, value: c.id }))}
@@ -82,6 +89,7 @@ const DashboardCoursesTabFormContent = (props: Props) => {
             label='Lessons'
             placeholder='154'
             className='radius-5'
+            value={props.formResult.lessons?.toString() ?? ''}
             error={props.errors?.lessons && props.errors.lessons[0]}
             onChange={(v) => props.onFormInputChange('lessons', +v.target.value)}
           />
@@ -91,6 +99,7 @@ const DashboardCoursesTabFormContent = (props: Props) => {
             label='Certification'
             className='radius-5'
             options={getCertificationOptions}
+            value={props.formResult.certification?.toString() ?? ''}
             error={props.errors?.certification && props.errors.certification[0]}
             onChange={(v) => props.onFormInputChange('certification', v.target.value)}
           />

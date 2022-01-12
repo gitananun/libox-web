@@ -6,12 +6,13 @@ import RoundedPrimaryButton from 'components/common/RoundedPrimaryButton';
 import { StoreCourseBody } from 'components/interfaces/Services';
 import { successToast } from 'components/shared/Toast';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/rootReducer';
 import DashboardCoursesTabFormContent from '../DashboardCoursesTabFormContent';
 
 const DashboardCoursesTab = () => {
+  const imageRef = useRef<HTMLInputElement>(null);
   const state = useSelector((state: RootState) => state);
   const [formResult, setFormResult] = useState<Partial<StoreCourseBody>>({});
 
@@ -39,12 +40,11 @@ const DashboardCoursesTab = () => {
   const onSubmit = () =>
     storeCourseAction(formResult).then(() => {
       successToast('Course created successfully');
-      setInterval(() => {
-        window.location.reload();
-      }, 2000);
+      onDiscard();
     });
 
   const onDiscard = () => {
+    if (imageRef.current) imageRef.current.value = '';
     setFormResult({});
   };
 
@@ -61,6 +61,8 @@ const DashboardCoursesTab = () => {
         </div>
         <div className='content'>
           <DashboardCoursesTabFormContent
+            imageRef={imageRef}
+            formResult={formResult}
             checkCategory={checkCategory}
             errors={state.validation.errors}
             onFormInputChange={onFormInputChange}

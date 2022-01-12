@@ -46,6 +46,7 @@ export interface TextAreaPropsInterface {
 export interface SelectPropsInterface {
   error?: string;
   label?: string;
+  value?: string;
   className?: string;
   options?: { title: any; value: any }[];
   innerRef?: React.LegacyRef<HTMLSelectElement>;
