@@ -23,7 +23,7 @@ const DashboardCoursesTabFormContent = (props: Props) => {
       <div className='row'>
         <div className='col-12 col-lg-8'>
           <FormInput
-            type={'text'}
+            type='text'
             label='Title'
             placeholder='Title'
             error={props.errors?.title && props.errors.title[0]}
@@ -52,8 +52,8 @@ const DashboardCoursesTabFormContent = (props: Props) => {
         </div>
         <div className='col-6'>
           <FormInput
+            type='file'
             label='Cover'
-            type={'file'}
             accept='image/*'
             className='radius-5 mb-3'
             error={props.errors?.image && props.errors.image[0]}
@@ -78,8 +78,8 @@ const DashboardCoursesTabFormContent = (props: Props) => {
         </div>
         <div className='col-4'>
           <FormInput
+            type='number'
             label='Lessons'
-            type={'number'}
             placeholder='154'
             className='radius-5'
             error={props.errors?.lessons && props.errors.lessons[0]}

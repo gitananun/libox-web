@@ -44,6 +44,10 @@ const DashboardCoursesTab = () => {
       }, 2000);
     });
 
+  const onDiscard = () => {
+    setFormResult({});
+  };
+
   return (
     <div id='courses' className='tab-pane dashboard-courses-tab'>
       <p className='title'>Courses</p>
@@ -64,7 +68,7 @@ const DashboardCoursesTab = () => {
           />
           <div className='row mt-5 mb-0'>
             <div className='col'>
-              <OutlinedButton className='w-100 btn-rounded' title='Reset All' />
+              <OutlinedButton className='w-100 btn-rounded' title='Reset All' onClick={onDiscard} />
             </div>
             <div className='col'>
               <RoundedPrimaryButton className='w-100' title='Post to Library' onClick={onSubmit} />
