@@ -58,6 +58,10 @@ input {
     color: $secondaryTextColor;
     border-color: $secondaryColor;
 }
+[class*="bg-secondary-light"] {
+    background-color: $secondaryColor;
+    border-color: $secondaryColor;
+}
 .border-right {
     border-right: 1px solid $secondaryColor;
 }
@@ -368,9 +372,12 @@ footer {
 .course-item {
     width: 350px;
     border: 1px solid $secondaryColor !important;
-
     * {
         border-radius: 0px !important;
+    }
+
+    &-small {
+        width: 280px !important;
     }
     .card-title {
         font-weight: 700;
@@ -387,6 +394,11 @@ footer {
         p {
             font-size: 16px;
         }
+    }
+    .card-footer {
+        background: none;
+        border: 0;
+        padding-bottom: 15px;
     }
 }
 .index-motivation {

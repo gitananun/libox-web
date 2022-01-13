@@ -6,6 +6,7 @@ import {
   fetchCourse,
   fetchCourses,
   FetchCoursesParams,
+  fetchSelfCourses,
   SearchCourseParams,
   searchCourses,
   SearchCoursesParams,
@@ -31,4 +32,8 @@ export const fetchCourseAction = async (params: SearchCourseParams): Promise<Red
 
 export const storeCourseAction = async (body: Partial<StoreCourseBody>): Promise<SuccessResponse<CourseModel>> => {
   return storeCourse(body);
+};
+
+export const fetchSelfCoursesAction = async (params?: FetchCoursesParams): Promise<ReduxAction> => {
+  return fetchSelfCourses(params).then((data) => dispatch(fetchCoursesStateAction(data)));
 };

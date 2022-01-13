@@ -3,6 +3,7 @@ import { CourseModel } from 'data/models/CourseModel';
 import { Link, useNavigate } from 'react-router-dom';
 
 interface Props {
+  className?: string;
   course: CourseModel;
 }
 
@@ -10,7 +11,7 @@ const CourseItem = (props: Props) => {
   const navigate = useNavigate();
 
   return (
-    <div className='card course-item'>
+    <div className={`card course-item p-0 ${props.className ?? ''}`}>
       <img className='card-img-top' src={props.course.imageUrl} alt='course' />
       <div className='card-body'>
         <Link to={`/courses/${props.course.slug}`}>
@@ -26,7 +27,7 @@ const CourseItem = (props: Props) => {
         </p>
       </div>
 
-      <div className='card-body d-flex justify-content-between'>
+      <div className='card-footer d-flex justify-content-between'>
         <div className='d-flex flex-column justify-content-between'>
           <p className='course-detail'>
             <i className='fa fa-calendar'></i> - {props.course.length} hours

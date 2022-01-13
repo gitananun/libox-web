@@ -58,11 +58,9 @@ export const fetchCourse = async (params: SearchCourseParams) =>
       return res.data;
     });
 
-export const storeCourse = async (body: Partial<StoreCourseBody>) => {
-  const formData = getStoreFormData(body);
-
-  return await instance({ auth: true })
-    .post('auth/courses', formData, {
+export const storeCourse = async (body: Partial<StoreCourseBody>) =>
+  await instance({ auth: true })
+    .post('auth/courses', getStoreFormData(body), {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -71,4 +69,11 @@ export const storeCourse = async (body: Partial<StoreCourseBody>) => {
       res.data.body = courseFromMap(res.data.body);
       return res.data;
     });
-};
+
+export const fetchSelfCourses = async (params?: FetchCoursesParams) =>
+  await instance({ auth: true })
+    .get(`/auth/courses?page=${params?.page}`)
+    .then((res): PaginatedResponse<CourseModel> => {
+      res.data.body.items = res.data.body.items.map((e: any) => courseFromMap(e));
+      return res.data.body;
+    });

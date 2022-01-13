@@ -13,6 +13,11 @@ const DashboardNavTabs = () => {
           </a>
         </li>
         <li className='nav-item'>
+          <a className='nav-link' href='#my-library' role='tab' data-toggle='tab'>
+            My Library
+          </a>
+        </li>
+        <li className='nav-item'>
           <a className='nav-link' href='#password' role='tab' data-toggle='tab'>
             Password
           </a>
