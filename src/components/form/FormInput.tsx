@@ -19,7 +19,9 @@ const FormInput = (props: InputPropsInterface) => {
           ref={props.innerRef}
           accept={props.accept}
           onBlur={props.onBlur}
+          onFocus={props.onFocus}
           onChange={props.onChange}
+          onKeyDown={props.onKeyDown}
           placeholder={props.placeholder}
           defaultValue={props.defaultValue}
           required={props.required || false}

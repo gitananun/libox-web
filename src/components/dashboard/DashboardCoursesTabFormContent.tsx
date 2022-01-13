@@ -1,3 +1,4 @@
+import { removeValidationAction } from 'actions/validation';
 import FormChip from 'components/form/FormChip';
 import FormInput from 'components/form/FormInput';
 import FormSelect from 'components/form/FormSelect';
@@ -29,6 +30,7 @@ const DashboardCoursesTabFormContent = (props: Props) => {
             label='Title'
             placeholder='Title'
             value={props.formResult.title ?? ''}
+            onFocus={() => removeValidationAction('title')}
             error={props.errors?.title && props.errors.title[0]}
             onChange={(v) => props.onFormInputChange('title', v.target.value)}
           />
@@ -39,6 +41,7 @@ const DashboardCoursesTabFormContent = (props: Props) => {
             options={getLanguagesEntries}
             className='radius-5 text-left'
             value={props.formResult.language ?? ''}
+            onFocus={() => removeValidationAction('language')}
             error={props.errors?.language && props.errors.language[0]}
             onChange={(v) => props.onFormInputChange('language', v.target.value)}
           />
@@ -51,6 +54,7 @@ const DashboardCoursesTabFormContent = (props: Props) => {
             className='radius-5'
             placeholder='Best library course ever'
             value={props.formResult.description ?? ''}
+            onFocus={() => removeValidationAction('description')}
             error={props.errors?.description && props.errors.description[0]}
             onChange={(v) => props.onFormInputChange('description', v.target.value)}
           />
@@ -62,6 +66,7 @@ const DashboardCoursesTabFormContent = (props: Props) => {
             accept='image/*'
             className='radius-5 mb-3'
             innerRef={props.imageRef}
+            onFocus={() => removeValidationAction('image')}
             error={props.errors?.image && props.errors.image[0]}
             onChange={(v: any) => props.onFormInputChange('image', v.target.files[0])}
           />
@@ -78,6 +83,7 @@ const DashboardCoursesTabFormContent = (props: Props) => {
             label='Badge'
             className='radius-5'
             value={props.formResult.badge?.toString() ?? ''}
+            onFocus={() => removeValidationAction('badge')}
             error={props.errors?.badge && props.errors.badge[0]}
             onChange={(v) => props.onFormInputChange('badge', v.target.value)}
             options={state.badges.badges.map((c) => ({ title: c.name, value: c.id }))}
@@ -90,6 +96,7 @@ const DashboardCoursesTabFormContent = (props: Props) => {
             placeholder='154'
             className='radius-5'
             value={props.formResult.lessons?.toString() ?? ''}
+            onFocus={() => removeValidationAction('lessons')}
             error={props.errors?.lessons && props.errors.lessons[0]}
             onChange={(v) => props.onFormInputChange('lessons', +v.target.value)}
           />
@@ -100,6 +107,7 @@ const DashboardCoursesTabFormContent = (props: Props) => {
             className='radius-5'
             options={getCertificationOptions}
             value={props.formResult.certification?.toString() ?? ''}
+            onFocus={() => removeValidationAction('certification')}
             error={props.errors?.certification && props.errors.certification[0]}
             onChange={(v) => props.onFormInputChange('certification', v.target.value)}
           />

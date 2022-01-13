@@ -25,7 +25,9 @@ export interface InputPropsInterface {
   type?: React.HTMLInputTypeAttribute;
   innerRef?: React.LegacyRef<HTMLInputElement>;
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
+  onFocus?: React.ChangeEventHandler<HTMLInputElement>;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
 }
 
 export interface TextAreaPropsInterface {
@@ -38,8 +40,10 @@ export interface TextAreaPropsInterface {
   readOnly?: boolean;
   className?: string;
   placeholder?: string;
+
   innerRef?: React.LegacyRef<HTMLInputElement>;
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
+  onFocus?: React.ChangeEventHandler<HTMLTextAreaElement>;
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
 }
 
@@ -50,6 +54,7 @@ export interface SelectPropsInterface {
   className?: string;
   options?: { title: any; value: any }[];
   innerRef?: React.LegacyRef<HTMLSelectElement>;
+  onFocus?: React.ChangeEventHandler<HTMLSelectElement>;
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
   defaultValue?: string | number | readonly string[] | undefined;
 }
