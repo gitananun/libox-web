@@ -11,8 +11,10 @@ import {
   authResetPassword,
   AuthResetPasswordParams,
   authSelf,
+  authUpdateUser,
+  AuthUpdateUserParams,
 } from 'services/auth';
-import { loginStateAction, logoutStateAction } from 'store/Auth/auth.actions';
+import { loginStateAction, logoutStateAction, updateUserStateAction } from 'store/Auth/auth.actions';
 import store from 'store/store';
 import { removeAccessToken } from 'utils/shared';
 
@@ -41,4 +43,8 @@ export const authRegisterAction = async (params: AuthRegisterParams): Promise<Su
 export const authLogoutAction = async () => {
   removeAccessToken();
   dispatch(logoutStateAction());
+};
+
+export const authUpdateUserAction = async (params: AuthUpdateUserParams) => {
+  return authUpdateUser(params).then((data) => dispatch(updateUserStateAction(data.body)));
 };

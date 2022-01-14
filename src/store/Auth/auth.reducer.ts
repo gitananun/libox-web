@@ -1,6 +1,6 @@
 import { UserModel } from './../../data/models/UserModel';
 import { ReduxAction } from 'components/interfaces/Redux';
-import { LOGIN, LOGOUT } from './auth.types';
+import { LOGIN, LOGOUT, UPDATE_USER } from './auth.types';
 
 interface StateInterface {
   user?: UserModel;
@@ -19,6 +19,11 @@ const reducer = (state = INITIAL_STATE, action: ReduxAction): StateInterface => 
       return {
         ...state,
         user: undefined,
+      };
+    case UPDATE_USER:
+      return {
+        ...state,
+        user: action.payload,
       };
     default:
       return state;

@@ -1,6 +1,6 @@
 import { UserModel } from './../../data/models/UserModel';
 import { ReduxAction } from '../../components/interfaces/Redux';
-import { LOGIN, LOGOUT } from './auth.types';
+import { LOGIN, LOGOUT, UPDATE_USER } from './auth.types';
 
 export const loginStateAction = (user: UserModel): ReduxAction => ({
   type: LOGIN,
@@ -9,4 +9,9 @@ export const loginStateAction = (user: UserModel): ReduxAction => ({
 
 export const logoutStateAction = (): ReduxAction => ({
   type: LOGOUT,
+});
+
+export const updateUserStateAction = (user: UserModel): ReduxAction => ({
+  type: UPDATE_USER,
+  payload: user,
 });

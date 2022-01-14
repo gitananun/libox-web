@@ -27,6 +27,11 @@ export interface AuthResetPasswordParams {
   confirmPassword: string;
 }
 
+export interface AuthUpdateUserParams {
+  name?: string;
+  lastname?: string;
+}
+
 export const authRegister = async (params: AuthRegisterParams) =>
   await instance()
     .post('auth/register', params)
@@ -59,11 +64,19 @@ export const authForgotPassword = async (params: AuthForgotPasswordParams) =>
     });
 
 export const authResetPassword = async (params: AuthResetPasswordParams) =>
-  await instance()
+  await instance({ auth: true })
     .post(`auth/reset-password?token=${params.token}`, {
       ...params,
       password_confirmation: params.confirmPassword,
     })
     .then((res): SuccessResponse<string> => {
+      return res.data;
+    });
+
+export const authUpdateUser = async (params: AuthUpdateUserParams) =>
+  await instance({ auth: true })
+    .put('auth/users', params)
+    .then((res): SuccessResponse<UserModel> => {
+      res.data.body = userFromMap(res.data.body);
       return res.data;
     });

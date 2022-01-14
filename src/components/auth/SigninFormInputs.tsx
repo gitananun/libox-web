@@ -1,3 +1,4 @@
+import { removeValidationAction } from 'actions/validation';
 import FormInput from 'components/form/FormInput';
 import { ValidationErrors } from 'components/interfaces/Shared';
 import { Link } from 'react-router-dom';
@@ -16,6 +17,7 @@ const SigninFormInputs = (props: Props) => {
         label='Email'
         innerRef={props.emailRef}
         placeholder='libox@best.com'
+        onFocus={() => removeValidationAction('email')}
         error={props.errors?.email && props.errors.email[0]}
       />
       <FormInput
@@ -23,6 +25,7 @@ const SigninFormInputs = (props: Props) => {
         label='Password'
         placeholder='password'
         innerRef={props.passwordRef}
+        onFocus={() => removeValidationAction('password')}
         error={props.errors?.password && props.errors.password[0]}
       />
       <Link to='/forgot-password' className='w-100 text-end mb-3'>
