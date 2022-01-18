@@ -1,3 +1,4 @@
+import { removeValidationAction } from 'actions/validation';
 import FormInput from 'components/form/FormInput';
 import { ValidationErrors } from 'components/interfaces/Shared';
 
@@ -19,6 +20,7 @@ const SignupFormInputs = (props: Props) => {
             label='Name'
             placeholder='Libox'
             innerRef={props.nameRef}
+            onFocus={() => removeValidationAction('name')}
             error={props.errors?.name && props.errors.name[0]}
           />
         </div>
@@ -28,6 +30,7 @@ const SignupFormInputs = (props: Props) => {
             label='Lastname'
             placeholder='Armenyan'
             innerRef={props.lastnameRef}
+            onFocus={() => removeValidationAction('lastname')}
             error={props.errors?.lastname && props.errors.lastname[0]}
           />
         </div>
@@ -37,6 +40,7 @@ const SignupFormInputs = (props: Props) => {
         label='Email'
         placeholder='libox@me.co'
         innerRef={props.emailRef}
+        onFocus={() => removeValidationAction('email')}
         error={props.errors?.email && props.errors.email[0]}
       />
       <FormInput
@@ -44,6 +48,7 @@ const SignupFormInputs = (props: Props) => {
         label='Password'
         placeholder='password'
         innerRef={props.passwordRef}
+        onFocus={() => removeValidationAction('password')}
         error={props.errors?.password && props.errors.password[0]}
       />
     </>
