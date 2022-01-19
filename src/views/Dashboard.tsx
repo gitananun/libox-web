@@ -2,8 +2,6 @@ import DashboardAccountTab from 'components/dashboard/tabs/DashboardAccountTab';
 import DashboardHelpTab from 'components/dashboard/tabs/DashboardHelpTab';
 import DashboardNavTabs from 'components/dashboard/DashboardNavTabs';
 import DashboardPasswordTab from 'components/dashboard/tabs/DashboardPasswordTab';
-import DashboardSettingsModal from 'components/dashboard/DashboardSettingsModal';
-import NotificationsModal from 'components/shared/NotificationsModal';
 import DashboardLayout from './layouts/DashboardLayout';
 import { useEffect } from 'react';
 import { authSelfAction } from 'actions/auth';
@@ -33,8 +31,6 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <NotificationsModal />
-      <DashboardSettingsModal />
     </DashboardLayout>
   );
 };

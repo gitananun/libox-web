@@ -8,7 +8,6 @@ import ForgotPassword from 'views/ForgotPassword';
 import Course from 'views/Course';
 import Courses from 'views/Courses';
 import Dashboard from 'views/Dashboard';
-import AdminDashboard from 'views/AdminDashboard';
 import { isAuthenticated } from 'utils/shared';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
@@ -43,7 +42,7 @@ const App = () => {
       <Route path='/courses/search/:title' element={<Courses />} />
       <Route path='/courses/:slug' element={<Course />} />
 
-      <Route path='/admin/dashboard' element={<AdminDashboard />} />
+      {/* <Route path='/admin/dashboard' element={<AdminDashboard />} /> */}
 
       <Route path='*' element={<NotFound />} />
     </Routes>

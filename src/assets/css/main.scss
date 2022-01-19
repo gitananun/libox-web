@@ -1087,3 +1087,7 @@ footer {
         border-color: $primaryColor;
     }
 }
+.forbidden {
+    cursor: not-allowed !important;
+    color: $secondaryColor !important;
+}

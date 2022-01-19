@@ -1,10 +1,8 @@
 import AdminDashboardNavTabs from 'components/dashboard/admin/AdminDashboardNavTabs';
-import DashboardSettingsModal from 'components/dashboard/DashboardSettingsModal';
 import DashboardAccountTab from 'components/dashboard/tabs/DashboardAccountTab';
 import DashboardCoursesTab from 'components/dashboard/tabs/DashboardCoursesTab';
 import DashboardHelpTab from 'components/dashboard/tabs/DashboardHelpTab';
 import DashboardPasswordTab from 'components/dashboard/tabs/DashboardPasswordTab';
-import NotificationsModal from 'components/shared/NotificationsModal';
 import DashboardLayout from './layouts/DashboardLayout';
 
 const AdminDashboard = () => {
@@ -28,8 +26,6 @@ const AdminDashboard = () => {
           </div>
         </div>
       </div>
-      <NotificationsModal />
-      <DashboardSettingsModal />
     </DashboardLayout>
   );
 };

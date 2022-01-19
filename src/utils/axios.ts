@@ -33,6 +33,9 @@ export const instance = (args?: Instance): AxiosInstance => {
         case 404:
           infoToast('📡 something not found detected');
           break;
+        case 403:
+          warningToast(`🔑 ${error.response.data.message}`);
+          break;
         case 401:
           removeAccessToken();
           dispatch(resolveValidationStateAction());
