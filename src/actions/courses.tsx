@@ -10,9 +10,10 @@ import {
   searchCourses,
   SearchCoursesParams,
   storeCourse,
+  updateCourse,
 } from 'services/courses';
 import { fetchCourseStateAction } from 'store/Course/course.actions';
-import { addCourseStateAction, fetchCoursesStateAction } from 'store/Courses/courses.actions';
+import { addCourseStateAction, fetchCoursesStateAction, updateCourseStateAction } from 'store/Courses/courses.actions';
 import store from 'store/store';
 
 const { dispatch } = store;
@@ -31,6 +32,10 @@ export const fetchCourseAction = async (params: SearchCourseParams): Promise<Red
 
 export const storeCourseAction = async (body: Partial<StoreCourseBody>): Promise<ReduxAction> => {
   return storeCourse(body).then((data) => dispatch(addCourseStateAction(data.body)));
+};
+
+export const updateCourseAction = async (id: number, body: Partial<StoreCourseBody>): Promise<ReduxAction> => {
+  return updateCourse(id, body).then((data) => dispatch(updateCourseStateAction(data.body)));
 };
 
 export const fetchSelfCoursesAction = async (params?: FetchCoursesParams): Promise<ReduxAction> => {

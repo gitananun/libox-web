@@ -33,7 +33,7 @@ const DashboardMyLibraryTab = () => {
         <div className='content'>
           <div className='row'>
             {state.courses.courses.map((c) => (
-              <CourseItem course={c} key={c.id} className='course-item-small m-3' />
+              <CourseItem course={c} key={c.id} editable={true} className='course-item-small m-3' />
             ))}
           </div>
           <PaginationNav current={state.courses.currentPage} last={state.courses.currentPage} />

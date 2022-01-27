@@ -1,7 +1,7 @@
 import { PaginatedPayload } from './../../components/interfaces/Redux';
 import { CourseModel } from './../../data/models/CourseModel';
 import { ReduxAction } from 'components/interfaces/Redux';
-import { FETCH_COURSES, ADD_COURSE } from './courses.types';
+import { FETCH_COURSES, ADD_COURSE, UPDATE_COURSE } from './courses.types';
 
 interface StateInterface {
   lastPage: number;
@@ -29,6 +29,12 @@ const reducer = (state = INITIAL_STATE, action: ReduxAction): StateInterface => 
       return {
         ...state,
         courses: [...state.courses, action.payload],
+      };
+    case UPDATE_COURSE:
+      const updated = state.courses.map((c) => (c.id === action.payload.id ? (c = action.payload) : c));
+      return {
+        ...state,
+        courses: [...updated],
       };
     default:
       return state;

@@ -1,5 +1,6 @@
 import { authLogoutAction } from 'actions/auth';
 import DashboardSettingsModal from 'components/dashboard/DashboardSettingsModal';
+import DashboardEditCourseModal from 'components/dashboard/modals/DashboardEditCourseModal';
 import DashboardHeader from 'components/layouts/DashboardHeader';
 import HeaderWrapper from 'components/layouts/HeaderWrapper';
 import EmailNotVerifiedModal from 'components/shared/EmailNotVerifiedModal';
@@ -24,6 +25,8 @@ const DashboardLayout = (props: any) => {
       <NotificationsModal />
       <DashboardSettingsModal />
       <EmailNotVerifiedModal />
+
+      <DashboardEditCourseModal />
     </div>
   );
 };

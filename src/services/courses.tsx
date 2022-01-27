@@ -70,6 +70,18 @@ export const storeCourse = async (body: Partial<StoreCourseBody>) =>
       return res.data;
     });
 
+export const updateCourse = async (id: number, body: Partial<StoreCourseBody>) =>
+  await instance({ auth: true })
+    .put(`auth/courses/${id}`, getStoreFormData(body), {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    .then((res): SuccessResponse<CourseModel> => {
+      res.data.body = courseFromMap(res.data.body);
+      return res.data;
+    });
+
 export const fetchSelfCourses = async (params?: FetchCoursesParams) =>
   await instance({ auth: true })
     .get(`/auth/courses?page=${params?.page}`)

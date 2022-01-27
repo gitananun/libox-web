@@ -58,6 +58,10 @@ input {
     color: $secondaryTextColor;
     border-color: $secondaryColor;
 }
+[class*="secondary-light"] {
+    color: $secondaryColor;
+    border-color: $secondaryColor;
+}
 [class*="bg-secondary-light"] {
     background-color: $secondaryColor;
     border-color: $secondaryColor;
@@ -378,6 +382,11 @@ footer {
 
     &-small {
         width: 280px !important;
+    }
+    .img-overlay {
+        background: rgba($color: white, $alpha: 1);
+        width: fit-content;
+        height: fit-content;
     }
     .card-title {
         font-weight: 700;
@@ -1090,4 +1099,22 @@ footer {
 .forbidden {
     cursor: not-allowed !important;
     color: $secondaryColor !important;
+}
+.cursor-pointer {
+    cursor: pointer !important;
+}
+#edit-course-modal {
+    input,
+    select,
+    textarea {
+        border-radius: 5px !important;
+    }
+    .content {
+        .row {
+            margin-bottom: 20px;
+        }
+    }
+}
+.modal-dialog {
+    max-width: 750px !important;
 }

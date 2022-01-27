@@ -3,6 +3,7 @@ import { CourseModel } from 'data/models/CourseModel';
 import { Link, useNavigate } from 'react-router-dom';
 
 interface Props {
+  editable?: boolean;
   className?: string;
   course: CourseModel;
 }
@@ -13,6 +14,20 @@ const CourseItem = (props: Props) => {
   return (
     <div className={`card course-item p-0 ${props.className ?? ''}`}>
       <img className='card-img-top' src={props.course.imageUrl} alt='course' />
+      {props.editable && (
+        <div className='card-img-overlay img-overlay'>
+          <div className='d-flex flex-column gap-3'>
+            <Link to={`?course=${props.course.id}`}>
+              <i
+                data-toggle='modal'
+                data-target='#edit-course-modal'
+                className='fas fa-edit text-success cursor-pointer'
+              ></i>
+            </Link>
+            <i className='fas fa-trash text-secondary cursor-pointer'></i>
+          </div>
+        </div>
+      )}
       <div className='card-body'>
         <Link to={`/courses/${props.course.slug}`}>
           <h5 className='card-title'>{props.course.title}</h5>
