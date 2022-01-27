@@ -7,7 +7,6 @@ import RoundedPrimaryButton from 'components/common/RoundedPrimaryButton';
 import SocialButton from 'components/common/SocialButton';
 import AuthLayout from './layouts/AuthLayout';
 import Section from './layouts/Section';
-import { getAccessToken, setAccessToken } from 'utils/shared';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/rootReducer';
 import { useRef } from 'react';
@@ -30,10 +29,7 @@ const Signup = () => {
       email: emailRef.current?.value.trim(),
       lastname: lastnameRef.current?.value.trim(),
       password: passwordRef.current?.value.trim(),
-    }).then((data) => {
-      data && setAccessToken(data.body.accessToken);
-      getAccessToken() && navigate('/dashboard');
-    });
+    }).then(() => navigate('/signin'));
   };
 
   return (
