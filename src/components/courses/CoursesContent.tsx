@@ -10,7 +10,7 @@ const CoursesContent = (props: Props) => {
     <div className='courses-content'>
       <div className='row d-flex justify-content-start align-items-center mt-4'>
         {props.courses.map((c) => (
-          <div key={c.id} className='col-4 align-items-center courses-single'>
+          <div key={c.id} className='col align-items-center courses-single'>
             <CourseItem course={c} />
           </div>
         ))}

@@ -295,7 +295,7 @@ input {
         width: 300px;
     }
     .bg-block {
-        left: -600px;
+        left: -650px;
         height: 300px;
         transform: rotate(-2deg);
         background: rgb($color: $primaryColor, $alpha: 0.4);
@@ -306,6 +306,7 @@ input {
 
         @media screen and (max-width: $large-width) {
             top: 220px;
+            left: -100px;
         }
     }
     .about-wrapper {
