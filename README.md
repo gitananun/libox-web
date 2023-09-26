@@ -2,3 +2,5 @@
 
 - Used React for Front-end part
 - API with PHP/Laravel
+
+![Screenshot](public/screenshot.png)
