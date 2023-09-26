@@ -2,15 +2,14 @@
 @import "./media.scss";
 @import "./images.scss";
 @import "./fonts.scss";
+@import "./colors.scss";
 
-$primaryColor: #3a85b4;
-$secondaryColor: #dee2e6;
+$vertical-space: 80px;
+$transition: all 0.3s ease-in-out;
 
-$secondaryTextColor: #6a7a83;
-$darkTextColor: #333146;
-
-$vertical-space: 50px;
-
+* {
+    box-sizing: border-box !important;
+}
 body {
     font-family: "Nunito", sans-serif !important;
     color: $darkTextColor !important;
@@ -20,9 +19,20 @@ p {
     margin: 0 !important;
 }
 a {
+    color: $primaryColor;
     text-decoration: none !important;
+    &:hover {
+        color: $primaryColorDark;
+    }
+}
+img {
+    user-select: none;
+}
+hr {
+    background-color: $secondaryColor !important;
 }
 select,
+textarea,
 input {
     padding: 15px 20px !important;
     font-size: 16px !important;
@@ -40,13 +50,40 @@ input {
     background-color: $primaryColor !important;
     border-color: $primaryColor !important;
 }
+[class*="text-primary"] {
+    background: none !important;
+    color: $primaryColor !important;
+}
 [class*="secondary"] {
     color: $secondaryTextColor;
     border-color: $secondaryColor;
 }
+[class*="secondary-light"] {
+    color: $secondaryColor;
+    border-color: $secondaryColor;
+}
+[class*="bg-secondary-light"] {
+    background-color: $secondaryColor;
+    border-color: $secondaryColor;
+}
+.border-right {
+    border-right: 1px solid $secondaryColor;
+}
 .blur-container {
     background-color: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(5px);
+    width: 100%;
+
+    &-light {
+        backdrop-filter: blur(2px);
+        width: 100%;
+        height: 100%;
+    }
+    &-hard {
+        backdrop-filter: blur(12px);
+        width: 100%;
+        height: 100%;
+    }
 }
 .navbar {
     .nav-link {
@@ -54,23 +91,19 @@ input {
         font-size: 15px !important;
         font-weight: 600 !important;
         color: $darkTextColor !important;
-
         &-active {
             color: $primaryColor !important;
         }
         &:hover {
             color: $primaryColor !important;
         }
-
         @media screen and (max-width: $large-width) {
             border-top: 1px solid $secondaryColor;
         }
     }
-
     .logo {
         width: 120px;
     }
-
     &-toggler {
         border: 0 !important;
         color: $secondaryTextColor;
@@ -86,7 +119,6 @@ input {
         border-bottom: 0 !important;
         border-top: 1px solid $secondaryColor;
     }
-
     @media screen and (max-width: $medium-width) {
         .btn-outline {
             border: 1px solid $secondaryColor !important;
@@ -103,20 +135,17 @@ input {
     background-attachment: fixed;
     background-size: cover;
     color: rgba(0, 0, 0, 0.7);
-
     #hero-svg {
-        width: 250px;
+        width: 300px;
+        user-select: none;
     }
-
     h1 {
         font-size: 65px;
-
         @media screen and (max-width: $large-width) {
             font-size: 40px;
             margin-top: 30px;
         }
     }
-
     .content > button {
         margin-top: 20px;
     }
@@ -127,24 +156,36 @@ input {
 .btn-primary-rounded {
     border-radius: 50px !important;
     border: 1px solid $primaryColor !important;
-
     &:hover {
         background-color: rgba(255, 255, 255, 0.6) !important;
         color: $primaryColor !important;
     }
+}
+.btn-rounded {
+    border-radius: 50px !important;
 }
 #scroll-top {
     z-index: 100;
     position: fixed;
     bottom: 20px;
     right: 20px;
+    i {
+        background: none !important;
+        transform: rotate(-45deg);
+        font-size: 25px !important;
+    }
 }
 #search-wrapper {
     padding: 25px;
     border-radius: 50px;
-    margin-top: $vertical-space;
+    margin-top: 50px;
     box-shadow: 0px 0px 81px 0px rgb(50 50 50 / 5%);
-
+    @media screen and (min-width: $large-width) {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -100%);
+    }
     .row > * {
         @media screen and (max-width: $large-width) {
             margin-top: 10px;
@@ -153,6 +194,10 @@ input {
 }
 .form-select {
     border-radius: 50px !important;
+    border: 1px solid $secondaryColor;
+    &:focus {
+        border: 1px solid $primaryColor;
+    }
 }
 .form-input {
     border-radius: 50px !important;
@@ -161,4 +206,916 @@ input {
     &:focus {
         border-color: $primaryColor !important;
     }
+}
+.search-input {
+    display: flex;
+    align-items: center;
+    position: relative;
+    input {
+        border: none;
+        border-radius: 50px;
+        z-index: 1 !important;
+        padding-left: 50px !important;
+        border: 1px solid $secondaryColor;
+    }
+    span {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        z-index: 2;
+        transform: translate(0, -50%);
+    }
+}
+.section {
+    padding-top: $vertical-space;
+}
+.index-categories {
+    @media screen and (min-width: $large-width) {
+        padding-top: $vertical-space + 50;
+    }
+}
+.category-single {
+    position: relative;
+    overflow: hidden;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 10px;
+    height: 250px;
+    cursor: crosshair;
+    img {
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        object-fit: cover;
+        position: absolute;
+        transition: $transition;
+        height: 100%;
+    }
+    &:hover {
+        img {
+            transform: scale(1.2);
+        }
+    }
+    .category-name {
+        padding: 80px 0px;
+        color: white;
+        background-color: rgba($color: black, $alpha: 0.1);
+
+        h3 {
+            font-size: 30px;
+            font-weight: 800 !important;
+        }
+        h5 {
+            font-size: 20px;
+        }
+    }
+}
+.section-title {
+    max-width: 800px;
+    margin: 0 auto;
+
+    h1 {
+        font-weight: 600;
+        font-size: 50px;
+    }
+    p {
+        font-weight: 200;
+        line-height: 26px;
+        font-size: 18px;
+    }
+}
+.index-about {
+    position: relative;
+    padding-bottom: 40px;
+    #about-svg {
+        width: 300px;
+    }
+    .bg-block {
+        left: -650px;
+        height: 300px;
+        transform: rotate(-2deg);
+        background: rgb($color: $primaryColor, $alpha: 0.4);
+        position: absolute;
+        top: 130px;
+        width: 200%;
+        z-index: -1;
+
+        @media screen and (max-width: $large-width) {
+            top: 220px;
+            left: -100px;
+        }
+    }
+    .about-wrapper {
+        width: 100%;
+        background: white;
+        padding: 50px 100px;
+        box-shadow: 0 10px 25px 0px rgb(0 0 0 / 8%);
+
+        @media screen and (max-width: $medium-width) {
+            padding: 50px 35px;
+        }
+    }
+    .about-content {
+        h1 {
+            font-weight: 400;
+        }
+        p {
+            font-size: 20px;
+
+            @media screen and (max-width: $large-width) {
+                font-size: 18px;
+            }
+        }
+    }
+}
+footer {
+    background: rgb($color: $secondaryColor, $alpha: 0.2);
+    overflow: hidden;
+    .logo {
+        width: 120px;
+    }
+    .brand-content {
+        * {
+            font-size: 14px;
+        }
+    }
+    .nav-links {
+        @media screen and (max-width: $large-width) {
+            display: none !important;
+        }
+        .footer-nav-link {
+            color: $darkTextColor;
+            font-weight: 600;
+            font-size: 18px;
+        }
+    }
+    .social-icon {
+        font-size: 24px;
+    }
+}
+.index-courses {
+    padding-top: $vertical-space / 2;
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-wrapper {
+        display: flex !important;
+    }
+    .swiper-slide {
+        display: flex;
+        width: auto !important;
+        justify-content: center;
+        align-items: center;
+        display: block;
+    }
+}
+.course-item {
+    width: 350px;
+    border: 1px solid $secondaryColor !important;
+    * {
+        border-radius: 0px !important;
+    }
+
+    &-small {
+        width: 280px !important;
+    }
+    .img-overlay {
+        background: rgba($color: white, $alpha: 1);
+        width: fit-content;
+        height: fit-content;
+    }
+    .card-title {
+        font-weight: 700;
+        font-size: 20px;
+        max-lines: 2;
+    }
+    .card-text {
+        font-size: 15px;
+        a {
+            color: $primaryColor !important;
+        }
+    }
+    .card-body {
+        p {
+            font-size: 16px;
+        }
+    }
+    .card-footer {
+        background: none;
+        border: 0;
+        padding-bottom: 15px;
+    }
+}
+.index-motivation {
+    #motivation-svg {
+        width: 200px;
+    }
+    .motivation-content {
+        h1 {
+            font-weight: 400;
+        }
+        p {
+            font-size: 18px;
+        }
+        @media screen and (max-width: $large-width) {
+            padding-bottom: 20px;
+        }
+    }
+}
+.display-3 {
+    @media screen and (max-width: $large-width) {
+        font-size: 35px !important;
+    }
+}
+.blockquote {
+    margin: 0px !important;
+}
+.blockquote-footer {
+    background-color: transparent !important;
+    border-left: 5px solid $primaryColor;
+    padding-left: 10px;
+}
+.index-newsletter {
+    .container {
+        border-top: 1px solid $primaryColor;
+        border-bottom: 0px;
+        padding: 60px 250px;
+
+        @media screen and (max-width: $large-width) {
+            padding: 60px 20px;
+        }
+    }
+    * {
+        border-radius: 0 !important;
+    }
+    .subscribe-form {
+        text-align: start !important;
+    }
+}
+.not-found {
+    .images-row {
+        padding: 20px 150px;
+    }
+    .title {
+        font-weight: 600;
+    }
+}
+.auth-layout {
+    .layout-section {
+        width: 100%;
+
+        @media screen and (max-width: $large-width) {
+            height: 100%;
+        }
+
+        &:first-child {
+            padding: 20px 150px;
+
+            @media screen and (max-width: $large-width) {
+                padding: 20px 60px;
+            }
+        }
+    }
+    .banner {
+        background-image: $signup-banner-bg;
+        background-size: cover;
+        background-position: center;
+
+        .blur-container {
+            padding: 20px !important;
+        }
+        @media screen and (max-width: $large-width) {
+            display: none !important;
+        }
+        .swiper-slide {
+            padding-left: 10px !important;
+            padding-right: 20px !important;
+        }
+        .quote {
+            font-size: 20px;
+            line-height: 140%;
+            font-weight: 600 !important;
+        }
+    }
+    .banner.banner-signin {
+        background-image: $signin-banner-bg;
+    }
+    .banner.banner-forgot-password {
+        background-image: $forgot-password-banner-bg;
+    }
+    input {
+        border-radius: 5px !important;
+    }
+    .input-group {
+        margin-bottom: 15px;
+        align-items: center;
+    }
+    button {
+        width: 100%;
+        border-radius: 5px !important;
+    }
+    .btn-back {
+        width: 60px !important;
+    }
+}
+.input-suffix {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: $darkTextColor;
+    font-size: 18px;
+}
+.btn-social {
+    font-size: 14px !important;
+}
+.btn-google {
+    background-color: $google !important;
+    border-color: $google !important;
+    &:hover {
+        color: $google !important;
+    }
+}
+.btn-github {
+    background-color: $github !important;
+    border-color: $github !important;
+    &:hover {
+        color: $github !important;
+    }
+}
+.course-details {
+    .wrapper {
+        padding: 20px 0;
+    }
+    .course-banner {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .course-sidebar {
+        @media screen and (max-width: $large-width) {
+            margin-top: 30px;
+        }
+        .title-prefix {
+            width: auto;
+            background: white;
+            height: 3px;
+            &.text-dark {
+                background: $darkTextColor;
+            }
+        }
+        .title {
+            font-weight: 700;
+            font-size: 25px;
+        }
+        .content-container {
+            padding: 25px;
+        }
+        .course-popular {
+            .course-single {
+                .course-title {
+                    font-weight: 800;
+                }
+            }
+        }
+    }
+    .course-features {
+        position: relative;
+        background: linear-gradient(65deg, $primaryColor 0%, #1a5e89 100%);
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+        .icon {
+            font-size: 16px;
+        }
+        .name {
+            font-weight: 600;
+            font-size: 18px;
+            margin-left: 15px;
+        }
+    }
+    .img-dotes {
+        position: absolute;
+        bottom: 0;
+        right: -49%;
+    }
+    .course-header {
+        margin-bottom: 15px;
+        .title {
+            font-weight: 700;
+        }
+        .col-detail {
+            border-left: 1px solid $secondaryColor;
+            padding: 0px 15px;
+
+            &:first-child {
+                padding-left: 15px;
+                border: 0px;
+            }
+            .detail-title {
+                font-size: 14px;
+            }
+            .view-more {
+                @media screen and (max-width: $large-width) {
+                    width: 100%;
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+    .course-details-nav-wrapper {
+        padding-bottom: 30px;
+        .nav {
+            border: 1px solid $secondaryColor;
+            .nav-item {
+                padding: 7px;
+                a {
+                    color: $darkTextColor;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    font-size: 14px;
+                }
+                &.active {
+                    background: $primaryColor;
+                    a {
+                        color: white;
+                    }
+                }
+                .nav-link {
+                    border: 0px;
+                    background: none;
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+    .tab-content {
+        .tab-pane {
+            .title {
+                font-size: 30px;
+                font-weight: 700;
+            }
+            .tab-section {
+                margin-top: 30px;
+                &:first-child {
+                    margin-top: 0px;
+                }
+            }
+        }
+    }
+    .share-section {
+        .title {
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+    }
+}
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.text-bold {
+    font-weight: 700;
+}
+.review-star {
+    padding-right: 5px;
+    color: $yellowColor;
+
+    &-lg {
+        font-size: 40px;
+    }
+}
+.radius-0 {
+    border-radius: 0 !important;
+}
+.radius-5 {
+    border-radius: 5px !important;
+}
+.icon-circle {
+    border-radius: 60px;
+    border: 1px solid $secondaryColor;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: $transition;
+    color: $secondaryTextColor;
+    &:hover {
+        background: $primaryColor;
+        * {
+            color: white;
+        }
+    }
+}
+.course-instructor {
+    align-items: center;
+    .instructor-title {
+        font-weight: 700;
+        font-size: 16px;
+        transition: $transition;
+    }
+    .avatar {
+        margin-right: 15px;
+    }
+}
+.instructor-wrapper {
+    .course-instructor {
+        transition: all 0.3s ease-in-out;
+        padding: 20px 35px;
+        width: max-content;
+        border: 1px solid $secondaryColor;
+        border-left: 4px solid $primaryColor;
+        &:hover {
+            box-shadow: 9px 16px 46px 0px rgb(47 47 47 / 3%);
+            img {
+                transform: scale(1.05);
+            }
+            .instructor-title {
+                color: $primaryColor !important;
+            }
+        }
+    }
+    * {
+        transition: $transition;
+    }
+}
+.course-review {
+    .col-6 {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .review-score {
+        font-size: 90px;
+        font-weight: 800;
+    }
+}
+.courses {
+    .search-row {
+        @media screen and (max-width: $large-width) {
+            gap: 10px;
+        }
+    }
+    .courses-heading {
+        h1 {
+            font-weight: 700;
+            font-size: 55px;
+        }
+        .courses-navbar {
+            margin-top: 30px;
+            border: 1px solid $secondaryColor;
+            padding: 15px 30px;
+            .filtering {
+                .icon {
+                    cursor: pointer;
+                    padding: 15px;
+                    font-size: 20px;
+                    color: $secondaryTextColor;
+                    &:first-child {
+                        padding-left: 0px;
+                        border-right: 1px solid $secondaryColor !important;
+                    }
+                }
+            }
+            .categories {
+                @media screen and (max-width: $medium-width) {
+                    border-top: 1px solid $secondaryColor;
+                    border-bottom: 1px solid $secondaryColor;
+                    padding: 10px 0px;
+                }
+            }
+            .shareing {
+                .share-type {
+                    padding: 15px;
+                    color: $secondaryTextColor;
+                    cursor: pointer;
+                    font-size: 20px;
+                    &:first-child {
+                        padding-left: 0px;
+                        border-right: 1px solid $secondaryColor;
+                    }
+                }
+            }
+            .courses-nav-tabs-wrapper {
+                width: max-content;
+                .nav-tabs {
+                    border: 0;
+                    .nav-item {
+                        padding-bottom: 5px;
+                        &.active {
+                            .nav-link {
+                                color: $primaryColor;
+                                font-weight: 600;
+                            }
+                            border-bottom: 1px solid $primaryColor;
+                        }
+                        .nav-link {
+                            cursor: pointer;
+                            color: $secondaryTextColor;
+                            border: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.courses-single {
+    margin-bottom: 35px;
+    .course-item {
+        width: 400px;
+        height: 420px;
+        .card-img-top {
+            height: inherit;
+        }
+    }
+}
+.pagination-nav {
+    .page-item {
+        .page-link {
+            color: $secondaryTextColor;
+        }
+    }
+}
+.dashboard {
+    .dashboard-header {
+        border-top: 1px solid $secondaryColor;
+        padding-top: 17px;
+        padding-bottom: 15px;
+        border-left: 0;
+        border-right: 0;
+        button {
+            border-radius: 0 !important;
+        }
+        .header-user {
+            .avatar {
+                margin-right: 15px;
+            }
+            .name {
+                font-weight: 600;
+                font-size: 18px;
+            }
+            .email {
+                font-size: 14px;
+            }
+        }
+        .icons {
+            i {
+                font-size: 20px;
+                cursor: pointer;
+            }
+            .divider {
+                color: $secondaryColor;
+            }
+        }
+    }
+    .dashboard-nav-tabs-wrapper {
+        .nav {
+            display: block;
+            border: 0px;
+
+            @media screen and (max-width: $large-width) {
+                display: flex;
+            }
+            .nav-item {
+                &.active {
+                    border-left: 1px solid $primaryColor;
+                    .nav-link {
+                        color: $primaryColor;
+                    }
+                }
+                .nav-link {
+                    font-weight: 600;
+                    margin-bottom: 0px;
+                    border: 0px !important;
+                    color: $secondaryTextColor;
+                }
+            }
+        }
+    }
+    .tab-content {
+        padding: 0px 20px;
+        border-left: 1px solid $secondaryColor;
+        .tab-pane {
+            .title {
+                align-items: center;
+                display: flex;
+                font-size: 35px;
+                font-weight: 700;
+                padding-bottom: 15px;
+                border-bottom: 1px solid $secondaryColor;
+                .title-suffix {
+                    margin: 0px 30px;
+                    font-size: 20px;
+                }
+            }
+            .section {
+                margin-top: 30px;
+                border-bottom: 1px solid $secondaryColor;
+                padding: 0;
+                padding-bottom: 25px;
+                &:last-child {
+                    border-bottom: 0px;
+                    padding-bottom: 0px;
+                }
+                .header {
+                    .section-title {
+                        font-size: 20px;
+                        padding-bottom: 10px;
+                    }
+                    .section-description {
+                        font-size: 14px;
+                        width: 80%;
+                        color: $secondaryTextColor;
+                    }
+                }
+                .content {
+                    margin-top: 40px;
+                    input {
+                        border-radius: 5px !important;
+                    }
+                    .row {
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
+    }
+    .dashboard-courses-tab {
+        .content {
+            .nav {
+                display: flex;
+                border: 0px;
+                @media screen and (max-width: $large-width) {
+                    display: flex;
+                }
+                .nav-item {
+                    &.active {
+                        border-bottom: 1px solid $primaryColor;
+                        .nav-link {
+                            color: $primaryColor;
+                        }
+                    }
+                    .nav-link {
+                        font-weight: 600;
+                        margin-bottom: 0px;
+                        border: 0px !important;
+                        color: $secondaryTextColor;
+                    }
+                }
+            }
+        }
+    }
+}
+.modal-backdrop {
+    background: rgb($color: $darkTextColor, $alpha: 0.4);
+}
+.modal {
+    opacity: 0;
+    transition: $transition;
+    &.in {
+        opacity: 1;
+    }
+    .close {
+        color: $secondaryTextColor;
+        cursor: pointer;
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    .modal-title {
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .modal-header {
+        border: 0;
+    }
+    .modal-body {
+        margin-bottom: 10px;
+    }
+    .modal-content {
+        padding: 10px 15px;
+        border: 0 !important;
+        .indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: $primaryColor;
+            border-radius: 50%;
+        }
+    }
+    .modal-footer {
+        .footer-text {
+            cursor: pointer;
+            color: $primaryColor;
+            font-size: 14px;
+        }
+    }
+}
+.notification {
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border-bottom: 1px solid $secondaryColor;
+    transition: $transition;
+    cursor: pointer;
+
+    &:first-child {
+        padding-top: 0px;
+    }
+    &:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+    }
+    &:hover {
+        padding: 15px;
+        background-color: rgb($color: $secondaryColor, $alpha: 0.3);
+    }
+    .text {
+        color: $darkTextColor;
+    }
+    .timestamp {
+        margin-top: 5px !important;
+        color: $secondaryTextColor;
+        font-size: 12px;
+    }
+}
+.setting {
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border-bottom: 1px solid $secondaryColor;
+    transition: $transition;
+    cursor: pointer;
+
+    &:first-child {
+        padding-top: 0px;
+    }
+    &:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+    }
+    .text {
+        color: $darkTextColor;
+    }
+    .description {
+        margin-top: 5px !important;
+        color: $secondaryTextColor;
+        font-size: 12px;
+    }
+    .form-switch {
+        .form-check-input {
+            width: 55px !important;
+            border-color: $secondaryColor !important;
+
+            &:checked {
+                background-color: $primaryColor !important;
+            }
+        }
+    }
+}
+.form-chip {
+    margin: 0;
+    cursor: pointer;
+    padding: 10px 15px;
+    width: fit-content;
+    transition: $transition;
+    border: 1px solid $secondaryColor;
+
+    &.checked {
+        color: $primaryColor;
+        border-color: $primaryColor;
+    }
+}
+.forbidden {
+    cursor: not-allowed !important;
+    color: $secondaryColor !important;
+}
+.cursor-pointer {
+    cursor: pointer !important;
+}
+#edit-course-modal {
+    input,
+    select,
+    textarea {
+        border-radius: 5px !important;
+    }
+    .content {
+        .row {
+            margin-bottom: 20px;
+        }
+    }
+}
+.modal-dialog {
+    max-width: 750px !important;
 }

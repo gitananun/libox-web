@@ -1,16 +1,32 @@
-interface Props {
-  options?: string[];
-}
+import { SelectPropsInterface } from 'components/interfaces/Props';
 
-const FormSelect = (props: Props) => {
+const FormSelect = (props: SelectPropsInterface) => {
   return (
-    <select className='form-select text-center form-select-lg'>
-      {props.options?.map((option) => (
-        <option key={option} value={option}>
-          {option}
+    <>
+      {props.label && (
+        <label htmlFor={props.label} className='form-label w-100'>
+          {props.label}
+        </label>
+      )}
+      <select
+        id={props.label}
+        ref={props.innerRef}
+        onFocus={props.onFocus}
+        onChange={props.onChange}
+        defaultValue={props.value ?? ''}
+        className={`form-select ${props.className ?? ''} ${props.error && 'border-danger'}`}
+      >
+        <option value={''} disabled>
+          Select {props.label?.toLowerCase()}
         </option>
-      ))}
-    </select>
+        {props.options?.map((o) => (
+          <option key={o.value} value={o.value}>
+            {o.title}
+          </option>
+        ))}
+      </select>
+      {props.error && <div className='invalid-feedback d-block'>{props.error}</div>}
+    </>
   );
 };
 

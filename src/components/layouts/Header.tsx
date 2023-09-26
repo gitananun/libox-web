@@ -1,8 +1,13 @@
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { RootState } from 'store/rootReducer';
 import IconRow from '../common/IconRow';
 import OutlinedButton from '../common/OutlinedButton';
 import PrimaryButton from '../common/PrimaryButton';
 
 const Header = () => {
+  const user = useSelector((state: RootState) => state.auth.user);
+
   return (
     <div className='border-bottom' id='header'>
       <div className='container'>
@@ -11,7 +16,7 @@ const Header = () => {
             <div className='col-sm-6 col-lg-4 d-flex pb-2 pb-lg-0 flex-column flex-md-row justify-content-between align-items-center '>
               <IconRow iconClassName='fa fa-phone-alt'>
                 <a href='tel:+37493404208'>
-                  <p className='text-secondary'>+374 93 404 208</p>
+                  <p className='text-secondary'>+374 00 123 456</p>
                 </a>
               </IconRow>
               <IconRow iconClassName='fa fa-envelope'>
@@ -21,8 +26,20 @@ const Header = () => {
               </IconRow>
             </div>
             <div className='col-sm-6 col-lg-8 d-flex justify-content-center justify-content-md-end align-items-center'>
-              <OutlinedButton title='sign up' className='border-top-0 border-bottom-0' />
-              <PrimaryButton title='log in' />
+              {!user ? (
+                <>
+                  <Link to='/signup'>
+                    <OutlinedButton title='sign up' className='border-top-0 border-bottom-0' />
+                  </Link>
+                  <Link to='/signin'>
+                    <PrimaryButton title='log in' />
+                  </Link>
+                </>
+              ) : (
+                <Link to='/dashboard'>
+                  <OutlinedButton title='my dashboard' className='border-top-0 border-bottom-0' />
+                </Link>
+              )}
             </div>
           </div>
         </header>
