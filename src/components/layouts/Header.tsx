@@ -16,7 +16,7 @@ const Header = () => {
             <div className='col-sm-6 col-lg-4 d-flex pb-2 pb-lg-0 flex-column flex-md-row justify-content-between align-items-center '>
               <IconRow iconClassName='fa fa-phone-alt'>
                 <a href='tel:+37493404208'>
-                  <p className='text-secondary'>+374 93 404 208</p>
+                  <p className='text-secondary'>+374 00 123 456</p>
                 </a>
               </IconRow>
               <IconRow iconClassName='fa fa-envelope'>
